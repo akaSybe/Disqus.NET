@@ -3,7 +3,11 @@ using Disqus.NET.Models;
 
 namespace Disqus.NET
 {
-    public interface IUsers
+    /// <summary>
+    /// User-specific methods
+    /// <remarks>https://disqus.com/api/docs/users/</remarks>
+    /// </summary>
+    public interface IDisqusUsersApi
     {
         /// <summary>
         /// Returns details of a user.
@@ -17,6 +21,7 @@ namespace Disqus.NET
         /// Returns details of a user
         /// </summary>
         /// <param name="username"></param>
+        /// <remarks>https://disqus.com/api/docs/users/details/</remarks>
         /// <returns></returns>
         Task<DisqusResponse<DisqusUser>> GetDetailsAsync(string username);
     }

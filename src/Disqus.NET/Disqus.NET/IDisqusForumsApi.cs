@@ -3,7 +3,11 @@ using Disqus.NET.Models;
 
 namespace Disqus.NET
 {
-    public interface IForums
+    /// <summary>
+    /// Forums-specific methods
+    /// <remarks>https://disqus.com/api/docs/forums/</remarks>
+    /// </summary>
+    public interface IDisqusForumsApi
     {
         /// <summary>
         /// Returns forum details.

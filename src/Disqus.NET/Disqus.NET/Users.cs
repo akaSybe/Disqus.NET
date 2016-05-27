@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
 using Newtonsoft.Json;
@@ -7,8 +9,10 @@ using RestSharp;
 
 namespace Disqus.NET
 {
-    public class Users: IUsers
+    public class Users: IDisqusUsersApi
     {
+        private readonly IDisqusRequestProcessor _disqusRequestProcessor;
+
         private string ApiSecretKey = "xx9HYM0hGC8ZvYRFq2XJDFIPTSCipCOghISXnfJ4OB1JbBOFHmbXlpQvoFcchftx";
 
         private readonly RestClient _restClient;
@@ -22,8 +26,9 @@ namespace Disqus.NET
             public const string Details = "details" + UrlPostfix;
         }
 
-        public Users()
+        public Users(IDisqusRequestProcessor disqusRequestProcessor)
         {
+            _disqusRequestProcessor = disqusRequestProcessor;
             Uri baseUri = new Uri(ApiBaserUrl);
             
             _restClient = new RestClient(new Uri(baseUri, ApiUrlSegment));
@@ -41,9 +46,9 @@ namespace Disqus.NET
             JObject jObject = JObject.Parse(response.Content);
             JToken code = jObject["code"];
 
-            DisqusErrorCode responseCode = JsonConvert.DeserializeObject<DisqusErrorCode>(code.ToString());
+            DisqusApiResponseCode responseCode = JsonConvert.DeserializeObject<DisqusApiResponseCode>(code.ToString());
 
-            if (responseCode != DisqusErrorCode.Success)
+            if (responseCode != DisqusApiResponseCode.Success)
             {
                 JToken error = jObject["response"];
                 string errorMessage = error.ToString();
@@ -51,7 +56,6 @@ namespace Disqus.NET
                 return new DisqusResponse<DisqusUser>
                 {
                     Code = responseCode,
-                    Error = errorMessage,
                     Response = null
                 };
             }
@@ -61,9 +65,36 @@ namespace Disqus.NET
             return result;
         }
 
-        public Task<DisqusResponse<DisqusUser>> GetDetailsAsync(string username)
+        public async Task<DisqusResponse<DisqusUser>> GetDetailsAsync(string username)
         {
-            throw new NotImplementedException();
+            var httpClient = new HttpClient();
+
+            var content = await httpClient.GetAsync(ApiBaserUrl + Endpoints.Details).ConfigureAwait(false);
+            content.EnsureSuccessStatusCode();
+            var responseMessage = new HttpResponseMessage();
+            
+            string response = await content.Content.ReadAsStringAsync().ConfigureAwait(false);
+            
+            if (content.StatusCode != HttpStatusCode.OK)
+            {
+                JObject jObject = JObject.Parse(response);
+                JToken code = jObject["code"];
+
+                DisqusApiResponseCode responseCode = JsonConvert.DeserializeObject<DisqusApiResponseCode>(code.ToString());
+
+                JToken error = jObject["response"];
+                string errorMessage = error.ToString();
+
+                return new DisqusResponse<DisqusUser>
+                {
+                    Code = responseCode,
+                    Response = null
+                };
+            }
+
+            DisqusResponse<DisqusUser> result = JsonConvert.DeserializeObject<DisqusResponse<DisqusUser>>(response);
+
+            return result;
         }
     }
 }

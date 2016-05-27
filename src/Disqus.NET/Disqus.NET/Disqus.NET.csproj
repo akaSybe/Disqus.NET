@@ -48,27 +48,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DisqusErrorCode.cs" />
-    <Compile Include="DisqusRequesterBase.cs" />
+    <Compile Include="DisqusCursoredResponse.cs" />
+    <Compile Include="DisqusApi.cs" />
+    <Compile Include="DisqusApiException.cs" />
+    <Compile Include="DisqusApiResponseCode.cs" />
+    <Compile Include="DisqusAuth.cs" />
+    <Compile Include="DisqusErrorResponse.cs" />
+    <Compile Include="DisqusRestClient.cs" />
+    <Compile Include="IDisqusRestClient.cs" />
+    <Compile Include="DisqusRequestMethod.cs" />
+    <Compile Include="DisqusRequestProcessor.cs" />
     <Compile Include="DisqusResponse.cs" />
-    <Compile Include="IDisqus.cs" />
-    <Compile Include="IHttpRequester.cs" />
-    <Compile Include="IUsers.cs" />
+    <Compile Include="DisqusScope.cs" />
+    <Compile Include="IDisqusApi.cs" />
+    <Compile Include="IDisqusRequestProcessor.cs" />
+    <Compile Include="IDisqusResponse.cs" />
     <Compile Include="Models\DisqusCursor.cs" />
-    <Compile Include="IForums.cs" />
-    <Compile Include="Models\DisqusForum.cs" />
-    <Compile Include="Models\DisqusForumAttach.cs" />
-    <Compile Include="Models\DisqusForumRelated.cs" />
-    <Compile Include="Models\DisqusUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Infrastructure\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
