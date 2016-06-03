@@ -19,7 +19,7 @@ namespace Disqus.NET
             _restClient = restClient;
         }
 
-        public async Task<T> ExecuteAsync<T>(string endpoint, DisqusRequestMethod method, ICollection<KeyValuePair<string, string>> parameters)
+        public async Task<T> ExecuteAsync<T>(DisqusRequestMethod method, string endpoint, ICollection<KeyValuePair<string, string>> parameters)
         {
             HttpResponseMessage response = await ExecuteAsync(method, endpoint, parameters).ConfigureAwait(false);
 

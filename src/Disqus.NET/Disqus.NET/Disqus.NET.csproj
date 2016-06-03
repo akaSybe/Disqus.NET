@@ -63,7 +63,11 @@
     <Compile Include="IDisqusApi.cs" />
     <Compile Include="IDisqusRequestProcessor.cs" />
     <Compile Include="IDisqusResponse.cs" />
+    <Compile Include="Models\DisqusAvatar.cs" />
+    <Compile Include="Models\DisqusAvatarBase.cs" />
     <Compile Include="Models\DisqusCursor.cs" />
+    <Compile Include="Models\DisqusUser.cs" />
+    <Compile Include="Models\DisqusUserBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
