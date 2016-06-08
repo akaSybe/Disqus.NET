@@ -22,7 +22,7 @@ namespace Disqus.NET
         public async Task<T> ExecuteAsync<T>(DisqusRequestMethod method, string endpoint, ICollection<KeyValuePair<string, string>> parameters)
         {
             HttpResponseMessage response = await ExecuteAsync(method, endpoint, parameters).ConfigureAwait(false);
-
+            
             string content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
             if (response.IsSuccessStatusCode)
@@ -42,9 +42,9 @@ namespace Disqus.NET
             switch (method)
             {
                 default:
-                case DisqusRequestMethod.GET:
+                case DisqusRequestMethod.Get:
                     return await _restClient.ExecuteGetAsync(endpoint, parameters).ConfigureAwait(false);
-                case DisqusRequestMethod.POST:
+                case DisqusRequestMethod.Post:
                     return await _restClient.ExecutePostAsync(endpoint, parameters).ConfigureAwait(false);
             }
         }

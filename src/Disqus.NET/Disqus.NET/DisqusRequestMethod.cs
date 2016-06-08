@@ -2,7 +2,7 @@
 {
     public enum DisqusRequestMethod
     {
-        GET,
-        POST
+        Get,
+        Post
     }
 }

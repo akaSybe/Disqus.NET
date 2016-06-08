@@ -1,27 +1,40 @@
+using System;
 using System.Collections.Generic;
 
 namespace Disqus.NET
 {
     public class DisqusApi : IDisqusApi
     {
-        private DisqusAuth _auth;
+        private DisqusAuthMethod _authMethod;
+        private string _key;
 
-        public DisqusApi(DisqusAuth auth)
+        public DisqusApi(DisqusAuthMethod authMethod, string key)
         {
-            _auth = auth;
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                throw new ArgumentNullException(nameof(key));
+            }
+
+            _authMethod = authMethod;
+            _key = key;
         }
 
-        public void SetDisqusAuth(DisqusAuth auth)
+        public void SetDisqusAuth(DisqusAuthMethod authMethod, string key)
         {
-            _auth = auth;
+            if (string.IsNullOrWhiteSpace(key))
+            {
+                throw new ArgumentNullException(nameof(key));
+            }
+
+            _authMethod = authMethod;
+            _key = key;
         }
 
         internal Dictionary<string, string> AddAuthenticationParameters()
         {
             Dictionary<string, string> parameters = new Dictionary<string, string>();
 
-            parameters.Add("api_key", _auth.ApiKey);
-            parameters.Add("api_secret", _auth.ApiSecret);
+            parameters.Add(_authMethod == DisqusAuthMethod.PublicKey ? "api_key" : "api_secret", _key);
 
             return parameters;
         }

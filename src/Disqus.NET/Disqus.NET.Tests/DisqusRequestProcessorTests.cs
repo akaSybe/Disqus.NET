@@ -40,7 +40,7 @@ namespace Disqus.NET.Tests
 
             /* act */
 
-            ActualValueDelegate<Task<DisqusResponse<string>>> x = async () => await processor.ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.GET, "test", new List<KeyValuePair<string, string>>());
+            ActualValueDelegate<Task<DisqusResponse<string>>> x = async () => await processor.ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.Get, "test", new List<KeyValuePair<string, string>>());
             Assert.That(x, Throws.TypeOf<DisqusApiException>());
         }
 
@@ -73,7 +73,7 @@ namespace Disqus.NET.Tests
 
             /* act */
 
-            var result = await processor.ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.GET, "test", new List<KeyValuePair<string, string>>());
+            var result = await processor.ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.Get, "test", new List<KeyValuePair<string, string>>());
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));

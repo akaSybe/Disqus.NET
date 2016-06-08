@@ -2,15 +2,15 @@
 
 namespace Disqus.NET.Models
 {
-    public class DisqusAvatar: DisqusAvatarBase
+    public class DisqusAvatar: DisqusImage
     {
         [JsonProperty("isCustom")]
         public bool IsCustom { get; set; }
 
         [JsonProperty("small")]
-        public DisqusAvatarBase Small { get; set; }
+        public DisqusImage Small { get; set; }
 
         [JsonProperty("large")]
-        public DisqusAvatarBase Large { get; set; }
+        public DisqusImage Large { get; set; }
     }
 }

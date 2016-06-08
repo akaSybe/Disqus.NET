@@ -2,7 +2,7 @@
 
 namespace Disqus.NET.Models
 {
-    public class DisqusAvatarBase
+    public class DisqusImage
     {
         [JsonProperty("permalink")]
         public string Permalink { get; set; }
