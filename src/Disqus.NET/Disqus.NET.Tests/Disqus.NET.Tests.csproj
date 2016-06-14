@@ -60,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DisqusRequestProcessorTests.cs" />
+    <Compile Include="DisqusTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -5,12 +5,6 @@ namespace Disqus.NET.Models
     public class DisqusUser: DisqusUserBase
     {
         /// <summary>
-        /// 
-        /// </summary>
-        [JsonProperty("email")]
-        public string Email { get; set; }
-
-        /// <summary>
         /// Whether or not the user has registered any forums under this account.
         /// </summary>
         [JsonProperty("isPrimary")]

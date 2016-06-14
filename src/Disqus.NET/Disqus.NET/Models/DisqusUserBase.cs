@@ -24,6 +24,19 @@ namespace Disqus.NET.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// Will only return email if request is authenticated and authenticated user has 'email' permission
+        /// </summary>
+        [JsonProperty("email")]
+        public string Email { get; set; }
+
+        /// <summary>
+        /// Hashed email address of the user
+        /// Will only return email if request is authenticated and authenticated user has 'email' permission
+        /// </summary>
+        [JsonProperty("emailHash")]
+        public string EmailHash { get; set; }
+
+        /// <summary>
         /// The user's bio.
         /// </summary>
         [JsonProperty("about")]
@@ -70,5 +83,11 @@ namespace Disqus.NET.Models
         /// </summary>
         [JsonProperty("isFollowing")]
         public bool IsFollowing { get; set; }
+
+        /// <summary>
+        /// Whether or not the user follows the person making the request. Will only return true if request is authenticated, and the user has chosen to follow authenticated user.
+        /// </summary>
+        [JsonProperty("isFollowedBy")]
+        public bool IsFollowedBy { get; set; }
     }
 }

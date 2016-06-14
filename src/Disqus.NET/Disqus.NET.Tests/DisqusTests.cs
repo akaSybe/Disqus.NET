@@ -1,25 +1,35 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using Disqus.NET.Models;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace Disqus.NET.Tests
 {
     [TestFixture]
     public class DisqusTests
     {
-        private IDisqusUsersApi _users;
+        private const string DisqusKey = "";
 
-        [SetUp]
+        public IDisqusApi Api;
+
+        [OneTimeSetUp]
         public void Init()
         {
-            _users = new Users();   
+            if (string.IsNullOrWhiteSpace(DisqusKey))
+            {
+                throw new ArgumentNullException(DisqusKey, "You should explicit specify Disqus Secret Key!");    
+            }
+
+            Api = new DisqusApi(new DisqusRequestProcessor(new DisqusRestClient()), DisqusAuthMethod.SecretKey, DisqusKey);
         }
 
         [Test]
         public async Task GetDetailsAsync_ShouldReturnUserDetails()
         {
-            int userId = 114880676;
+            int userId = 1;
 
-            var result = await _users.GetDetailsAsync(userId);
+            var result = await Api.GetDetailsAsync(userId).ConfigureAwait(false);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -29,9 +39,9 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task GetDetailsAsync_Should_ReturnUser_When_UsernameIsValid()
         {
-            string username = "";
+            string username = "Jason";
 
-            var result = await _users.GetDetailsAsync(username);
+            var result = await Api.GetDetailsAsync(username).ConfigureAwait(false);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -43,11 +53,10 @@ namespace Disqus.NET.Tests
         {
             int userId = 0; //114880676;
 
-            var result = await _users.GetDetailsAsync(userId);
+            //var result = await Api.GetDetailsAsync(userId).ConfigureAwait(false);
 
-            Assert.That(result, Is.Not.Null);
-            Assert.That(result.Code, Is.Not.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(result.Response, Is.Null);
+            ActualValueDelegate<Task<DisqusResponse<DisqusUser>>> del = async () => await Api.GetDetailsAsync(userId).ConfigureAwait(false);
+            Assert.That(del, Throws.TypeOf<DisqusApiException>());
         }
     }
 }

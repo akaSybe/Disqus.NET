@@ -9,7 +9,7 @@ using NUnit.Framework.Constraints;
 namespace Disqus.NET.Tests
 {
     [TestFixture]
-    public class DisqusTests
+    public class DisqusRequestProcessorTests
     {
         [Test]
         public void ExecuteAsync_ThrowsDisqusApiException_IfRequestIsInvalid()

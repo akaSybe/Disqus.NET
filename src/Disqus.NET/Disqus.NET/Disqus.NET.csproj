@@ -54,7 +54,9 @@
     <Compile Include="DisqusApiException.cs" />
     <Compile Include="DisqusApiResponseCode.cs" />
     <Compile Include="DisqusAuth.cs" />
+    <Compile Include="DisqusEndpoints.cs" />
     <Compile Include="DisqusErrorResponse.cs" />
+    <Compile Include="DisqusOrder.cs" />
     <Compile Include="DisqusRestClient.cs" />
     <Compile Include="IDisqusRestClient.cs" />
     <Compile Include="DisqusRequestMethod.cs" />
@@ -64,6 +66,7 @@
     <Compile Include="IDisqusApi.cs" />
     <Compile Include="IDisqusRequestProcessor.cs" />
     <Compile Include="IDisqusResponse.cs" />
+    <Compile Include="IDisqusUsersApi.cs" />
     <Compile Include="Models\DisqusAvatar.cs" />
     <Compile Include="Models\DisqusImage.cs" />
     <Compile Include="Models\DisqusCursor.cs" />
