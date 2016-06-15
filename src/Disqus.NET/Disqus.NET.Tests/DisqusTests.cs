@@ -25,7 +25,7 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
-        public async Task GetDetailsAsync_ShouldReturnUserDetails()
+        public async Task GetDetailsAsync_If_UserIdIsValid_ShouldReturn_UserDetails()
         {
             int userId = 1;
 
@@ -37,7 +37,7 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
-        public async Task GetDetailsAsync_Should_ReturnUser_When_UsernameIsValid()
+        public async Task GetDetailsAsync_If_UsernameIsValid_ShouldReturn_UserDetails()
         {
             string username = "Jason";
 
@@ -49,11 +49,9 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
-        public async Task GetDetailsAsync_InvalidParameter_ShouldReturnErrorResult()
-        {
-            int userId = 0; //114880676;
-
-            //var result = await Api.GetDetailsAsync(userId).ConfigureAwait(false);
+        public async Task GetDetailsAsync_If_InvalidParameter_ShouldReturn_ErrorResult()
+        { 
+            int userId = 0;
 
             ActualValueDelegate<Task<DisqusResponse<DisqusUser>>> del = async () => await Api.GetDetailsAsync(userId).ConfigureAwait(false);
             Assert.That(del, Throws.TypeOf<DisqusApiException>());
