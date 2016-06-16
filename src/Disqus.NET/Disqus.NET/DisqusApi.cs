@@ -71,5 +71,61 @@ namespace Disqus.NET
                 .ExecuteAsync<DisqusResponse<DisqusUser>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.Details, parameters)
                 .ConfigureAwait(false);
         }
+
+        public async Task FollowAsync(int userId, string accessToken)
+        {
+            var parameters = AddAuthenticationParameters();
+            parameters.Add("target", userId.ToString(CultureInfo.InvariantCulture));
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                parameters.Add("access_token", accessToken);
+            }
+
+            await _requestProcessor
+                .ExecuteAsync<DisqusResponse<List<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Follow, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task FollowAsync(string username, string accessToken)
+        {
+            var parameters = AddAuthenticationParameters();
+            parameters.Add("target:username", username);
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                parameters.Add("access_token", accessToken);
+            }
+
+            await _requestProcessor
+                .ExecuteAsync<DisqusResponse<List<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Follow, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task UnfollowAsync(int userId, string accessToken)
+        {
+            var parameters = AddAuthenticationParameters();
+            parameters.Add("target", userId.ToString(CultureInfo.InvariantCulture));
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                parameters.Add("access_token", accessToken);
+            }
+
+            await _requestProcessor
+                .ExecuteAsync<DisqusResponse<List<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Unfollow, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task UnfollowAsync(string username, string accessToken)
+        {
+            var parameters = AddAuthenticationParameters();
+            parameters.Add("target:username", username);
+            if (!string.IsNullOrWhiteSpace(accessToken))
+            {
+                parameters.Add("access_token", accessToken);
+            }
+
+            await _requestProcessor
+                .ExecuteAsync<DisqusResponse<List<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Unfollow, parameters)
+                .ConfigureAwait(false);
+        }
     }
 }

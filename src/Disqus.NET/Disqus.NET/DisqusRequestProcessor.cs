@@ -11,7 +11,8 @@ namespace Disqus.NET
 
         private static readonly JsonSerializerSettings SerializerSettings = new JsonSerializerSettings
         {
-            NullValueHandling = NullValueHandling.Ignore
+            NullValueHandling = NullValueHandling.Ignore,
+            MissingMemberHandling = MissingMemberHandling.Ignore
         };
 
         public DisqusRequestProcessor(IDisqusRestClient restClient)
