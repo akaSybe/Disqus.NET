@@ -62,5 +62,16 @@ namespace Disqus.NET
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
         Task UnfollowAsync(string username, string accessToken);
+
+        /// <summary>
+        /// Update user profile
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="name">Minimum length of 2;  Maximum length of 30</param>
+        /// <param name="about"></param>
+        /// <param name="url">URL (defined by RFC 3986); Maximum length of 200</param>
+        /// <param name="location">Maximum length of 255</param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(string accessToken, string name = null, string about = null, string url = null, string location = null);
     }
 }

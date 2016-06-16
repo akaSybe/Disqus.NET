@@ -9,8 +9,8 @@ namespace Disqus.NET.Tests
     [TestFixture]
     public class DisqusTests
     {
-        private const string DisqusKey = "";
-        private const string AccessToken = "";
+        private const string DisqusKey = "X06iuWTeIlPzxRByY43SXFQO3oBnFoYtJ8MHQQG6J8MOEoBiHIHJogK7A69whLs7";
+        private const string AccessToken = "174fb912aa8f4eb887a826cdfcd0055e";
 
         public IDisqusApi Api;
 
@@ -93,6 +93,18 @@ namespace Disqus.NET.Tests
             string username = "disqus_uXBpgUxFhN";
 
             await Api.UnfollowAsync(username, AccessToken).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task UpdateProfile_If_PassValidDetails_ShouldReturn_UserWithUpdatedDetails()
+        {
+            string name = "test";
+
+            var response = await Api.UpdateProfileAsync(AccessToken, name).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.Not.Null);
+            Assert.That(response.Response, Has.Property("Name").EqualTo(name));
         }
     }
 }

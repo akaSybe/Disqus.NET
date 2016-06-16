@@ -15,6 +15,7 @@
             public const string Details = ApiUrl + Category + "details" + OutputType;
             public const string Follow = ApiUrl + Category + "follow" + OutputType;
             public const string Unfollow = ApiUrl + Category + "unfollow" + OutputType;
+            public const string UpdateProfile = ApiUrl + Category + "updateProfile" + OutputType;
         }
     }
 }
