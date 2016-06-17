@@ -58,6 +58,7 @@
     <Compile Include="DisqusErrorResponse.cs" />
     <Compile Include="DisqusOrder.cs" />
     <Compile Include="DisqusRestClient.cs" />
+    <Compile Include="IDisqusPostsApi.cs" />
     <Compile Include="IDisqusRestClient.cs" />
     <Compile Include="DisqusRequestMethod.cs" />
     <Compile Include="DisqusRequestProcessor.cs" />
@@ -67,9 +68,15 @@
     <Compile Include="IDisqusRequestProcessor.cs" />
     <Compile Include="IDisqusResponse.cs" />
     <Compile Include="IDisqusUsersApi.cs" />
+    <Compile Include="Models\DisqusApproximateLocation.cs" />
+    <Compile Include="Models\DisqusAuthor.cs" />
     <Compile Include="Models\DisqusAvatar.cs" />
     <Compile Include="Models\DisqusImage.cs" />
     <Compile Include="Models\DisqusCursor.cs" />
+    <Compile Include="Models\DisqusMedia.cs" />
+    <Compile Include="Models\DisqusMediaMetadata.cs" />
+    <Compile Include="Models\DisqusPost.cs" />
+    <Compile Include="Models\DisqusPostRelated.cs" />
     <Compile Include="Models\DisqusUser.cs" />
     <Compile Include="Models\DisqusUserBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

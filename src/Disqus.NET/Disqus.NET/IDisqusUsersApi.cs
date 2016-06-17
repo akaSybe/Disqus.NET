@@ -16,7 +16,7 @@ namespace Disqus.NET
         /// <param name="userId">Looks up a user by ID</param>
         /// <param name="accessToken"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusUser>> GetDetailsAsync(int userId, string accessToken = null);
+        Task<DisqusResponse<DisqusUser>> GetUserDetailsAsync(int userId, string accessToken = null);
 
         /// <summary>
         /// Lookup user by username
@@ -25,7 +25,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/details/</remarks>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusUser>> GetDetailsAsync(string username, string accessToken = null);
+        Task<DisqusResponse<DisqusUser>> GetUserDetailsAsync(string username, string accessToken = null);
 
         /// <summary>
         /// Follow a user by ID

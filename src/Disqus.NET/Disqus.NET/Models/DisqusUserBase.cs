@@ -24,14 +24,15 @@ namespace Disqus.NET.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Will only return email if request is authenticated and authenticated user has 'email' permission
+        /// Email address of the user
+        /// <remarks>Will only return email if request is authenticated and authenticated user has 'email' permission</remarks>
         /// </summary>
         [JsonProperty("email")]
         public string Email { get; set; }
 
         /// <summary>
         /// Hashed email address of the user
-        /// Will only return email if request is authenticated and authenticated user has 'email' permission
+        /// <remarks>Will only return email if request is authenticated and authenticated user has 'email' permission</remarks>
         /// </summary>
         [JsonProperty("emailHash")]
         public string EmailHash { get; set; }
@@ -79,15 +80,27 @@ namespace Disqus.NET.Models
         public bool DisableThirdPartyTrackers { get; set; }
 
         /// <summary>
-        /// Whether or not the person making the request is following the user. Will only return true if request is authenticated, and authenticated user has chosen to follow this user.
+        /// Whether or not the person making the request is following the user.
+        /// <remarks>Will only return true if request is authenticated, and authenticated user has chosen to follow this user.</remarks>
         /// </summary>
         [JsonProperty("isFollowing")]
-        public bool IsFollowing { get; set; }
+        public bool? IsFollowing { get; set; }
 
         /// <summary>
-        /// Whether or not the user follows the person making the request. Will only return true if request is authenticated, and the user has chosen to follow authenticated user.
+        /// Whether or not the user follows the person making the request.
+        /// <remarks>Will only return true if request is authenticated, and the user has chosen to follow authenticated user.</remarks>
         /// </summary>
         [JsonProperty("isFollowedBy")]
-        public bool IsFollowedBy { get; set; }
+        public bool? IsFollowedBy { get; set; }
+
+        /// <summary>
+        /// <remarks>Will only return value if request is authenticated</remarks>
+        /// </summary>
+        public bool? HomeOnboardingComplete { get; set; }
+
+        /// <summary>
+        /// <remarks>Will only return value if request is authenticated</remarks>
+        /// </summary>
+        public bool? HomeFeedOnboardingComplete { get; set; }
     }
 }

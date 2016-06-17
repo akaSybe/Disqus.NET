@@ -29,6 +29,13 @@ namespace Disqus.NET.Models
         public bool IsAnonymous { get; set; }
 
         /// <summary>
+        /// Whether or not the user is blocked
+        /// <remarks>Authentication required</remarks>
+        /// </summary>
+        [JsonProperty("isBlocked")]
+        public bool? IsBlocked { get; set; }
+
+        /// <summary>
         /// Calculated user reputation. Same as reputation
         /// </summary>
         [JsonProperty("rep")]

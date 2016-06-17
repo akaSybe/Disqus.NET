@@ -9,8 +9,8 @@ namespace Disqus.NET.Tests
     [TestFixture]
     public class DisqusTests
     {
-        private const string DisqusKey = "X06iuWTeIlPzxRByY43SXFQO3oBnFoYtJ8MHQQG6J8MOEoBiHIHJogK7A69whLs7";
-        private const string AccessToken = "174fb912aa8f4eb887a826cdfcd0055e";
+        private const string DisqusKey = "";
+        private const string AccessToken = "";
 
         public IDisqusApi Api;
 
@@ -35,7 +35,7 @@ namespace Disqus.NET.Tests
         {
             int userId = 1;
 
-            var result = await Api.GetDetailsAsync(userId).ConfigureAwait(false);
+            var result = await Api.GetUserDetailsAsync(userId).ConfigureAwait(false);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -47,7 +47,7 @@ namespace Disqus.NET.Tests
         {
             string username = "Jason";
 
-            var result = await Api.GetDetailsAsync(username).ConfigureAwait(false);
+            var result = await Api.GetUserDetailsAsync(username).ConfigureAwait(false);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -59,7 +59,7 @@ namespace Disqus.NET.Tests
         { 
             int userId = 0;
 
-            ActualValueDelegate<Task<DisqusResponse<DisqusUser>>> del = async () => await Api.GetDetailsAsync(userId).ConfigureAwait(false);
+            ActualValueDelegate<Task<DisqusResponse<DisqusUser>>> del = async () => await Api.GetUserDetailsAsync(userId).ConfigureAwait(false);
             Assert.That(del, Throws.TypeOf<DisqusApiException>());
         }
 
@@ -105,6 +105,17 @@ namespace Disqus.NET.Tests
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.Not.Null);
             Assert.That(response.Response, Has.Property("Name").EqualTo(name));
+        }
+
+        [Test]
+        public async Task GetPostDetailsAsync_If_PostIdIsValid_ShouldReturn_PostDetails()
+        {
+            string postId = "2735004415";
+
+            var response = await Api.GetPostDetailsAsync(postId).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
         }
     }
 }

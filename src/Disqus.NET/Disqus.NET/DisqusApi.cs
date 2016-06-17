@@ -84,7 +84,7 @@ namespace Disqus.NET
             _key = key;
         }
 
-        public async Task<DisqusResponse<DisqusUser>> GetDetailsAsync(int userId, string accessToken = null)
+        public async Task<DisqusResponse<DisqusUser>> GetUserDetailsAsync(int userId, string accessToken = null)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("user", userId.ToString())
@@ -95,7 +95,7 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusUser>> GetDetailsAsync(string username, string accessToken = null)
+        public async Task<DisqusResponse<DisqusUser>> GetUserDetailsAsync(string username, string accessToken = null)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("user:username", username)
@@ -161,6 +161,28 @@ namespace Disqus.NET
 
             return await _requestProcessor
                 .ExecuteAsync<DisqusResponse<DisqusUser>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.UpdateProfile, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<DisqusPost>> GetPostDetailsAsync(string id, DisqusPostRelated related = DisqusPostRelated.None)
+        {
+            DisqusParameters parameterBuilder = Parameters
+                .WithParameter("post", id);
+
+            if ((related & DisqusPostRelated.Forum) > 0)
+            {
+                parameterBuilder.WithParameter("related", "forum");
+            }
+
+            if ((related & DisqusPostRelated.Thread) > 0)
+            {
+                parameterBuilder.WithParameter("related", "thread");
+            }
+
+            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
+
+            return await _requestProcessor
+                .ExecuteAsync<DisqusResponse<DisqusPost>>(DisqusRequestMethod.Get, DisqusEndpoints.Posts.Details, parameters)
                 .ConfigureAwait(false);
         }
     }

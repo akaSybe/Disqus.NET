@@ -1,6 +1,6 @@
 ﻿namespace Disqus.NET
 {
-    public interface IDisqusApi: IDisqusUsersApi
+    public interface IDisqusApi: IDisqusUsersApi, IDisqusPostsApi
     {
         /// <summary>
         /// Ability to change disqus auth configuration
