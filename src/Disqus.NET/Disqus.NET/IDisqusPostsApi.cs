@@ -9,9 +9,9 @@ namespace Disqus.NET
         /// Returns information about a post.
         /// </summary>
         /// <remarks>https://disqus.com/api/docs/posts/details/</remarks>
-        /// <param name="id"></param>
+        /// <param name="postId"></param>
         /// <param name="related"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusPost>> GetPostDetailsAsync(string id, DisqusPostRelated related = DisqusPostRelated.None);
+        Task<DisqusResponse<DisqusPost>> GetPostDetailsAsync(string postId, DisqusPostRelated related = DisqusPostRelated.None);
     }
 }

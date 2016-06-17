@@ -117,5 +117,39 @@ namespace Disqus.NET.Tests
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
         }
+
+        [Test]
+        public async Task CreateCategoryAsync_If_ParametersAreValid_ShouldReturn_CategoryDetails()
+        {
+            string forum = "sandbox-akasybe";
+            string title = "test";
+
+            var response = await Api.CreateCategoryAsync(AccessToken, forum, title).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
+        public async Task GetCategoryDetailsAsync_If_CategoryIdIsValid_ShouldReturn_CategoryDetails()
+        {
+            int categoryId = 1;
+
+            var response = await Api.GetCategoryDetailsAsync(categoryId).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
+        public async Task GetCategoryListAsync_If_ParametersAreValid_ShouldReturn_CategoryList()
+        {
+            string forum = "sandbox-akasybe";
+
+            var response = await Api.GetCategoryListAsync(forum).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
     }
 }

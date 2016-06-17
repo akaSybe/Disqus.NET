@@ -96,11 +96,13 @@ namespace Disqus.NET.Models
         /// <summary>
         /// <remarks>Will only return value if request is authenticated</remarks>
         /// </summary>
+        [JsonProperty("homeOnboardingComplete")]
         public bool? HomeOnboardingComplete { get; set; }
 
         /// <summary>
         /// <remarks>Will only return value if request is authenticated</remarks>
         /// </summary>
+        [JsonProperty("homeFeedOnboardingComplete")]
         public bool? HomeFeedOnboardingComplete { get; set; }
     }
 }

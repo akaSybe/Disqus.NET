@@ -73,5 +73,7 @@ namespace Disqus.NET
         /// <param name="location">Maximum length of 255</param>
         /// <returns></returns>
         Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(string accessToken, string name = null, string about = null, string url = null, string location = null);
+
+        //Task<CursoredDisqusResponse<DisqusUser>>
     }
 }
