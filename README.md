@@ -11,4 +11,4 @@ Work in progress
     - [details](https://disqus.com/api/docs/users/details/) [completed]
     - [follow](https://disqus.com/api/docs/users/follow/) [completed]
     - [unfollow](https://disqus.com/api/docs/users/unfollow/) [completed]
-
+    - [updateProfile](https://disqus.com/api/docs/users/updateProfile/) [completed]
