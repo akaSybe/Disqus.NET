@@ -56,10 +56,13 @@
     <Compile Include="DisqusAuth.cs" />
     <Compile Include="DisqusEndpoints.cs" />
     <Compile Include="DisqusErrorResponse.cs" />
+    <Compile Include="DisqusForumsApi.cs" />
     <Compile Include="DisqusOrder.cs" />
     <Compile Include="DisqusRestClient.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="IDisqusCategoriesApi.cs" />
-    <Compile Include="IDisqusPostsApi.cs" />
+    <Compile Include="IDisqusForumsApi.cs" />
     <Compile Include="IDisqusRestClient.cs" />
     <Compile Include="DisqusRequestMethod.cs" />
     <Compile Include="DisqusRequestProcessor.cs" />
@@ -74,6 +77,11 @@
     <Compile Include="Models\DisqusAuthor.cs" />
     <Compile Include="Models\DisqusAvatar.cs" />
     <Compile Include="Models\DisqusCategory.cs" />
+    <Compile Include="Models\DisqusForum.cs" />
+    <Compile Include="Models\DisqusForumAttach.cs" />
+    <Compile Include="Models\DisqusForumCategory.cs" />
+    <Compile Include="Models\DisqusForumRelated.cs" />
+    <Compile Include="Models\DisqusForumSettings.cs" />
     <Compile Include="Models\DisqusImage.cs" />
     <Compile Include="Models\DisqusCursor.cs" />
     <Compile Include="Models\DisqusMedia.cs" />

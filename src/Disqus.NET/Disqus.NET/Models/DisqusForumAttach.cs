@@ -7,9 +7,9 @@ namespace Disqus.NET.Models
     {
         None = 0,
         FollowsForum = 1,
-        ForumCategory = 2,
+        ForumForumCategory = 2,
         Counters = 4,
         ForumDaysAlive = 8,
-        ForumIntergration = 16
+        ForumIntegration = 16
     }
 }

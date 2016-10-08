@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
+using Disqus.NET.Extensions;
 using Disqus.NET.Models;
 
 namespace Disqus.NET
@@ -44,6 +46,15 @@ namespace Disqus.NET
             public DisqusParameters WithParameter(string name, object value)
             {
                 _parameters.Add(new KeyValuePair<string, string>(name, value.ToString()));
+                return this;
+            }
+
+            public DisqusParameters WithMultipleParameters(string name, string[] values)
+            {
+                foreach (var value in values)
+                {
+                    _parameters.Add(new KeyValuePair<string, string>(name, value));
+                }
                 return this;
             }
         }
@@ -164,28 +175,6 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusPost>> GetPostDetailsAsync(string postId, DisqusPostRelated related = DisqusPostRelated.None)
-        {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("post", postId);
-
-            if ((related & DisqusPostRelated.Forum) > 0)
-            {
-                parameterBuilder.WithParameter("related", "forum");
-            }
-
-            if ((related & DisqusPostRelated.Thread) > 0)
-            {
-                parameterBuilder.WithParameter("related", "thread");
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
-
-            return await _requestProcessor
-                .ExecuteAsync<DisqusResponse<DisqusPost>>(DisqusRequestMethod.Get, DisqusEndpoints.Posts.Details, parameters)
-                .ConfigureAwait(false);
-        }
-
         public async Task<DisqusResponse<DisqusCategory>> CreateCategoryAsync(string accessToken, string forum, string title, bool @default = false)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
@@ -220,6 +209,28 @@ namespace Disqus.NET
 
             return await _requestProcessor
                 .ExecuteAsync<CursoredDisqusResponse<List<DisqusCategory>>>(DisqusRequestMethod.Get, DisqusEndpoints.Categories.List, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<DisqusForum>> GetForumDetailsAsync(string forum, DisqusForumAttach attach = DisqusForumAttach.None, DisqusForumRelated related = DisqusForumRelated.None)
+        {
+            DisqusParameters parameterBuilder = Parameters
+                .WithParameter("forum", forum);
+
+            if (related != DisqusForumRelated.None)
+            {
+                parameterBuilder.WithParameter("related", related.ToString().ToLower());
+            }
+
+            if (attach != DisqusForumAttach.None)
+            {
+                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
+            }
+
+            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
+
+            return await _requestProcessor
+                .ExecuteAsync<DisqusResponse<DisqusForum>>(DisqusRequestMethod.Get, DisqusEndpoints.Forums.Details, parameters)
                 .ConfigureAwait(false);
         }
     }

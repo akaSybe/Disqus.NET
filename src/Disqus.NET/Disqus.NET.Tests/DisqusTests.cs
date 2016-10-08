@@ -108,17 +108,6 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
-        public async Task GetPostDetailsAsync_If_PostIdIsValid_ShouldReturn_PostDetails()
-        {
-            string postId = "2735004415";
-
-            var response = await Api.GetPostDetailsAsync(postId).ConfigureAwait(false);
-
-            Assert.That(response, Is.Not.Null);
-            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-        }
-
-        [Test]
         public async Task CreateCategoryAsync_If_ParametersAreValid_ShouldReturn_CategoryDetails()
         {
             string forum = "sandbox-akasybe";
@@ -150,6 +139,25 @@ namespace Disqus.NET.Tests
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
+        [TestCase("the-flow2014", DisqusForumAttach.None, DisqusForumRelated.None)]
+        [TestCase("the-flow2014", DisqusForumAttach.None, DisqusForumRelated.Author)]
+        [TestCase("the-flow2014", DisqusForumAttach.Counters, DisqusForumRelated.None)]
+        [TestCase("the-flow2014", DisqusForumAttach.FollowsForum, DisqusForumRelated.None)]
+        [TestCase("the-flow2014", DisqusForumAttach.ForumForumCategory, DisqusForumRelated.None)]
+        [TestCase("the-flow2014", DisqusForumAttach.ForumDaysAlive, DisqusForumRelated.None)]
+        [TestCase("the-flow2014", DisqusForumAttach.ForumIntegration, DisqusForumRelated.None)]
+        [TestCase("the-flow2014", DisqusForumAttach.Counters | DisqusForumAttach.FollowsForum, DisqusForumRelated.None)]
+        public async Task GetForumDetailsAsync_Tests(string forum, DisqusForumAttach attach, DisqusForumRelated related)
+        {
+            var response = await Api.GetForumDetailsAsync(forum, attach, related).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+
+            Assert.That(response.Response.Author, related != DisqusForumRelated.None ? Is.Not.Null : Is.Null);
         }
     }
 }
