@@ -26,8 +26,8 @@ Work in progress
     - [exportForum](https://disqus.com/api/docs/exports/exportForum/)
 
 - [ForumCategory](https://disqus.com/api/docs/forumCategories/)
-    - [details](https://disqus.com/api/docs/forumCategories/details/)
-    - [list](https://disqus.com/api/docs/forumCategories/list/)
+    - [details](https://disqus.com/api/docs/forumCategories/details/) [completed]
+    - [list](https://disqus.com/api/docs/forumCategories/list/) [completed]
 
 - [Forums](https://disqus.com/api/docs/forums/)
     - [addModerator](https://disqus.com/api/docs/forums/addModerator/)
