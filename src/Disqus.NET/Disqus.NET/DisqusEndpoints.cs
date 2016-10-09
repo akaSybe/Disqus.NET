@@ -22,6 +22,14 @@
             public static string List = GetUrl(Category, "list");
         }
 
+        public static class ForumCategories
+        {
+            private const string Category = "forumCategories";
+
+            public static string Details = GetUrl(Category, "details");
+            public static string List = GetUrl(Category, "list");
+        }
+
         public static class Forums
         {
             private const string Category = "forums";

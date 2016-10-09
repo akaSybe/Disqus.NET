@@ -1,6 +1,7 @@
 ﻿namespace Disqus.NET
 {
     public interface IDisqusApi: IDisqusCategoriesApi,
+                                 IDisqusForumCategoriesApi,
                                  IDisqusForumsApi,
                                  IDisqusUsersApi
     {

@@ -62,6 +62,7 @@
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="IDisqusCategoriesApi.cs" />
+    <Compile Include="IDisqusForumCategoriesApi.cs" />
     <Compile Include="IDisqusForumsApi.cs" />
     <Compile Include="IDisqusRestClient.cs" />
     <Compile Include="DisqusRequestMethod.cs" />

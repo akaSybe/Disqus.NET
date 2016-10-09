@@ -12,7 +12,7 @@ namespace Disqus.NET.Tests
         private const string DisqusKey = "";
         private const string AccessToken = "";
 
-        public IDisqusApi Api;
+        public IDisqusApi Disqus;
 
         [OneTimeSetUp]
         public void Init()
@@ -24,10 +24,10 @@ namespace Disqus.NET.Tests
 
             if (string.IsNullOrWhiteSpace(AccessToken))
             {
-                throw new ArgumentNullException(DisqusKey, "You should explicit specify Disqus Access Token!");
+                throw new ArgumentNullException(AccessToken, "You should explicit specify Disqus Access Token!");
             }
 
-            Api = new DisqusApi(new DisqusRequestProcessor(new DisqusRestClient()), DisqusAuthMethod.SecretKey, DisqusKey);
+            Disqus = new DisqusApi(new DisqusRequestProcessor(new DisqusRestClient()), DisqusAuthMethod.SecretKey, DisqusKey);
         }
 
         [Test]
@@ -35,7 +35,7 @@ namespace Disqus.NET.Tests
         {
             int userId = 1;
 
-            var result = await Api.GetUserDetailsAsync(userId).ConfigureAwait(false);
+            var result = await Disqus.GetUserDetailsAsync(userId).ConfigureAwait(false);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -47,7 +47,7 @@ namespace Disqus.NET.Tests
         {
             string username = "Jason";
 
-            var result = await Api.GetUserDetailsAsync(username).ConfigureAwait(false);
+            var result = await Disqus.GetUserDetailsAsync(username).ConfigureAwait(false);
 
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -59,7 +59,7 @@ namespace Disqus.NET.Tests
         { 
             int userId = 0;
 
-            ActualValueDelegate<Task<DisqusResponse<DisqusUser>>> del = async () => await Api.GetUserDetailsAsync(userId).ConfigureAwait(false);
+            ActualValueDelegate<Task<DisqusResponse<DisqusUser>>> del = async () => await Disqus.GetUserDetailsAsync(userId).ConfigureAwait(false);
             Assert.That(del, Throws.TypeOf<DisqusApiException>());
         }
 
@@ -68,7 +68,7 @@ namespace Disqus.NET.Tests
         {
             int userId = 211190711;
 
-            await Api.FollowAsync(userId, AccessToken).ConfigureAwait(false);
+            await Disqus.FollowAsync(userId, AccessToken).ConfigureAwait(false);
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace Disqus.NET.Tests
         {
             string username = "disqus_uXBpgUxFhN";
 
-            await Api.FollowAsync(username, AccessToken).ConfigureAwait(false);
+            await Disqus.FollowAsync(username, AccessToken).ConfigureAwait(false);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace Disqus.NET.Tests
         {
             int userId = 211190711;
 
-            await Api.UnfollowAsync(userId, AccessToken).ConfigureAwait(false);
+            await Disqus.UnfollowAsync(userId, AccessToken).ConfigureAwait(false);
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace Disqus.NET.Tests
         {
             string username = "disqus_uXBpgUxFhN";
 
-            await Api.UnfollowAsync(username, AccessToken).ConfigureAwait(false);
+            await Disqus.UnfollowAsync(username, AccessToken).ConfigureAwait(false);
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace Disqus.NET.Tests
         {
             string name = "test";
 
-            var response = await Api.UpdateProfileAsync(AccessToken, name).ConfigureAwait(false);
+            var response = await Disqus.UpdateProfileAsync(AccessToken, name).ConfigureAwait(false);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.Not.Null);
@@ -113,7 +113,7 @@ namespace Disqus.NET.Tests
             string forum = "sandbox-akasybe";
             string title = "test";
 
-            var response = await Api.CreateCategoryAsync(AccessToken, forum, title).ConfigureAwait(false);
+            var response = await Disqus.CreateCategoryAsync(AccessToken, forum, title).ConfigureAwait(false);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -124,7 +124,7 @@ namespace Disqus.NET.Tests
         {
             int categoryId = 1;
 
-            var response = await Api.GetCategoryDetailsAsync(categoryId).ConfigureAwait(false);
+            var response = await Disqus.GetCategoryDetailsAsync(categoryId).ConfigureAwait(false);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -135,7 +135,7 @@ namespace Disqus.NET.Tests
         {
             string forum = "sandbox-akasybe";
 
-            var response = await Api.GetCategoryListAsync(forum).ConfigureAwait(false);
+            var response = await Disqus.GetCategoryListAsync(forum).ConfigureAwait(false);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -152,12 +152,33 @@ namespace Disqus.NET.Tests
         [TestCase("the-flow2014", DisqusForumAttach.Counters | DisqusForumAttach.FollowsForum, DisqusForumRelated.None)]
         public async Task GetForumDetailsAsync_Tests(string forum, DisqusForumAttach attach, DisqusForumRelated related)
         {
-            var response = await Api.GetForumDetailsAsync(forum, attach, related).ConfigureAwait(false);
+            var response = await Disqus.GetForumDetailsAsync(forum, attach, related).ConfigureAwait(false);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
 
             Assert.That(response.Response.Author, related != DisqusForumRelated.None ? Is.Not.Null : Is.Null);
+        }
+
+        [Test]
+        public async Task GetForumCategoryListAsync_Tests()
+        {
+            var response = await Disqus.GetForumCategoryListAsync().ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Null);
+        }
+
+        [Test]
+        [TestCase(1)]
+        public async Task GetForumCategoryDetailsAsync_Tests(int forumCategoryId)
+        {
+            var response = await Disqus.GetForumCategoryDetailsAsync(forumCategoryId).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Null);
         }
     }
 }

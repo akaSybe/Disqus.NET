@@ -233,5 +233,24 @@ namespace Disqus.NET
                 .ExecuteAsync<DisqusResponse<DisqusForum>>(DisqusRequestMethod.Get, DisqusEndpoints.Forums.Details, parameters)
                 .ConfigureAwait(false);
         }
+
+        public async Task<IDisqusResponse<IEnumerable<DisqusForumCategory>>> GetForumCategoryListAsync()
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters;
+
+            return await _requestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<DisqusForumCategory>>>(DisqusRequestMethod.Get, DisqusEndpoints.ForumCategories.List, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<IDisqusResponse<DisqusForumCategory>> GetForumCategoryDetailsAsync(int id)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("forumCategory", id);
+
+            return await _requestProcessor
+                .ExecuteAsync<DisqusResponse<DisqusForumCategory>>(DisqusRequestMethod.Get, DisqusEndpoints.ForumCategories.Details, parameters)
+                .ConfigureAwait(false);
+        }
     }
 }
