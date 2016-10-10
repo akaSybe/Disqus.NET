@@ -3,13 +3,16 @@
     public class DisqusAuth
     {
         /// <summary>
-        /// public-facing JavaScript API key
+        /// server-side API key or public-facing JavaScript API key
         /// </summary>
-        public string ApiKey { get; set; }
+        public string ApiKey { get; private set; }
 
-        /// <summary>
-        /// server-side API key
-        /// </summary>
-        public string ApiSecret { get; set; }
+        public DisqusAuthMethod AuthMethod { get; private set; }
+
+        public DisqusAuth(DisqusAuthMethod authMethod, string apiKey)
+        {
+            AuthMethod = authMethod;
+            ApiKey = apiKey;
+        }
     }
 }

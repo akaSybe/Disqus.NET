@@ -11,6 +11,17 @@ namespace Disqus.NET
     public interface IDisqusForumsApi
     {
         /// <summary>
+        /// Adds a moderator to a forum.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="forum"></param>
+        /// <param name="userId"></param>
+        /// <param name="canAdminister"></param>
+        /// <param name="canEdit"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusForumModerator>> AddModeratorAsync(string accessToken, string forum, int userId, bool? canAdminister = null, bool? canEdit = null);
+
+        /// <summary>
         /// Returns forum details.
         /// <remarks>https://disqus.com/api/docs/forums/details/</remarks>
         /// </summary>
@@ -18,7 +29,7 @@ namespace Disqus.NET
         /// <param name="attach"></param>
         /// <param name="related"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusForum>> GetForumDetailsAsync(string forum, DisqusForumAttach attach = DisqusForumAttach.None, DisqusForumRelated related = DisqusForumRelated.None);
+        Task<DisqusResponse<DisqusForum>> DetailsAsync(string forum, DisqusForumAttach attach = DisqusForumAttach.None, DisqusForumRelated related = DisqusForumRelated.None);
 
 
         /// <summary>
@@ -85,17 +96,6 @@ namespace Disqus.NET
         /// </summary>
         /// <param name="accessToken"></param>
         /// <param name="forum"></param>
-        /// <param name="userId"></param>
-        /// <param name="canAdminister"></param>
-        /// <param name="canEdit"></param>
-        /// <returns></returns>
-        Task<DisqusResponse<DisqusForumModerator>> AddModeratorAsync(string accessToken, string forum, int userId, bool? canAdminister = null, bool? canEdit = null);
-
-        /// <summary>
-        /// Adds a moderator to a forum.
-        /// </summary>
-        /// <param name="accessToken"></param>
-        /// <param name="forum"></param>
         /// <param name="userName"></param>
         /// <param name="canAdminister"></param>
         /// <param name="canEdit"></param>
@@ -131,11 +131,11 @@ namespace Disqus.NET
         /// <summary>
         /// Follow a forum.
         /// </summary>
-        Task<DisqusResponse<IEnumerable<string>>> FollowForumAsync(string accessToken, string target);
+        Task<DisqusResponse<IEnumerable<string>>> FollowAsync(string accessToken, string target);
 
         /// <summary>
         /// Unfollow a forum.
         /// </summary>
-        Task<DisqusResponse<IEnumerable<string>>> UnfollowForumAsync(string accessToken, string target);
+        Task<DisqusResponse<IEnumerable<string>>> UnfollowAsync(string accessToken, string target);
     }
 }

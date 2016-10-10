@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using RestSharp.Extensions;
 
 namespace Disqus.NET.Extensions
 {

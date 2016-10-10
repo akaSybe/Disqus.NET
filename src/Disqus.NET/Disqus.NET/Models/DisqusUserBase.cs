@@ -83,7 +83,7 @@ namespace Disqus.NET.Models
         /// 
         /// </summary>
         [JsonProperty("flaggedForSpamReview")]
-        public bool FlaggedForSpamReview { get; set; }
+        public bool? FlaggedForSpamReview { get; set; }
 
         /// <summary>
         /// Whether or not the person making the request is following the user.

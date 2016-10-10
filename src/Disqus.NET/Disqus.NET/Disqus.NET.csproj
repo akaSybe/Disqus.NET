@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisqusApiBase.cs" />
     <Compile Include="DisqusAuthMethod.cs" />
+    <Compile Include="DisqusCategoryApi.cs" />
     <Compile Include="DisqusCursoredResponse.cs" />
     <Compile Include="DisqusApi.cs" />
     <Compile Include="DisqusApiException.cs" />
@@ -56,13 +58,15 @@
     <Compile Include="DisqusAuth.cs" />
     <Compile Include="DisqusEndpoints.cs" />
     <Compile Include="DisqusErrorResponse.cs" />
+    <Compile Include="DisqusForumCategoriesApi.cs" />
     <Compile Include="DisqusForumsApi.cs" />
     <Compile Include="DisqusOrder.cs" />
     <Compile Include="DisqusRestClient.cs" />
+    <Compile Include="DisqusUsersApi.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="IDisqusCategoriesApi.cs" />
-    <Compile Include="IDisqusForumCategoriesApi.cs" />
+    <Compile Include="IDisqusCategoryApi.cs" />
+    <Compile Include="IDisqusForumCategoryApi.cs" />
     <Compile Include="IDisqusForumsApi.cs" />
     <Compile Include="IDisqusRestClient.cs" />
     <Compile Include="DisqusRequestMethod.cs" />

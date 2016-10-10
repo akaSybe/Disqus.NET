@@ -16,7 +16,7 @@ namespace Disqus.NET
         /// <param name="userId">Looks up a user by ID</param>
         /// <param name="accessToken"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusUser>> GetUserDetailsAsync(int userId, string accessToken = null);
+        Task<DisqusResponse<DisqusUser>> DetailsAsync(int userId, string accessToken = null);
 
         /// <summary>
         /// Lookup user by username
@@ -25,7 +25,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/details/</remarks>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusUser>> GetUserDetailsAsync(string username, string accessToken = null);
+        Task<DisqusResponse<DisqusUser>> DetailsAsync(string username, string accessToken = null);
 
         /// <summary>
         /// Follow a user by ID
@@ -34,7 +34,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
-        Task FollowAsync(int userId, string accessToken);
+        Task FollowAsync(string accessToken, int userId);
 
         /// <summary>
         /// Follow a user by username
@@ -43,7 +43,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
-        Task FollowAsync(string username, string accessToken);
+        Task FollowAsync(string accessToken, string username);
 
         /// <summary>
         /// Unfollow a user by ID
@@ -52,7 +52,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/unfollow/</remarks>
         /// <returns></returns>
-        Task UnfollowAsync(int userId, string accessToken);
+        Task UnfollowAsync(string accessToken, int userId);
 
         /// <summary>
         /// Unfollow a user by username
@@ -61,7 +61,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
-        Task UnfollowAsync(string username, string accessToken);
+        Task UnfollowAsync(string accessToken, string username);
 
         /// <summary>
         /// Update user profile
@@ -73,7 +73,5 @@ namespace Disqus.NET
         /// <param name="location">Maximum length of 255</param>
         /// <returns></returns>
         Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(string accessToken, string name = null, string about = null, string url = null, string location = null);
-
-        //Task<CursoredDisqusResponse<DisqusUser>>
     }
 }

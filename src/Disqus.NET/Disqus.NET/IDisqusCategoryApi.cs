@@ -4,7 +4,7 @@ using Disqus.NET.Models;
 
 namespace Disqus.NET
 {
-    public interface IDisqusCategoriesApi
+    public interface IDisqusCategoryApi
     {
         /// <summary>
         /// Creates a new category.
@@ -14,7 +14,7 @@ namespace Disqus.NET
         /// <param name="title"></param>
         /// <param name="default"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusCategory>> CreateCategoryAsync(string accessToken, string forum, string title, bool @default = false);
+        Task<DisqusResponse<DisqusCategory>> CreateAsync(string accessToken, string forum, string title, bool @default = false);
 
         /// <summary>
         /// Returns category details.
@@ -22,7 +22,7 @@ namespace Disqus.NET
         /// <remarks>https://disqus.com/api/3.0/categories/details.json</remarks>
         /// <param name="categoryId"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusCategory>> GetCategoryDetailsAsync(int categoryId);
+        Task<DisqusResponse<DisqusCategory>> DetailsAsync(int categoryId);
 
         /// <summary>
         /// Returns a list of categories within a forum.
@@ -35,6 +35,6 @@ namespace Disqus.NET
         /// <param name="limit"></param>
         /// <param name="order"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<List<DisqusCategory>>> GetCategoryListAsync(string forum, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc);
+        Task<CursoredDisqusResponse<List<DisqusCategory>>> ListAsync(string forum, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc);
     }
 }
