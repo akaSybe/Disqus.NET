@@ -80,6 +80,12 @@ namespace Disqus.NET.Models
         public bool DisableThirdPartyTrackers { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("flaggedForSpamReview")]
+        public bool FlaggedForSpamReview { get; set; }
+
+        /// <summary>
         /// Whether or not the person making the request is following the user.
         /// <remarks>Will only return true if request is authenticated, and authenticated user has chosen to follow this user.</remarks>
         /// </summary>

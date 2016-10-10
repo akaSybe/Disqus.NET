@@ -81,8 +81,10 @@
     <Compile Include="Models\DisqusForum.cs" />
     <Compile Include="Models\DisqusForumAttach.cs" />
     <Compile Include="Models\DisqusForumCategory.cs" />
+    <Compile Include="Models\DisqusForumModerator.cs" />
     <Compile Include="Models\DisqusForumRelated.cs" />
     <Compile Include="Models\DisqusForumSettings.cs" />
+    <Compile Include="Models\DisqusId.cs" />
     <Compile Include="Models\DisqusImage.cs" />
     <Compile Include="Models\DisqusCursor.cs" />
     <Compile Include="Models\DisqusMedia.cs" />

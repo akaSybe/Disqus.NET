@@ -34,7 +34,28 @@
         {
             private const string Category = "forums";
 
+            public static string AddModerator = GetUrl(Category, "addModerator");
+            public static string Create = GetUrl(Category, "create");
             public static string Details = GetUrl(Category, "details");
+            public static string DisableAds = GetUrl(Category, "disableAds");
+            public static string FixFavIconsForClassifiedForums = GetUrl(Category, "fixFavIconsForClassifiedForums");
+            public static string Follow = GetUrl(Category, "follow");
+            public static string GenerateInterestingContent = GetUrl(Category, "generateInterestingContent");
+            public static string InterestingForums = GetUrl(Category, "interestingForums");
+            public static string ListCategories = GetUrl(Category, "listCategories");
+            public static string ListFollowers = GetUrl(Category, "listFollowers");
+            public static string ListModerators = GetUrl(Category, "listModerators");
+            public static string ListMostActiveUsers = GetUrl(Category, "listMostActiveUsers");
+            public static string ListMostLikedUsers = GetUrl(Category, "listMostLikedUsers");
+            public static string ListPosts = GetUrl(Category, "listPosts");
+            public static string ListThreads = GetUrl(Category, "listThreads");
+            public static string ListUsers = GetUrl(Category, "listUsers");
+            public static string RemoveDefaultAvatar = GetUrl(Category, "removeDefaultAvatar");
+            public static string RemoveModerator = GetUrl(Category, "removeModerator");
+            public static string Unfollow = GetUrl(Category, "unfollow");
+            public static string Update = GetUrl(Category, "update");
+            public static string UpdateDefaultAvatar = GetUrl(Category, "updateDefaultAvatar");
+            public static string Validate = GetUrl(Category, "validate");
         }
 
         public static class Users

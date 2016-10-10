@@ -30,7 +30,7 @@ Work in progress
     - [list](https://disqus.com/api/docs/forumCategories/list/) [completed]
 
 - [Forums](https://disqus.com/api/docs/forums/)
-    - [addModerator](https://disqus.com/api/docs/forums/addModerator/)
+    - [addModerator](https://disqus.com/api/docs/forums/addModerator/) [completed]
     - [create](https://disqus.com/api/docs/forums/create/)
     - [details](https://disqus.com/api/docs/forums/details/) [completed]
     - [disableAds](https://disqus.com/api/docs/forums/disableAds/)
@@ -38,16 +38,16 @@ Work in progress
     - [follow](https://disqus.com/api/docs/forums/follow/)
     - [generateInterestingContent](https://disqus.com/api/docs/forums/generateInterestingContent/)
     - [interestingForums](https://disqus.com/api/docs/forums/interestingForums/)
-    - [listCategories](https://disqus.com/api/docs/forums/listCategories/)
-    - [listFollowers](https://disqus.com/api/docs/forums/listFollowers/)
-    - [listModerators](https://disqus.com/api/docs/forums/listModerators/)
-    - [listMostActiveUsers](https://disqus.com/api/docs/forums/listMostActiveUsers/)
-    - [listMostLikedUsers](https://disqus.com/api/docs/forums/listMostLikedUsers/)
+    - [listCategories](https://disqus.com/api/docs/forums/listCategories/) [completed]
+    - [listFollowers](https://disqus.com/api/docs/forums/listFollowers/) [completed]
+    - [listModerators](https://disqus.com/api/docs/forums/listModerators/) [completed]
+    - [listMostActiveUsers](https://disqus.com/api/docs/forums/listMostActiveUsers/) [completed]
+    - [listMostLikedUsers](https://disqus.com/api/docs/forums/listMostLikedUsers/) [completed]
     - [listPosts](https://disqus.com/api/docs/forums/listPosts/)
     - [listThreads](https://disqus.com/api/docs/forums/listThreads/)
-    - [listUsers](https://disqus.com/api/docs/forums/listUsers/)
+    - [listUsers](https://disqus.com/api/docs/forums/listUsers/) [completed]
     - [removeDefaultAvatar](https://disqus.com/api/docs/forums/removeDefaultAvatar/)
-    - [removeModerator](https://disqus.com/api/docs/forums/removeModerator/)
+    - [removeModerator](https://disqus.com/api/docs/forums/removeModerator/) [completed]
     - [unfollow](https://disqus.com/api/docs/forums/unfollow/)
     - [update](https://disqus.com/api/docs/forums/update/)
     - [updateDefaultAvatar](https://disqus.com/api/docs/forums/updateDefaultAvatar/)
