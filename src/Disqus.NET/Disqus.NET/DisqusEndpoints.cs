@@ -62,8 +62,23 @@
         {
             private const string Category = "users";
 
+            public static string CheckUsername = GetUrl(Category, "checkUsername");
             public static string Details = GetUrl(Category, "details");
             public static string Follow = GetUrl(Category, "follow");
+            public static string InterestingUsers = GetUrl(Category, "interestingUsers");
+            public static string ListActiveForums = GetUrl(Category, "listActiveForums");
+            public static string ListActivity = GetUrl(Category, "listActivity");
+            public static string ListFollowers = GetUrl(Category, "listFollowers");
+            public static string ListFollowing = GetUrl(Category, "listFollowing");
+            public static string ListFollowingChannels = GetUrl(Category, "listFollowingChannels");
+            public static string ListFollowingForums = GetUrl(Category, "listFollowingForums");
+            public static string ListForums = GetUrl(Category, "listForums");
+            public static string ListModeratedChannels = GetUrl(Category, "listModeratedChannels");
+            public static string ListMostActiveForums = GetUrl(Category, "listMostActiveForums ");
+            public static string ListOwnedChannels = GetUrl(Category, "listOwnedChannels");
+            public static string ListPosts = GetUrl(Category, "listPosts");
+            public static string RemoveFollower = GetUrl(Category, "removeFollower");
+            public static string Report = GetUrl(Category, "report");
             public static string Unfollow = GetUrl(Category, "unfollow");
             public static string UpdateProfile = GetUrl(Category, "updateProfile");
         }

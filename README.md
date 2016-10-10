@@ -117,8 +117,8 @@ Work in progress
     - [interestingUsers](https://disqus.com/api/docs/users/interestingUsers/)
     - [listActiveForums](https://disqus.com/api/docs/users/listActiveForums/)
     - [listActivity](https://disqus.com/api/docs/users/listActivity/)
-    - [listFollowers](https://disqus.com/api/docs/users/listFollowers/)
-    - [listFollowing](https://disqus.com/api/docs/users/listFollowing/)
+    - [listFollowers](https://disqus.com/api/docs/users/listFollowers/) [completed]
+    - [listFollowing](https://disqus.com/api/docs/users/listFollowing/) [completed]
     - [listFollowingChannels](https://disqus.com/api/docs/users/listFollowingChannels/)
     - [listFollowingForums](https://disqus.com/api/docs/users/listFollowingForums/)
     - [listForums](https://disqus.com/api/docs/users/listForums/)

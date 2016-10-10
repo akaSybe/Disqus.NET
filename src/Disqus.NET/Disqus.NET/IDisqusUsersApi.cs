@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Disqus.NET.Models;
 
 namespace Disqus.NET
@@ -44,6 +45,58 @@ namespace Disqus.NET
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
         Task FollowAsync(string accessToken, string username);
+
+        /// <summary>
+        /// Returns a list of users a user is being followed by.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="sinceId"></param>
+        /// <param name="cursor"></param>
+        /// <param name="limit"></param>
+        /// <param name="order"></param>
+        /// <param name="attach"></param>
+        /// <param name="accessToken"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowersAttach attach = DisqusUserListFollowersAttach.None, string accessToken = null);
+
+        /// <summary>
+        /// Returns a list of users a user is being followed by.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="sinceId"></param>
+        /// <param name="cursor"></param>
+        /// <param name="limit"></param>
+        /// <param name="order"></param>
+        /// <param name="attach"></param>
+        /// <param name="accessToken"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowersAttach attach = DisqusUserListFollowersAttach.None, string accessToken = null);
+
+        /// <summary>
+        /// Returns a list of users a user is following.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="sinceId"></param>
+        /// <param name="cursor"></param>
+        /// <param name="limit"></param>
+        /// <param name="order"></param>
+        /// <param name="attach"></param>
+        /// <param name="accessToken"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null);
+
+        /// <summary>
+        /// Returns a list of users a user is following.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="sinceId"></param>
+        /// <param name="cursor"></param>
+        /// <param name="limit"></param>
+        /// <param name="order"></param>
+        /// <param name="attach"></param>
+        /// <param name="accessToken"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null);
 
         /// <summary>
         /// Unfollow a user by ID

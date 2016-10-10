@@ -48,6 +48,90 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
+        public async Task ListFollowersAsync_ByUserId_Test()
+        {
+            /* arrange */
+
+            await Disqus.Users.FollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);
+
+            /* act */
+
+            var response = await Disqus.Users.ListFollowersAsync(TestData.UserId).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+
+            /* tear down */
+
+            await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task ListFollowersAsync_ByUserName_Test()
+        {
+            /* arrange */
+
+            await Disqus.Users.FollowAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
+
+            /* act */
+
+            var response = await Disqus.Users.ListFollowersAsync(TestData.UserName).ConfigureAwait(false);
+            
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+
+            /* tear down */
+
+            await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task ListFollowingAsync_ByUserId_Test()
+        {
+            /* arrange */
+
+            await Disqus.Users.FollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);
+
+            /* act */
+
+            var response = await Disqus.Users.ListFollowingAsync(TestData.ModeratorUserId).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+
+            /* tear down */
+
+            await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task ListFollowingAsync_ByUserName_Test()
+        {
+            /* arrange */
+
+            await Disqus.Users.FollowAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
+
+            /* act */
+
+            var response = await Disqus.Users.ListFollowingAsync(TestData.ModeratorUserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+
+            /* tear down */
+
+            await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
+        }
+
+        [Test]
         public async Task UnfollowAsync_If_UserIdIsValid_ShouldReturn_SuccessResult()
         {
             await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);

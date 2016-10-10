@@ -13,6 +13,8 @@ namespace Disqus.NET.Tests
             public const string Forum = "";
             public const int UserId = 0;
             public const string UserName = "";
+            public const int ModeratorUserId = 0;
+            public const string ModeratorUserName = "";
         }
 
         protected IDisqusApi Disqus;
