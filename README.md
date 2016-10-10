@@ -126,8 +126,8 @@ Work in progress
     - [listMostActiveForums](https://disqus.com/api/docs/users/listMostActiveForums/)
     - [listOwnedChannels](https://disqus.com/api/docs/users/listOwnedChannels/)
     - [listPosts](https://disqus.com/api/docs/users/listPosts/)
-    - [removeFollower](https://disqus.com/api/docs/users/removeFollower/)
-    - [report](https://disqus.com/api/docs/users/report/)
+    - [removeFollower](https://disqus.com/api/docs/users/removeFollower/) [completed]
+    - [report](https://disqus.com/api/docs/users/report/) [completed]
     - [unfollow](https://disqus.com/api/docs/users/unfollow/) [completed]
     - [updateProfile](https://disqus.com/api/docs/users/updateProfile/) [completed]
 

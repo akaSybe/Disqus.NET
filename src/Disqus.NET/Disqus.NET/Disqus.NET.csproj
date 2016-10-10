@@ -99,6 +99,7 @@
     <Compile Include="Models\DisqusUserBase.cs" />
     <Compile Include="Models\DisqusUserListFollowingAttach.cs" />
     <Compile Include="Models\DisqusUserListFollowersAttach.cs" />
+    <Compile Include="Models\DisqusUserReportReason.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

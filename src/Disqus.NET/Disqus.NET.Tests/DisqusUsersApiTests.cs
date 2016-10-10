@@ -132,6 +132,32 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
+        public async Task RemoveFollowerAsync_ByUserId_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.RemoveFollowerAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Empty);
+        }
+
+        [Test]
+        public async Task RemoveFollowerAsync_ByUserName_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.RemoveFollowerAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Empty);
+        }
+
+        [Test]
         public async Task UnfollowAsync_If_UserIdIsValid_ShouldReturn_SuccessResult()
         {
             await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserId).ConfigureAwait(false);

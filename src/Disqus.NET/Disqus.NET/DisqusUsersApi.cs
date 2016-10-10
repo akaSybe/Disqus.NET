@@ -146,6 +146,52 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
+        public async Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, string userName)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("follower:username", userName);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.RemoveFollower, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, int userId)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("follower", userId);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.RemoveFollower, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<string>> ReportAsync(string accessToken, int userId, DisqusUserReportReason reason)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("user", userId)
+                .WithParameter("reason", (int)reason);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Report, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<string>> ReportAsync(string accessToken, string userName, DisqusUserReportReason reason)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("user:username", userName)
+                .WithParameter("reason", (int)reason);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Report, parameters)
+                .ConfigureAwait(false);
+        }
+
         public async Task UnfollowAsync(string accessToken, int userId)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters

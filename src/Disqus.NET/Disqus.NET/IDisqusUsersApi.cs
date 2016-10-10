@@ -98,6 +98,16 @@ namespace Disqus.NET
         /// <returns></returns>
         Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null);
 
+        Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, string userName);
+
+        Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, int userId);
+
+        // TODO: required information about return type
+        Task<DisqusResponse<string>> ReportAsync(string accessToken, int userId, DisqusUserReportReason reason);
+
+        // TODO: required information about return type
+        Task<DisqusResponse<string>> ReportAsync(string accessToken, string userName, DisqusUserReportReason reason);
+
         /// <summary>
         /// Unfollow a user by ID
         /// </summary>
