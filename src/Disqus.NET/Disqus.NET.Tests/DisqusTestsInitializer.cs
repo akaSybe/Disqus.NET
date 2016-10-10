@@ -5,7 +5,7 @@ namespace Disqus.NET.Tests
 {
     public class DisqusTestsInitializer
     {
-        private const string DisqusKey = "X06iuWTeIlPzxRByY43SXFQO3oBnFoYtJ8MHQQG6J8MOEoBiHIHJogK7A69whLs7";
+        private const string DisqusKey = "";
 
         protected static class TestData
         {
