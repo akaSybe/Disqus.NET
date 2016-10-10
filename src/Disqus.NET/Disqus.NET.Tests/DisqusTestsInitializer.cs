@@ -9,10 +9,10 @@ namespace Disqus.NET.Tests
 
         protected static class TestData
         {
-            public const string AccessToken = "e916bcc3ad64431aad05322db192328f";
-            public const string Forum = "sandbox-akasybe";
-            public const int UserId = 211190711;
-            public const string UserName = "disqus_uXBpgUxFhN";
+            public const string AccessToken = "";
+            public const string Forum = "";
+            public const int UserId = 0;
+            public const string UserName = "";
         }
 
         protected IDisqusApi Disqus;
