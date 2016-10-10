@@ -35,7 +35,7 @@ Work in progress
     - [details](https://disqus.com/api/docs/forums/details/) [completed]
     - [disableAds](https://disqus.com/api/docs/forums/disableAds/)
     - [fixFavIconsForClassifiedForums](https://disqus.com/api/docs/forums/fixFavIconsForClassifiedForums/)
-    - [follow](https://disqus.com/api/docs/forums/follow/)
+    - [follow](https://disqus.com/api/docs/forums/follow/) [completed]
     - [generateInterestingContent](https://disqus.com/api/docs/forums/generateInterestingContent/)
     - [interestingForums](https://disqus.com/api/docs/forums/interestingForums/)
     - [listCategories](https://disqus.com/api/docs/forums/listCategories/) [completed]
@@ -48,7 +48,7 @@ Work in progress
     - [listUsers](https://disqus.com/api/docs/forums/listUsers/) [completed]
     - [removeDefaultAvatar](https://disqus.com/api/docs/forums/removeDefaultAvatar/)
     - [removeModerator](https://disqus.com/api/docs/forums/removeModerator/) [completed]
-    - [unfollow](https://disqus.com/api/docs/forums/unfollow/)
+    - [unfollow](https://disqus.com/api/docs/forums/unfollow/) [completed]
     - [update](https://disqus.com/api/docs/forums/update/)
     - [updateDefaultAvatar](https://disqus.com/api/docs/forums/updateDefaultAvatar/)
     - [validate](https://disqus.com/api/docs/forums/validate/)

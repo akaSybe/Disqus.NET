@@ -375,6 +375,28 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
+        public async Task<DisqusResponse<IEnumerable<string>>> FollowForumAsync(string accessToken, string target)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("target", target);
+
+            return await _requestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Forums.Follow, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<IEnumerable<string>>> UnfollowForumAsync(string accessToken, string target)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("target", target);
+
+            return await _requestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Forums.Unfollow, parameters)
+                .ConfigureAwait(false);
+        }
+
         public async Task<IDisqusResponse<IEnumerable<DisqusForumCategory>>> GetForumCategoryListAsync()
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters;

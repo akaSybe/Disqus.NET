@@ -324,5 +324,23 @@ namespace Disqus.NET.Tests
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
             Assert.That(response.Response.Id, Is.Null);
         }
+
+        [Test]
+        public async Task FollowForumAsync_Test()
+        {
+            var response = await Disqus.FollowForumAsync(AccessToken, Forum).ConfigureAwait(false);
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Empty);
+        }
+
+        [Test]
+        public async Task UnfollowForumAsync_Test()
+        {
+            var response = await Disqus.UnfollowForumAsync(AccessToken, Forum).ConfigureAwait(false);
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Empty);
+        }
     }
 }

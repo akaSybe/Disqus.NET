@@ -127,5 +127,15 @@ namespace Disqus.NET
         /// <param name="userName"></param>
         /// <returns></returns>
         Task<DisqusResponse<DisqusId>> RemoveModeratorAsync(string accessToken, string forum, string userName);
+
+        /// <summary>
+        /// Follow a forum.
+        /// </summary>
+        Task<DisqusResponse<IEnumerable<string>>> FollowForumAsync(string accessToken, string target);
+
+        /// <summary>
+        /// Unfollow a forum.
+        /// </summary>
+        Task<DisqusResponse<IEnumerable<string>>> UnfollowForumAsync(string accessToken, string target);
     }
 }
