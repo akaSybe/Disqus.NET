@@ -60,10 +60,10 @@ Work in progress
 - [Media](https://disqus.com/api/docs/media/)
 
 - [Organizations](https://disqus.com/api/docs/organizations/)
-    - [addAdmin](https://disqus.com/api/docs/organizations/addAdmin/)
-    - [listAdmins](https://disqus.com/api/docs/organizations/listAdmins/)
-    - [removeAdmin](https://disqus.com/api/docs/organizations/removeAdmin/)
-    - [setRole](https://disqus.com/api/docs/organizations/setRole/)
+    - [addAdmin](https://disqus.com/api/docs/organizations/addAdmin/) [completed]
+    - [listAdmins](https://disqus.com/api/docs/organizations/listAdmins/) [completed]
+    - [removeAdmin](https://disqus.com/api/docs/organizations/removeAdmin/) [completed]
+    - [setRole](https://disqus.com/api/docs/organizations/setRole/) [completed]
 
 - [Posts](https://disqus.com/api/docs/posts/)
     - [approve](https://disqus.com/api/docs/posts/approve/)
