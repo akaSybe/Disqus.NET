@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Disqus.NET.Models;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
@@ -8,6 +9,23 @@ namespace Disqus.NET.Tests
     [TestFixture]
     public class DisqusUsersApiTests : DisqusTestsInitializer
     {
+        [Test]
+        public async Task CheckUsernameAsync_Test()
+        {
+            /* arrange */
+
+            string testUsername = Guid.NewGuid().ToString("N").Substring(0, 10);
+
+            /* act */
+
+            var response = await Disqus.Users.CheckUsernameAsync(TestData.AccessToken, testUsername).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.EqualTo(testUsername));
+        }
+
         [Test]
         public async Task DetailsAsync_If_UserIdIsValid_ShouldReturn_UserDetails()
         {
@@ -47,6 +65,31 @@ namespace Disqus.NET.Tests
             await Disqus.Users.FollowAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
         }
 
+        [Test]
+        public async Task ListActiveForumsAsync_ByUserId_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListActiveForumsAsync(TestData.UserId).ConfigureAwait(false);
+
+            /* assert */
+            
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListActiveForumsAsync_ByUserName_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListActiveForumsAsync(TestData.UserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
         [Test]
         public async Task ListFollowersAsync_ByUserId_Test()
         {
@@ -129,6 +172,84 @@ namespace Disqus.NET.Tests
             /* tear down */
 
             await Disqus.Users.UnfollowAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task ListFollowingForumsAsync_ByUserId_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListFollowingForumsAsync(TestData.ModeratorUserId).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListFollowingForumAsync_ByUserName_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListFollowingForumsAsync(TestData.ModeratorUserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListForumsAsync_ByUserId_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListForumsAsync(TestData.ModeratorUserId).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListForumsAsync_ByUserName_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListForumsAsync(TestData.ModeratorUserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListMostActiveForumsAsync_ByUserId_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListMostActiveForumsAsync(TestData.ModeratorUserId).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListMostActiveForumsAsync_ByUserName_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Users.ListMostActiveForumsAsync(TestData.ModeratorUserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]

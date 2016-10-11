@@ -111,19 +111,19 @@ Work in progress
     - [list](https://disqus.com/api/docs/forums/trustedDomain/list/)
 
 - [Users](https://disqus.com/api/docs/users/)
-    - [checkUsername](https://disqus.com/api/docs/users/checkUsername/)
+    - [checkUsername](https://disqus.com/api/docs/users/checkUsername/) [completed]
     - [details](https://disqus.com/api/docs/users/details/) [completed]
     - [follow](https://disqus.com/api/docs/users/follow/) [completed]
     - [interestingUsers](https://disqus.com/api/docs/users/interestingUsers/)
-    - [listActiveForums](https://disqus.com/api/docs/users/listActiveForums/)
+    - [listActiveForums](https://disqus.com/api/docs/users/listActiveForums/) [completed]
     - [listActivity](https://disqus.com/api/docs/users/listActivity/)
     - [listFollowers](https://disqus.com/api/docs/users/listFollowers/) [completed]
     - [listFollowing](https://disqus.com/api/docs/users/listFollowing/) [completed]
     - [listFollowingChannels](https://disqus.com/api/docs/users/listFollowingChannels/)
-    - [listFollowingForums](https://disqus.com/api/docs/users/listFollowingForums/)
-    - [listForums](https://disqus.com/api/docs/users/listForums/)
+    - [listFollowingForums](https://disqus.com/api/docs/users/listFollowingForums/) [completed]
+    - [listForums](https://disqus.com/api/docs/users/listForums/) [completed]
     - [listModeratedChannels](https://disqus.com/api/docs/users/listModeratedChannels/)
-    - [listMostActiveForums](https://disqus.com/api/docs/users/listMostActiveForums/)
+    - [listMostActiveForums](https://disqus.com/api/docs/users/listMostActiveForums/) [completed]
     - [listOwnedChannels](https://disqus.com/api/docs/users/listOwnedChannels/)
     - [listPosts](https://disqus.com/api/docs/users/listPosts/)
     - [removeFollower](https://disqus.com/api/docs/users/removeFollower/) [completed]

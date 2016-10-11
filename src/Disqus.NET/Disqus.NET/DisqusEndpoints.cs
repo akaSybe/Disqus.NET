@@ -74,7 +74,7 @@
             public static string ListFollowingForums = GetUrl(Category, "listFollowingForums");
             public static string ListForums = GetUrl(Category, "listForums");
             public static string ListModeratedChannels = GetUrl(Category, "listModeratedChannels");
-            public static string ListMostActiveForums = GetUrl(Category, "listMostActiveForums ");
+            public static string ListMostActiveForums = GetUrl(Category, "listMostActiveForums");
             public static string ListOwnedChannels = GetUrl(Category, "listOwnedChannels");
             public static string ListPosts = GetUrl(Category, "listPosts");
             public static string RemoveFollower = GetUrl(Category, "removeFollower");
