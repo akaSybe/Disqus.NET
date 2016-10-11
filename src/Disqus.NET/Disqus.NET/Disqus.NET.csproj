@@ -60,7 +60,8 @@
     <Compile Include="DisqusErrorResponse.cs" />
     <Compile Include="DisqusForumCategoriesApi.cs" />
     <Compile Include="DisqusForumsApi.cs" />
-    <Compile Include="DisqusOrder.cs" />
+    <Compile Include="Models\DisqusOrder.cs" />
+    <Compile Include="DisqusOrganizationsApi.cs" />
     <Compile Include="DisqusRestClient.cs" />
     <Compile Include="DisqusUsersApi.cs" />
     <Compile Include="Extensions\EnumExtensions.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="IDisqusCategoryApi.cs" />
     <Compile Include="IDisqusForumCategoryApi.cs" />
     <Compile Include="IDisqusForumsApi.cs" />
+    <Compile Include="IDisqusOrganizationsApi.cs" />
     <Compile Include="IDisqusRestClient.cs" />
     <Compile Include="DisqusRequestMethod.cs" />
     <Compile Include="DisqusRequestProcessor.cs" />

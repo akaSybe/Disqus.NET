@@ -16,6 +16,7 @@ namespace Disqus.NET.Tests
             public const int ModeratorUserId = 0;
             public const string ModeratorUserName = "";
             public const string TrustedDomain = "";
+            public const int OrganizationId = 0;
         }
 
         protected IDisqusApi Disqus;

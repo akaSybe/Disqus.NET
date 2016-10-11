@@ -1,4 +1,4 @@
-﻿namespace Disqus.NET
+﻿namespace Disqus.NET.Models
 {
     public enum DisqusOrder
     {

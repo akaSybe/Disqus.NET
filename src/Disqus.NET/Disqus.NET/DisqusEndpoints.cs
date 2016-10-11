@@ -83,6 +83,16 @@
             public static string UpdateProfile = GetUrl(Category, "updateProfile");
         }
 
+        public static class Organizations
+        {
+            private const string Category = "organizations";
+
+            public static string AddAdmin = GetUrl(Category, "addAdmin");
+            public static string ListAdmins = GetUrl(Category, "listAdmins");
+            public static string RemoveAdmin = GetUrl(Category, "removeAdmin");
+            public static string SetRole = GetUrl(Category, "setRole");
+        }
+
         public static class Posts
         {
             private const string Category = "posts";
