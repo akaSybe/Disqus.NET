@@ -106,9 +106,9 @@ Work in progress
     - [listThreads](https://disqus.com/api/docs/trends/listThreads/)
 
 - [TrustedDomain](https://disqus.com/api/docs/forums/trustedDomain/)
-    - [create](https://disqus.com/api/docs/forums/trustedDomain/create/)
-    - [kill](https://disqus.com/api/docs/forums/trustedDomain/kill/)
-    - [list](https://disqus.com/api/docs/forums/trustedDomain/list/)
+    - [create](https://disqus.com/api/docs/forums/trustedDomain/create/) [completed]
+    - [kill](https://disqus.com/api/docs/forums/trustedDomain/kill/) [completed]
+    - [list](https://disqus.com/api/docs/forums/trustedDomain/list/) [completed]
 
 - [Users](https://disqus.com/api/docs/users/)
     - [checkUsername](https://disqus.com/api/docs/users/checkUsername/) [completed]

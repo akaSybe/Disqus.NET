@@ -89,5 +89,14 @@
 
             public static string Details = GetUrl(Category, "details");
         }
+
+        public static class TrustedDomain
+        {
+            private const string Category = "forums/trustedDomain";
+
+            public static string Create = GetUrl(Category, "create");
+            public static string Kill = GetUrl(Category, "kill");
+            public static string List = GetUrl(Category, "list");
+        }
     }
 }
