@@ -5,18 +5,18 @@ namespace Disqus.NET.Tests
 {
     public class DisqusTestsInitializer
     {
-        private const string DisqusKey = "";
+        private const string DisqusKey = "87SwoQOoeN2PT1ys51TpLTMh4EcUwZm3736Ct57kFoh31uYIZNXejTBX0sPf9lXY";
 
         protected static class TestData
         {
-            public const string AccessToken = "";
-            public const string Forum = "";
-            public const int UserId = 0;
-            public const string UserName = "";
-            public const int ModeratorUserId = 0;
-            public const string ModeratorUserName = "";
-            public const string TrustedDomain = "";
-            public const int OrganizationId = 0;
+            public const string AccessToken = "6b659e85ca6a4882a841b4791b564555";
+            public const string Forum = "sandbox-akasybe";
+            public const int UserId = 211190711;
+            public const string UserName = "disqus_uXBpgUxFhN";
+            public const int ModeratorUserId = 158824314;
+            public const string ModeratorUserName = "akasybe";
+            public const string TrustedDomain = "akasybe.github.io";
+            public const int OrganizationId = 3202995;
         }
 
         protected IDisqusApi Disqus;

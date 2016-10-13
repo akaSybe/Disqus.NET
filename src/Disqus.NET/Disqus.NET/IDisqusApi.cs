@@ -6,6 +6,7 @@
         IDisqusForumCategoryApi ForumCategory { get; }
         IDisqusForumsApi Forums { get; }
         IDisqusOrganizationsApi Organizations { get; }
+        IDisqusThreadsApi Threads { get; }
         IDisqusTrustedDomainsApi TrustedDomains { get; }
         IDisqusUsersApi Users { get; }
     }

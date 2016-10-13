@@ -7,7 +7,7 @@ namespace Disqus.NET.Models
         [JsonProperty("id")]
         public int Id { get; set; }
 
-        [JsonProperty("location")]
+        [JsonProperty("post")]
         public string Post { get; set; }
 
         [JsonProperty("thread")]

@@ -33,7 +33,7 @@ namespace Disqus.NET.Models
         public DisqusImage Favicon { get; set; }
 
         [JsonProperty("createdAt")]
-        public DateTime Created { get; set; }
+        public DateTime? Created { get; set; }
 
         [JsonProperty("founder")]
         public string Founder { get; set; }
@@ -51,16 +51,16 @@ namespace Disqus.NET.Models
         public string Pk { get; set; }
 
         [JsonProperty("daysAlive")]
-        public int DaysAlive { get; set; }
+        public int? DaysAlive { get; set; }
 
         [JsonProperty("daysThreadAlive")]
-        public int DaysThreadAlive { get; set; }
+        public int? DaysThreadAlive { get; set; }
 
         [JsonProperty("channel")]
         public string Channel { get; set; }
 
         [JsonProperty("installCompleted")]
-        public bool InstallCompleted { get; set; }
+        public bool? InstallCompleted { get; set; }
 
         [JsonProperty("avatar")]
         public DisqusAvatar Avatar { get; set; }
@@ -97,5 +97,13 @@ namespace Disqus.NET.Models
 
         [JsonProperty("author")]
         public DisqusAuthor Author { get; set; }
+
+        public static implicit operator DisqusForum(string str)
+        {
+            return new DisqusForum
+            {
+                Id = str
+            };
+        }
     }
 }

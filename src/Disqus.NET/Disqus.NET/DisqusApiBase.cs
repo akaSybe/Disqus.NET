@@ -7,7 +7,7 @@ namespace Disqus.NET
     public class DisqusApiBase
     {
         protected readonly IDisqusRequestProcessor RequestProcessor;
-        public DisqusAuth Auth { get; private set; }
+        public DisqusAuth Auth { get; }
 
         protected class DisqusParameters
         {
@@ -54,6 +54,13 @@ namespace Disqus.NET
                 {
                     _parameters.Add(new KeyValuePair<string, string>(name, value));
                 }
+                return this;
+            }
+
+            public DisqusParameters WithMultipleParameters(ICollection<KeyValuePair<string, string>> parameters)
+            {
+                _parameters.AddRange(parameters);
+
                 return this;
             }
         }

@@ -83,21 +83,21 @@ Work in progress
     - [approve](https://disqus.com/api/docs/threads/approve/)
     - [close](https://disqus.com/api/docs/threads/close/)
     - [create](https://disqus.com/api/docs/threads/create/)
-    - [details](https://disqus.com/api/docs/threads/details/)
-    - [list](https://disqus.com/api/docs/threads/list/)
-    - [listHot](https://disqus.com/api/docs/threads/listHot/)
-    - [listPopular](https://disqus.com/api/docs/threads/listPopular/)
+    - [details](https://disqus.com/api/docs/threads/details/) [completed]
+    - [list](https://disqus.com/api/docs/threads/list/) [completed]
+    - [listHot](https://disqus.com/api/docs/threads/listHot/) [completed]
+    - [listPopular](https://disqus.com/api/docs/threads/listPopular/) [completed]
     - [listPosts](https://disqus.com/api/docs/threads/listPosts/)
-    - [listUsersVotedThread](https://disqus.com/api/docs/threads/listUsersVotedThread/)
+    - [listUsersVotedThread](https://disqus.com/api/docs/threads/listUsersVotedThread/) [completed]
     - [open](https://disqus.com/api/docs/threads/open/)
     - [remove](https://disqus.com/api/docs/threads/remove/)
     - [restore](https://disqus.com/api/docs/threads/restore/)
-    - [set](https://disqus.com/api/docs/threads/set/)
+    - [set](https://disqus.com/api/docs/threads/set/) [completed]
     - [spam](https://disqus.com/api/docs/threads/spam/)
-    - [subscribe](https://disqus.com/api/docs/threads/subscribe/)
-    - [unsubscribe](https://disqus.com/api/docs/threads/unsubscribe/)
+    - [subscribe](https://disqus.com/api/docs/threads/subscribe/) [completed]
+    - [unsubscribe](https://disqus.com/api/docs/threads/unsubscribe/) [completed]
     - [update](https://disqus.com/api/docs/threads/update/)
-    - [vote](https://disqus.com/api/docs/threads/vote/)
+    - [vote](https://disqus.com/api/docs/threads/vote/) [completed]
 
 - [Topics](https://disqus.com/api/docs/topics/)
     - [update](https://disqus.com/api/docs/topics/update/)

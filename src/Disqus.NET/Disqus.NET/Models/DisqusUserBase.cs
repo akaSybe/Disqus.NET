@@ -47,7 +47,7 @@ namespace Disqus.NET.Models
         /// The date/time that the user created the account.
         /// </summary>
         [JsonProperty("joinedAt")]
-        public DateTime Joined { get; set; }
+        public DateTime? Joined { get; set; }
 
         /// <summary>
         /// Location that user specified in their account settings.
@@ -77,7 +77,31 @@ namespace Disqus.NET.Models
         /// 
         /// </summary>
         [JsonProperty("disable3rdPartyTrackers")]
-        public bool DisableThirdPartyTrackers { get; set; }
+        public bool? DisableThirdPartyTrackers { get; set; }
+
+        /// <summary>
+        /// Whether or not the user has registered any forums under this account.
+        /// </summary>
+        [JsonProperty("isPrimary")]
+        public bool? IsPrimary { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("isPrivate")]
+        public bool? IsPrivate { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [JsonProperty("isPowerContributor")]
+        public bool? IsPowerContributor { get; set; }
+
+        /// <summary>
+        /// Whether or not the user has a registered account or not
+        /// </summary>
+        [JsonProperty("isAnonymous")]
+        public bool? IsAnonymous { get; set; }
 
         /// <summary>
         /// 

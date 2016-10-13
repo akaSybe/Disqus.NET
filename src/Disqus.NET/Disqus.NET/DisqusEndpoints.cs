@@ -58,6 +58,66 @@
             public static string Validate = GetUrl(Category, "validate");
         }
 
+        public static class Organizations
+        {
+            private const string Category = "organizations";
+
+            public static string AddAdmin = GetUrl(Category, "addAdmin");
+            public static string ListAdmins = GetUrl(Category, "listAdmins");
+            public static string RemoveAdmin = GetUrl(Category, "removeAdmin");
+            public static string SetRole = GetUrl(Category, "setRole");
+        }
+
+        public static class Posts
+        {
+            private const string Category = "posts";
+
+            public static string Approve = GetUrl(Category, "approve");
+            public static string Create = GetUrl(Category, "create");
+            public static string Details = GetUrl(Category, "details");
+            public static string GetContext = GetUrl(Category, "getContext");
+            public static string List = GetUrl(Category, "list");
+            public static string ListPopular = GetUrl(Category, "listPopular");
+            public static string Remove = GetUrl(Category, "remove");
+            public static string Report = GetUrl(Category, "report");
+            public static string Restore = GetUrl(Category, "restore");
+            public static string Spam = GetUrl(Category, "spam");
+            public static string Update = GetUrl(Category, "update");
+            public static string Vote = GetUrl(Category, "vote");
+        }
+
+        public static class Threads
+        {
+            private const string Category = "threads";
+
+            public static string Approve = GetUrl(Category, "approve");
+            public static string Close = GetUrl(Category, "close");
+            public static string Create = GetUrl(Category, "create");
+            public static string Details = GetUrl(Category, "details");
+            public static string List = GetUrl(Category, "list");
+            public static string ListHot = GetUrl(Category, "listHot");
+            public static string ListPopular = GetUrl(Category, "listPopular");
+            public static string ListUsersVotedThread = GetUrl(Category, "listUsersVotedThread");
+            public static string Open = GetUrl(Category, "open");
+            public static string Remove = GetUrl(Category, "remove");
+            public static string Restore = GetUrl(Category, "restore");
+            public static string Set = GetUrl(Category, "set");
+            public static string Spam = GetUrl(Category, "spam");
+            public static string Subscribe = GetUrl(Category, "subscribe");
+            public static string Unsubscribe = GetUrl(Category, "unsubscribe");
+            public static string Update = GetUrl(Category, "update");
+            public static string Vote = GetUrl(Category, "vote");
+        }
+
+        public static class TrustedDomain
+        {
+            private const string Category = "forums/trustedDomain";
+
+            public static string Create = GetUrl(Category, "create");
+            public static string Kill = GetUrl(Category, "kill");
+            public static string List = GetUrl(Category, "list");
+        }
+
         public static class Users
         {
             private const string Category = "users";
@@ -81,32 +141,6 @@
             public static string Report = GetUrl(Category, "report");
             public static string Unfollow = GetUrl(Category, "unfollow");
             public static string UpdateProfile = GetUrl(Category, "updateProfile");
-        }
-
-        public static class Organizations
-        {
-            private const string Category = "organizations";
-
-            public static string AddAdmin = GetUrl(Category, "addAdmin");
-            public static string ListAdmins = GetUrl(Category, "listAdmins");
-            public static string RemoveAdmin = GetUrl(Category, "removeAdmin");
-            public static string SetRole = GetUrl(Category, "setRole");
-        }
-
-        public static class Posts
-        {
-            private const string Category = "posts";
-
-            public static string Details = GetUrl(Category, "details");
-        }
-
-        public static class TrustedDomain
-        {
-            private const string Category = "forums/trustedDomain";
-
-            public static string Create = GetUrl(Category, "create");
-            public static string Kill = GetUrl(Category, "kill");
-            public static string List = GetUrl(Category, "list");
         }
     }
 }
