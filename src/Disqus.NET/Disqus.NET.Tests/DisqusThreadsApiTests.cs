@@ -45,6 +45,29 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
+        public async Task CreateAsync_Test()
+        {
+            /* arrange */
+
+            string threadTitle = "Test Thread";
+            string threadUrl = "http://mysite.com";
+
+            var request = DisqusThreadCreateRequest
+                .New(TestData.Forum, threadTitle)
+                .Url(threadUrl);
+
+            /* act */
+
+            var response = await Disqus.Threads.CreateAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response.Title, Is.EqualTo(threadTitle));
+            Assert.That(response.Response.Link, Is.EqualTo(threadUrl));
+        }
+
+        [Test]
         [TestCase("5164468291", DisqusThreadRelated.Category, DisqusThreadAttach.None)]
         [TestCase("5164468291", DisqusThreadRelated.Author, DisqusThreadAttach.None)]
         [TestCase("5164468291", DisqusThreadRelated.Forum, DisqusThreadAttach.None)]
@@ -144,6 +167,24 @@ namespace Disqus.NET.Tests
         }
 
         [Test]
+        public async Task ListPostsAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusThreadListPostsRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId);
+
+            /* act */
+
+            var response = await Disqus.Threads.ListPostsAsync(request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
         public async Task ListUsersVotedThreadAsync_Test()
         {
             /* arrange */
@@ -230,6 +271,29 @@ namespace Disqus.NET.Tests
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
             Assert.That(response.Response, Is.Not.Empty);
             Assert.That(response.Response.Count(), Is.EqualTo(2));
+        }
+
+        [Test]
+        public async Task UpdateAsync_Test()
+        {
+            /* arrange */
+
+            string threadTitle = "Test Thread";
+
+            var request = DisqusThreadUpdateRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId)
+                .Title(threadTitle)
+                .Author(TestData.UserName);
+
+            /* act */
+
+            var response = await Disqus.Threads.UpdateAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response.Title, Is.EqualTo(threadTitle));
+            Assert.That(response.Response.Author.Id, Is.EqualTo(TestData.UserId));
         }
     }
 }

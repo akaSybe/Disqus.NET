@@ -98,6 +98,7 @@
             public static string Details = GetUrl(Category, "details");
             public static string List = GetUrl(Category, "list");
             public static string ListHot = GetUrl(Category, "listHot");
+            public static string ListPosts = GetUrl(Category, "listPosts");
             public static string ListPopular = GetUrl(Category, "listPopular");
             public static string ListUsersVotedThread = GetUrl(Category, "listUsersVotedThread");
             public static string Open = GetUrl(Category, "open");

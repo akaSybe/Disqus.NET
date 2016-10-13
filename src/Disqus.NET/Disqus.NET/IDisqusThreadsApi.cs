@@ -24,6 +24,14 @@ namespace Disqus.NET
         Task<DisqusResponse<IEnumerable<DisqusId>>> CloseAsync(DisqusAccessToken accessToken, DisqusThreadCloseRequest request);
 
         /// <summary>
+        /// Creates a new thread.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusThread>> CreateAsync(DisqusAccessToken accessToken, DisqusThreadCreateRequest request);
+
+        /// <summary>
         /// Returns thread details.
         /// </summary>
         /// <param name="accessToken"></param>
@@ -82,6 +90,21 @@ namespace Disqus.NET
         /// <param name="request"></param>
         /// <returns></returns>
         Task<DisqusResponse<IEnumerable<DisqusThread>>> ListPopularAsync(DisqusThreadListPopularRequest request);
+
+        /// <summary>
+        /// Returns a list of posts within a thread.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusThreadListPostsRequest request);
+
+        /// <summary>
+        /// Returns a list of posts within a thread.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusThreadListPostsRequest request);
 
         /// <summary>
         /// Returns a list of users that voted on this thread.
@@ -176,6 +199,12 @@ namespace Disqus.NET
         /// <param name="thread"></param>
         /// <returns></returns>
         Task<DisqusResponse<string>> UnsubscribeAsync(string email, string thread);
+
+        /// <summary>
+        /// Updates information on a thread.
+        /// </summary>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusThread>> UpdateAsync(DisqusAccessToken accessToken, DisqusThreadUpdateRequest request);
 
         /// <summary>
         /// Register a vote on a thread.

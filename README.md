@@ -82,12 +82,12 @@ Work in progress
 - [Threads](https://disqus.com/api/docs/threads/)
     - [approve](https://disqus.com/api/docs/threads/approve/) [completed]
     - [close](https://disqus.com/api/docs/threads/close/) [completed]
-    - [create](https://disqus.com/api/docs/threads/create/)
+    - [create](https://disqus.com/api/docs/threads/create/) [completed]
     - [details](https://disqus.com/api/docs/threads/details/) [completed]
     - [list](https://disqus.com/api/docs/threads/list/) [completed]
     - [listHot](https://disqus.com/api/docs/threads/listHot/) [completed]
     - [listPopular](https://disqus.com/api/docs/threads/listPopular/) [completed]
-    - [listPosts](https://disqus.com/api/docs/threads/listPosts/)
+    - [listPosts](https://disqus.com/api/docs/threads/listPosts/) [completed]
     - [listUsersVotedThread](https://disqus.com/api/docs/threads/listUsersVotedThread/) [completed]
     - [open](https://disqus.com/api/docs/threads/open/) [completed]
     - [remove](https://disqus.com/api/docs/threads/remove/) [completed]
@@ -96,7 +96,7 @@ Work in progress
     - [spam](https://disqus.com/api/docs/threads/spam/) [completed]
     - [subscribe](https://disqus.com/api/docs/threads/subscribe/) [completed]
     - [unsubscribe](https://disqus.com/api/docs/threads/unsubscribe/) [completed]
-    - [update](https://disqus.com/api/docs/threads/update/)
+    - [update](https://disqus.com/api/docs/threads/update/) [completed]
     - [vote](https://disqus.com/api/docs/threads/vote/) [completed]
 
 - [Topics](https://disqus.com/api/docs/topics/)
