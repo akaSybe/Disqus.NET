@@ -19,8 +19,8 @@ Work in progress
     - [create](https://disqus.com/api/docs/categories/create/) [completed]
 	- [details](https://disqus.com/api/docs/categories/details/) [completed]
     - [list](https://disqus.com/api/docs/categories/list/) [completed]
-    - [listPosts](https://disqus.com/api/docs/categories/listPosts/)
-    - [listThreads](https://disqus.com/api/docs/categories/listThreads/)
+    - [listPosts](https://disqus.com/api/docs/categories/listPosts/) [completed]
+    - [listThreads](https://disqus.com/api/docs/categories/listThreads/) [completed]
 
 - [Exports](https://disqus.com/api/docs/exports/)
     - [exportForum](https://disqus.com/api/docs/exports/exportForum/)

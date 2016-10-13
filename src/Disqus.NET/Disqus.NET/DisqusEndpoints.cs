@@ -20,6 +20,8 @@
             public static string Create = GetUrl(Category, "create");
             public static string Details = GetUrl(Category, "details");
             public static string List = GetUrl(Category, "list");
+            public static string ListPosts = GetUrl(Category, "listPosts");
+            public static string ListThreads = GetUrl(Category, "listThreads");
         }
 
         public static class ForumCategories
