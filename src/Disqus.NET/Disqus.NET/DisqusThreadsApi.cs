@@ -18,6 +18,28 @@ namespace Disqus.NET
             return await DetailsAsync(null, request).ConfigureAwait(false);
         }
 
+        public async Task<DisqusResponse<DisqusId>> ApproveAsync(DisqusAccessToken accessToken, DisqusThreadApproveRequest request)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<DisqusId>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Approve, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<IEnumerable<DisqusId>>> CloseAsync(DisqusAccessToken accessToken, DisqusThreadCloseRequest request)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<DisqusId>>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Close, parameters)
+                .ConfigureAwait(false);
+        }
+
         public async Task<DisqusResponse<DisqusThread>> DetailsAsync(DisqusAccessToken accessToken, DisqusThreadDetailsRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
@@ -95,6 +117,39 @@ namespace Disqus.NET
             return await ListUsersVotedThreadAsync(null, request).ConfigureAwait(false);
         }
 
+        public async Task<DisqusResponse<IEnumerable<DisqusId>>> OpenAsync(DisqusAccessToken accessToken, DisqusThreadOpenRequest request)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<DisqusId>>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Open, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<IEnumerable<DisqusId>>> RemoveAsync(DisqusAccessToken accessToken, DisqusThreadRemoveRequest request)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<DisqusId>>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Remove, parameters)
+                .ConfigureAwait(false);
+        }
+
+        public async Task<DisqusResponse<IEnumerable<DisqusId>>> RestoreAsync(DisqusAccessToken accessToken, DisqusThreadRestoreRequest request)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<IEnumerable<DisqusId>>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Restore, parameters)
+                .ConfigureAwait(false);
+        }
+
         public async Task<DisqusResponse<IEnumerable<DisqusThread>>> SetAsync(DisqusAccessToken accessToken, DisqusThreadSetRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
@@ -109,6 +164,18 @@ namespace Disqus.NET
         public async Task<DisqusResponse<IEnumerable<DisqusThread>>> SetAsync(DisqusThreadSetRequest request)
         {
             return await SetAsync(null, request).ConfigureAwait(false);
+        }
+
+        // TODO: need info
+        public async Task<DisqusResponse<string>> SpamAsync(DisqusAccessToken accessToken, DisqusThreadSpamRequest request)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Spam, parameters)
+                .ConfigureAwait(false);
         }
 
         public async Task<DisqusResponse<string>> SubscribeAsync(DisqusAccessToken accessToken, string thread)

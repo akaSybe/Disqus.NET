@@ -8,6 +8,22 @@ namespace Disqus.NET
     public interface IDisqusThreadsApi
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusId>> ApproveAsync(DisqusAccessToken accessToken, DisqusThreadApproveRequest request);
+
+        /// <summary>
+        /// Closes a thread.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<IEnumerable<DisqusId>>> CloseAsync(DisqusAccessToken accessToken, DisqusThreadCloseRequest request);
+
+        /// <summary>
         /// Returns thread details.
         /// </summary>
         /// <param name="accessToken"></param>
@@ -83,6 +99,30 @@ namespace Disqus.NET
         Task<DisqusResponse<IEnumerable<DisqusUser>>> ListUsersVotedThreadAsync(DisqusThreadListUsersVotedThreadRequest request);
 
         /// <summary>
+        /// Opens a thread.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<IEnumerable<DisqusId>>> OpenAsync(DisqusAccessToken accessToken, DisqusThreadOpenRequest request);
+
+        /// <summary>
+        /// Removes a thread.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<IEnumerable<DisqusId>>> RemoveAsync(DisqusAccessToken accessToken, DisqusThreadRemoveRequest request);
+
+        /// <summary>
+        /// Opens a thread.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<IEnumerable<DisqusId>>> RestoreAsync(DisqusAccessToken accessToken, DisqusThreadRestoreRequest request);
+
+        /// <summary>
         /// Returns an unsorted set of threads given a list of ids.
         /// </summary>
         /// <param name="accessToken"></param>
@@ -96,6 +136,14 @@ namespace Disqus.NET
         /// <param name="request"></param>
         /// <returns></returns>
         Task<DisqusResponse<IEnumerable<DisqusThread>>> SetAsync(DisqusThreadSetRequest request);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<string>> SpamAsync(DisqusAccessToken accessToken, DisqusThreadSpamRequest request);
 
         /// <summary>
         /// 

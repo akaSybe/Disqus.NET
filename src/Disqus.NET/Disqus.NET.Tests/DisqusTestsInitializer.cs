@@ -23,6 +23,8 @@ namespace Disqus.NET.Tests
 
             public const int OrganizationId = 0;
 
+            public const string ThreadId = "";
+
             public const string TrustedDomain = "";
         }
 

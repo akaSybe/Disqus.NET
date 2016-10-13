@@ -117,7 +117,13 @@
     <Compile Include="Requests\DisqusCategoryListPostsRequest.cs" />
     <Compile Include="Requests\DisqusRequestBase.cs" />
     <Compile Include="Requests\DisqusCategoryListThreadsRequest.cs" />
+    <Compile Include="Requests\DisqusThreadSpamRequest.cs" />
+    <Compile Include="Requests\DisqusThreadRestoreRequest.cs" />
+    <Compile Include="Requests\DisqusThreadRemoveRequest.cs" />
+    <Compile Include="Requests\DisqusThreadCloseRequest.cs" />
+    <Compile Include="Requests\DisqusThreadOpenRequest.cs" />
     <Compile Include="Requests\DisqusThreadSetRequest.cs" />
+    <Compile Include="Requests\DisqusThreadApproveRequest.cs" />
     <Compile Include="Requests\DisqusThreadVoteRequest.cs" />
     <Compile Include="Requests\DisqusThreadListUsersVotedThreadRequest.cs" />
     <Compile Include="Requests\DisqusThreadListPopularRequest.cs" />

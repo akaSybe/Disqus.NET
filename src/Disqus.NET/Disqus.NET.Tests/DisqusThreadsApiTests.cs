@@ -10,6 +10,41 @@ namespace Disqus.NET.Tests
     public class DisqusThreadsApiTests : DisqusTestsInitializer
     {
         [Test]
+        public async Task ApproveAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusThreadApproveRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId);
+
+            /* act */
+
+            var response = await Disqus.Threads.ApproveAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+
+        [Test]
+        public async Task CloseAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusThreadCloseRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId);
+
+            /* act */
+
+            var response = await Disqus.Threads.CloseAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
         [TestCase("5164468291", DisqusThreadRelated.Category, DisqusThreadAttach.None)]
         [TestCase("5164468291", DisqusThreadRelated.Author, DisqusThreadAttach.None)]
         [TestCase("5164468291", DisqusThreadRelated.Forum, DisqusThreadAttach.None)]
@@ -124,6 +159,57 @@ namespace Disqus.NET.Tests
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
             Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task OpenAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusThreadOpenRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId);
+
+            /* act */
+
+            var response = await Disqus.Threads.OpenAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
+        public async Task RemoveAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusThreadRemoveRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId);
+
+            /* act */
+
+            var response = await Disqus.Threads.RemoveAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
+        public async Task RestoreAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusThreadRestoreRequest
+                .New(DisqusThreadLookupType.Id, TestData.ThreadId);
+
+            /* act */
+
+            var response = await Disqus.Threads.RestoreAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
         }
 
         [Test]
