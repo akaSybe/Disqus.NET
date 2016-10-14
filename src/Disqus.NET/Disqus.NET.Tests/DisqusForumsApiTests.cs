@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Disqus.NET.Models;
 using Disqus.NET.Requests;
 using NUnit.Framework;
@@ -8,6 +9,38 @@ namespace Disqus.NET.Tests
     [TestFixture]
     public class DisqusForumsApiTests: DisqusTestsInitializer
     {
+        [Test]
+        public async Task CreateAsync_Test()
+        {
+            /* arrange */
+
+            string forumId = Guid.NewGuid().ToString("N");
+            string forumName = "Test Forum";
+            string forumDescription = "Test Description";
+            string forumGuidelines = "Test Guidelines";
+            string forumLanguage = "en";
+
+            var request = DisqusForumCreateRequest
+                .New(forumName, forumId)
+                .Attach(DisqusForumAttach.ForumForumCategory)
+                .Guidelines(forumGuidelines)
+                .Description(forumDescription)
+                .Language(forumLanguage);
+
+            /* act */
+
+            var response = await Disqus.Forums.CreateAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response.Id, Is.EqualTo(forumId));
+            Assert.That(response.Response.Name, Is.EqualTo(forumName));
+            Assert.That(response.Response.RawDescription, Is.EqualTo(forumDescription));
+            Assert.That(response.Response.RawGuidelines, Is.EqualTo(forumGuidelines));
+            Assert.That(response.Response.Language, Is.EqualTo(forumLanguage));
+        }
+
         [Test]
         [TestCase(TestData.Forum, DisqusForumAttach.None, DisqusForumRelated.None)]
         [TestCase(TestData.Forum, DisqusForumAttach.None, DisqusForumRelated.Author)]
@@ -25,6 +58,26 @@ namespace Disqus.NET.Tests
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
 
             Assert.That(response.Response.Author, related != DisqusForumRelated.None ? Is.Not.Null : Is.Null);
+        }
+
+        [Test]
+        public async Task DisableAdsAsync_Tests()
+        {
+            var response = await Disqus.Forums.DisableAdsAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.Forum).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response.Id, Is.EqualTo(TestData.Forum));
+        }
+
+        [Test]
+        public async Task InterestingForumsAsync_Tests()
+        {
+            var response = await Disqus.Forums.InterestingForumsAsync(DisqusAccessToken.Create(TestData.AccessToken), 5).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]
@@ -224,6 +277,60 @@ namespace Disqus.NET.Tests
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
             Assert.That(response.Response, Is.Empty);
+        }
+
+        [Test]
+        public async Task UpdateAsync_Test()
+        {
+            /* arrange */
+            
+            string forumName = "Test Forum";
+            string forumDescription = "Test Description";
+            string forumGuidelines = "Test Guidelines";
+            string forumLanguage = "en";
+
+            var request = DisqusForumUpdateRequest
+                .New(TestData.Forum)
+                .Name(forumName)
+                .Attach(DisqusForumAttach.ForumForumCategory)
+                .Guidelines(forumGuidelines)
+                .Description(forumDescription);
+
+            /* act */
+
+            var response = await Disqus.Forums.UpdateAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));;
+            Assert.That(response.Response.Name, Is.EqualTo(forumName));
+            Assert.That(response.Response.RawDescription, Is.EqualTo(forumDescription));
+            Assert.That(response.Response.RawGuidelines, Is.EqualTo(forumGuidelines));
+            Assert.That(response.Response.Language, Is.EqualTo(forumLanguage));
+        }
+
+        [Test]
+        public async Task ValidateAsync_Test()
+        {
+            /* arrange */
+
+            string forumName = "Test Forum";
+            string forumDescription = "Test Description";
+            string forumGuidelines = "Test Guidelines";
+            string forumLanguage = "en";
+
+            var request = DisqusForumValidateRequest
+                .New(TestData.Forum)
+                .AdsPositionTopEnabled(true)
+                .AdsProductLinksEnabled(true);
+
+            /* act */
+
+            var response = await Disqus.Forums.ValidateAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
         }
     }
 }

@@ -31,13 +31,13 @@ Work in progress
 
 - [Forums](https://disqus.com/api/docs/forums/)
     - [addModerator](https://disqus.com/api/docs/forums/addModerator/) [completed]
-    - [create](https://disqus.com/api/docs/forums/create/)
+    - [create](https://disqus.com/api/docs/forums/create/) [completed]
     - [details](https://disqus.com/api/docs/forums/details/) [completed]
-    - [disableAds](https://disqus.com/api/docs/forums/disableAds/)
+    - [disableAds](https://disqus.com/api/docs/forums/disableAds/) [completed]
     - [fixFavIconsForClassifiedForums](https://disqus.com/api/docs/forums/fixFavIconsForClassifiedForums/)
     - [follow](https://disqus.com/api/docs/forums/follow/) [completed]
     - [generateInterestingContent](https://disqus.com/api/docs/forums/generateInterestingContent/)
-    - [interestingForums](https://disqus.com/api/docs/forums/interestingForums/)
+    - [interestingForums](https://disqus.com/api/docs/forums/interestingForums/) [completed]
     - [listCategories](https://disqus.com/api/docs/forums/listCategories/) [completed]
     - [listFollowers](https://disqus.com/api/docs/forums/listFollowers/) [completed]
     - [listModerators](https://disqus.com/api/docs/forums/listModerators/) [completed]
@@ -49,9 +49,9 @@ Work in progress
     - [removeDefaultAvatar](https://disqus.com/api/docs/forums/removeDefaultAvatar/)
     - [removeModerator](https://disqus.com/api/docs/forums/removeModerator/) [completed]
     - [unfollow](https://disqus.com/api/docs/forums/unfollow/) [completed]
-    - [update](https://disqus.com/api/docs/forums/update/)
+    - [update](https://disqus.com/api/docs/forums/update/) [completed]
     - [updateDefaultAvatar](https://disqus.com/api/docs/forums/updateDefaultAvatar/)
-    - [validate](https://disqus.com/api/docs/forums/validate/)
+    - [validate](https://disqus.com/api/docs/forums/validate/) [completed]
 
 - [Imports](https://disqus.com/api/docs/imports/)
     - [details](https://disqus.com/api/docs/imports/details/)

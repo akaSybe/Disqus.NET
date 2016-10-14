@@ -62,5 +62,20 @@ namespace Disqus.NET.Extensions
                     return "";
             }
         }
+
+        public static string AsParameterValue(this DisqusForumSettingsTypeface typeFace)
+        {
+            switch (typeFace)
+            {
+                case DisqusForumSettingsTypeface.Auto:
+                    return "auto";
+                case DisqusForumSettingsTypeface.Serif:
+                    return "serif";
+                case DisqusForumSettingsTypeface.SansSerif:
+                    return "sans-serif";
+                default:
+                    return "";
+            }
+        }
     }
 }

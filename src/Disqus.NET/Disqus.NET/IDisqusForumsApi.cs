@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Security.AccessControl;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
 using Disqus.NET.Requests;
@@ -23,6 +24,15 @@ namespace Disqus.NET
         Task<DisqusResponse<DisqusForumModerator>> AddModeratorAsync(string accessToken, string forum, int userId, bool? canAdminister = null, bool? canEdit = null);
 
         /// <summary>
+        /// Creates a new forum.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/create/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusForum>> CreateAsync(DisqusAccessToken accessToken, DisqusForumCreateRequest request);
+
+        /// <summary>
         /// Returns forum details.
         /// <remarks>https://disqus.com/api/docs/forums/details/</remarks>
         /// </summary>
@@ -32,6 +42,31 @@ namespace Disqus.NET
         /// <returns></returns>
         Task<DisqusResponse<DisqusForum>> DetailsAsync(string forum, DisqusForumAttach attach = DisqusForumAttach.None, DisqusForumRelated related = DisqusForumRelated.None);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/disableAds/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="forum"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusForum>> DisableAdsAsync(DisqusAccessToken accessToken, string forum);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/interestingForums/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>> InterestingForumsAsync(DisqusAccessToken accessToken, int limit);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/interestingForums/</remarks>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>> InterestingForumsAsync(int limit);
 
         /// <summary>
         /// Returns a list of categories within a forum.
@@ -168,5 +203,23 @@ namespace Disqus.NET
         /// Unfollow a forum.
         /// </summary>
         Task<DisqusResponse<IEnumerable<string>>> UnfollowAsync(string accessToken, string target);
+
+        /// <summary>
+        /// Updates forum details.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/update/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusForum>> UpdateAsync(DisqusAccessToken accessToken, DisqusForumUpdateRequest request);
+
+        /// <summary>
+        /// Updates forum details.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/validate/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<IEnumerable<string>>> ValidateAsync(DisqusAccessToken accessToken, DisqusForumValidateRequest request);
     }
 }
