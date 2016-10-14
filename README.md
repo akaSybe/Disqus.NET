@@ -34,9 +34,9 @@ Work in progress
     - [create](https://disqus.com/api/docs/forums/create/) [completed]
     - [details](https://disqus.com/api/docs/forums/details/) [completed]
     - [disableAds](https://disqus.com/api/docs/forums/disableAds/) [completed]
-    - [fixFavIconsForClassifiedForums](https://disqus.com/api/docs/forums/fixFavIconsForClassifiedForums/)
+    - ~~[fixFavIconsForClassifiedForums](https://disqus.com/api/docs/forums/fixFavIconsForClassifiedForums/)~~
     - [follow](https://disqus.com/api/docs/forums/follow/) [completed]
-    - [generateInterestingContent](https://disqus.com/api/docs/forums/generateInterestingContent/)
+    - ~~[generateInterestingContent](https://disqus.com/api/docs/forums/generateInterestingContent/)~~
     - [interestingForums](https://disqus.com/api/docs/forums/interestingForums/) [completed]
     - [listCategories](https://disqus.com/api/docs/forums/listCategories/) [completed]
     - [listFollowers](https://disqus.com/api/docs/forums/listFollowers/) [completed]
