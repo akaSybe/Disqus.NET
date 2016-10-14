@@ -46,7 +46,7 @@ Work in progress
     - [listPosts](https://disqus.com/api/docs/forums/listPosts/) [completed]
     - [listThreads](https://disqus.com/api/docs/forums/listThreads/) [completed]
     - [listUsers](https://disqus.com/api/docs/forums/listUsers/) [completed]
-    - [removeDefaultAvatar](https://disqus.com/api/docs/forums/removeDefaultAvatar/)
+    - [removeDefaultAvatar](https://disqus.com/api/docs/forums/removeDefaultAvatar/) [completed]
     - [removeModerator](https://disqus.com/api/docs/forums/removeModerator/) [completed]
     - [unfollow](https://disqus.com/api/docs/forums/unfollow/) [completed]
     - [update](https://disqus.com/api/docs/forums/update/) [completed]
