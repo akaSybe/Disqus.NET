@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
+using Disqus.NET.Requests;
 
 namespace Disqus.NET
 {
@@ -79,6 +80,36 @@ namespace Disqus.NET
         /// <param name="order"></param>
         /// <returns></returns>
         Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListMostLikedUsersAsync(string forum, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Desc);
+
+        /// <summary>
+        /// Returns a list of posts within a forum.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusForumListPostsRequest request);
+
+        /// <summary>
+        /// Returns a list of posts within a forum.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusForumListPostsRequest request);
+
+        /// <summary>
+        /// Returns a list of threads within a forum sorted by the date created.
+        /// </summary>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusThread>>> ListThreadsAsync(DisqusAccessToken accessToken, DisqusForumListThreadsRequest request);
+
+        /// <summary>
+        /// Returns a list of threads within a forum sorted by the date created.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusThread>>> ListThreadsAsync(DisqusForumListThreadsRequest request);
 
         /// <summary>
         /// Returns a list of users active within a forum.

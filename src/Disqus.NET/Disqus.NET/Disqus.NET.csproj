@@ -58,6 +58,7 @@
     <Compile Include="DisqusForumsApi.cs" />
     <Compile Include="DisqusThreadsApi.cs" />
     <Compile Include="IDisqusThreadsApi.cs" />
+    <Compile Include="Models\DisqusForumListPostsRelated.cs" />
     <Compile Include="Models\DisqusCategoryListThreadRelated.cs" />
     <Compile Include="Models\DisqusPost.cs" />
     <Compile Include="Models\DisqusVoteStats.cs" />
@@ -114,6 +115,8 @@
     <Compile Include="Models\DisqusVote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DisqusTrustedDomainsApi.cs" />
+    <Compile Include="Requests\DisqusForumListThreadsRequest.cs" />
+    <Compile Include="Requests\DisqusForumListPostsRequest.cs" />
     <Compile Include="Requests\DisqusCategoryListPostsRequest.cs" />
     <Compile Include="Requests\DisqusRequestBase.cs" />
     <Compile Include="Requests\DisqusCategoryListThreadsRequest.cs" />

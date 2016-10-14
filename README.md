@@ -43,8 +43,8 @@ Work in progress
     - [listModerators](https://disqus.com/api/docs/forums/listModerators/) [completed]
     - [listMostActiveUsers](https://disqus.com/api/docs/forums/listMostActiveUsers/) [completed]
     - [listMostLikedUsers](https://disqus.com/api/docs/forums/listMostLikedUsers/) [completed]
-    - [listPosts](https://disqus.com/api/docs/forums/listPosts/)
-    - [listThreads](https://disqus.com/api/docs/forums/listThreads/)
+    - [listPosts](https://disqus.com/api/docs/forums/listPosts/) [completed]
+    - [listThreads](https://disqus.com/api/docs/forums/listThreads/) [completed]
     - [listUsers](https://disqus.com/api/docs/forums/listUsers/) [completed]
     - [removeDefaultAvatar](https://disqus.com/api/docs/forums/removeDefaultAvatar/)
     - [removeModerator](https://disqus.com/api/docs/forums/removeModerator/) [completed]

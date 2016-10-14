@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Disqus.NET.Models;
+using Disqus.NET.Requests;
 using NUnit.Framework;
 
 namespace Disqus.NET.Tests
@@ -75,6 +76,44 @@ namespace Disqus.NET.Tests
         public async Task ListMostLikedUsersAsync_Tests(string forum, int limit, DisqusOrder order, string cursor)
         {
             var response = await Disqus.Forums.ListMostLikedUsersAsync(forum, cursor, limit, order).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Null);
+        }
+
+        [Test]
+        public async Task ListPostsAsync_Tests()
+        {
+            /* arrange */
+
+            var request = DisqusForumListPostsRequest
+                .New(TestData.Forum);
+
+            /* act */
+
+            var response = await Disqus.Forums.ListPostsAsync(request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Null);
+        }
+
+        [Test]
+        public async Task ListThreadsAsync_Tests()
+        {
+            /* arrange */
+
+            var request = DisqusForumListThreadsRequest
+                .New(TestData.Forum);
+
+            /* act */
+
+            var response = await Disqus.Forums.ListThreadsAsync(request).ConfigureAwait(false);
+
+            /* assert */
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));

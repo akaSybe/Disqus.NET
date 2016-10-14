@@ -26,7 +26,6 @@ namespace Disqus.NET.Tests
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
         }
 
-
         [Test]
         public async Task CloseAsync_Test()
         {
