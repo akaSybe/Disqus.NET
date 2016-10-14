@@ -195,6 +195,15 @@ namespace Disqus.NET
         Task<DisqusResponse<DisqusId>> RemoveModeratorAsync(string accessToken, string forum, string userName);
 
         /// <summary>
+        /// Switches a forum to use the regular default avatar instead of a custom one
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/forums/removeDefaultAvatar/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="forum"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<string>> RemoveDefaultAvatarAsync(DisqusAccessToken accessToken, string forum);
+
+        /// <summary>
         /// Follow a forum.
         /// </summary>
         Task<DisqusResponse<IEnumerable<string>>> FollowAsync(string accessToken, string target);

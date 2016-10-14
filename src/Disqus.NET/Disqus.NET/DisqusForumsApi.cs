@@ -271,6 +271,17 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
+        public async Task<DisqusResponse<string>> RemoveDefaultAvatarAsync(DisqusAccessToken accessToken, string forum)
+        {
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithParameter("access_token", accessToken)
+                .WithParameter("forum", forum);
+
+            return await RequestProcessor
+                .ExecuteAsync<DisqusResponse<string>>(DisqusRequestMethod.Post, DisqusEndpoints.Forums.RemoveDefaultAvatar, parameters)
+                .ConfigureAwait(false);
+        }
+
         public async Task<DisqusResponse<IEnumerable<string>>> FollowAsync(string accessToken, string target)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters

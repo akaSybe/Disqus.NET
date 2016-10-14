@@ -326,7 +326,23 @@ namespace Disqus.NET.Tests
 
             /* act */
 
-            var response = await Disqus.Forums.ValidateAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+            var response = await Disqus.Forums
+                .ValidateAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
+                .ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+        }
+
+        [Test]
+        public async Task RemoveDefaultAvatarAsync_Test()
+        {
+            /* act */
+
+            var response = await Disqus.Forums
+                .RemoveDefaultAvatarAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.Forum)
+                .ConfigureAwait(false);
 
             /* assert */
 
