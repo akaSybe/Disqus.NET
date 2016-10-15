@@ -20,6 +20,15 @@
             public static string ListUsage = GetUrl(Category, "listUsage");
         }
 
+        public static class Blacklists
+        {
+            private const string Category = "blacklists";
+
+            public static string Add = GetUrl(Category, "add");
+            public static string List = GetUrl(Category, "list");
+            public static string Remove = GetUrl(Category, "remove");
+        }
+
         public static class Categories
         {
             private const string Category = "categories";

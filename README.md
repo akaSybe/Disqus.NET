@@ -10,10 +10,10 @@ Work in progress
     - [listUsage](https://disqus.com/api/docs/applications/listUsage/) [completed]
 
 - [Blacklists](https://disqus.com/api/docs/blacklists/)
-    - [add](https://disqus.com/api/docs/blacklists/add/)
-    - [backfillCounters](https://disqus.com/api/docs/blacklists/backfillCounters/)
-    - [list](https://disqus.com/api/docs/blacklists/list/)
-    - [remove](https://disqus.com/api/docs/blacklists/remove/)
+    - [add](https://disqus.com/api/docs/blacklists/add/) [completed]
+    - ~~[backfillCounters](https://disqus.com/api/docs/blacklists/backfillCounters/)~~
+    - [list](https://disqus.com/api/docs/blacklists/list/) [completed]
+    - [remove](https://disqus.com/api/docs/blacklists/remove/) [completed]
 
 - [Category](https://disqus.com/api/docs/categories/)
     - [create](https://disqus.com/api/docs/categories/create/) [completed]

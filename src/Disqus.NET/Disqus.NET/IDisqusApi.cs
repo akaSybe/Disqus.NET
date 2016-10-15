@@ -3,6 +3,7 @@
     public interface IDisqusApi
     {
         IDisqusApplicationsApi Applications { get; }
+        IDisqusBlacklistsApi Blacklists { get; }
         IDisqusCategoryApi Category { get; }
         IDisqusForumCategoryApi ForumCategory { get; }
         IDisqusForumsApi Forums { get; }

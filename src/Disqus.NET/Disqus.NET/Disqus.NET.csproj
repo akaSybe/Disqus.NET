@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="DisqusApiBase.cs" />
     <Compile Include="DisqusAuthMethod.cs" />
+    <Compile Include="DisqusBlacklistsApi.cs" />
     <Compile Include="DisqusCategoryApi.cs" />
     <Compile Include="DisqusCursoredResponse.cs" />
     <Compile Include="DisqusApi.cs" />
@@ -131,6 +132,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DisqusTrustedDomainsApi.cs" />
     <Compile Include="Requests\DisqusApplicationListUsageRequest.cs" />
+    <Compile Include="Requests\DisqusBlacklistEntryRetroactiveAction.cs" />
+    <Compile Include="Requests\DisqusBlacklistAddRequest.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryRelated.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryTypes.cs" />
     <Compile Include="Requests\DisqusWhitelistListRequest.cs" />
