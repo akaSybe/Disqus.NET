@@ -126,7 +126,7 @@ namespace Disqus.NET.Requests
 
         public DisqusPostListRequest Limit(int limit)
         {
-            Parameters.Add(new KeyValuePair<string, string>("cursor", limit.ToString()));
+            Parameters.Add(new KeyValuePair<string, string>("limit", limit.ToString()));
 
             return this;
         }

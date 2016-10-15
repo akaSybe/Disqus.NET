@@ -112,7 +112,7 @@ namespace Disqus.NET.Tests
 
             var request = DisqusThreadListRequest
                 .New()
-                .ByForums(TestData.Forum)
+                .Forum(TestData.Forum)
                 .Related(DisqusThreadRelated.Forum);
 
             /* act */

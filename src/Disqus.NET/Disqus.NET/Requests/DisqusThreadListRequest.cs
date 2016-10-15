@@ -16,7 +16,7 @@ namespace Disqus.NET.Requests
             return new DisqusThreadListRequest();
         }
 
-        public DisqusThreadListRequest ByCategories(params int[] categories)
+        public DisqusThreadListRequest Category(params int[] categories)
         {
             var parameters = categories.Select(id => new KeyValuePair<string, string>("category", id.ToString()));
             Parameters.AddRange(parameters);
@@ -24,7 +24,7 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusThreadListRequest ByForums(params string[] forums)
+        public DisqusThreadListRequest Forum(params string[] forums)
         {
             var parameters = forums.Select(forum=> new KeyValuePair<string, string>("forum", forum));
             Parameters.AddRange(parameters);
@@ -32,7 +32,7 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusThreadListRequest ByThreads(DisqusThreadLookupType lookupType, params string[] threads)
+        public DisqusThreadListRequest Thread(DisqusThreadLookupType lookupType, params string[] threads)
         {
             var parameters = threads.Select(thread => new KeyValuePair<string, string>(lookupType.AsParameterName(), thread));
             Parameters.AddRange(parameters);
@@ -40,7 +40,7 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusThreadListRequest ByAuthors(DisqusAuthorLookupType lookupType, params string[] authors)
+        public DisqusThreadListRequest Author(DisqusAuthorLookupType lookupType, params string[] authors)
         {
             var parameters = authors.Select(author => new KeyValuePair<string, string>(lookupType.AsParameterName(), author));
             Parameters.AddRange(parameters);

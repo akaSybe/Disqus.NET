@@ -103,7 +103,7 @@ Work in progress
     - [update](https://disqus.com/api/docs/topics/update/)
 
 - [Trends](https://disqus.com/api/docs/trends/)
-    - [listThreads](https://disqus.com/api/docs/trends/listThreads/)
+    - [listThreads](https://disqus.com/api/docs/trends/listThreads/) [completed]
 
 - [TrustedDomain](https://disqus.com/api/docs/forums/trustedDomain/)
     - [create](https://disqus.com/api/docs/forums/trustedDomain/create/) [completed]

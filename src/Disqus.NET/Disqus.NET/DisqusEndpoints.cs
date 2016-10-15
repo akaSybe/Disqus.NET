@@ -136,6 +136,13 @@
             public static string Vote = GetUrl(Category, "vote");
         }
 
+        public static class Trends
+        {
+            private const string Category = "trends";
+
+            public static string ListThreads = GetUrl(Category, "listThreads");
+        }
+
         public static class TrustedDomain
         {
             private const string Category = "forums/trustedDomain";

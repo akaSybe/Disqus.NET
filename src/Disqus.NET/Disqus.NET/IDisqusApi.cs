@@ -11,6 +11,7 @@
         IDisqusOrganizationsApi Organizations { get; }
         IDisqusPostsApi Posts { get; }
         IDisqusThreadsApi Threads { get; }
+        IDisqusTrendsApi Trends { get; }
         IDisqusTrustedDomainsApi TrustedDomains { get; }
         IDisqusUsersApi Users { get; }
         IDisqusWhitelistsApi Whitelists { get; }

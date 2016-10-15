@@ -60,9 +60,11 @@
     <Compile Include="DisqusImportsApi.cs" />
     <Compile Include="DisqusPostsApi.cs" />
     <Compile Include="DisqusThreadsApi.cs" />
+    <Compile Include="DisqusTrendsApi.cs" />
     <Compile Include="DisqusWhitelistsApi.cs" />
     <Compile Include="IDisqusApplicationsApi.cs" />
     <Compile Include="IDisqusImportsApi.cs" />
+    <Compile Include="IDisqusTrendsApi.cs" />
     <Compile Include="IDisqusWhitelistsApi.cs" />
     <Compile Include="IDisqusBlacklistsApi.cs" />
     <Compile Include="IDisqusPostsApi.cs" />
@@ -71,6 +73,7 @@
     <Compile Include="Internal\DisqusInterestingItem.cs" />
     <Compile Include="Models\DisqusApplicationUsage.cs" />
     <Compile Include="Models\DisqusImport.cs" />
+    <Compile Include="Models\DisqusTrend.cs" />
     <Compile Include="Models\DisqusWhitelistEntry.cs" />
     <Compile Include="Models\DisqusBlacklistEntry.cs" />
     <Compile Include="Models\DisqusForumListPostsRelated.cs" />
@@ -137,6 +140,7 @@
     <Compile Include="Requests\DisqusApplicationListUsageRequest.cs" />
     <Compile Include="Requests\DisqusBlacklistEntryRetroactiveAction.cs" />
     <Compile Include="Requests\DisqusBlacklistAddRequest.cs" />
+    <Compile Include="Requests\DisqusTrendListThreadsRequest.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryRelated.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryTypes.cs" />
     <Compile Include="Requests\DisqusWhitelistListRequest.cs" />
