@@ -1,6 +1,6 @@
 ﻿namespace Disqus.NET.Models
 {
-    public enum DisqusThreadPopularInterval
+    public enum DisqusPopularInterval
     {
         Interval1Hour,
         Interval6Hours,

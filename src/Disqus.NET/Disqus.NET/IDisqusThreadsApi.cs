@@ -212,13 +212,13 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusVoteStats>> VoteAsync(DisqusAccessToken accessToken, DisqusThreadVoteRequest request);
+        Task<DisqusResponse<DisqusThreadVoteStats>> VoteAsync(DisqusAccessToken accessToken, DisqusThreadVoteRequest request);
 
         /// <summary>
         /// Register a vote on a thread.
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusVoteStats>> VoteAsync(DisqusThreadVoteRequest request);
+        Task<DisqusResponse<DisqusThreadVoteStats>> VoteAsync(DisqusThreadVoteRequest request);
     }
 }

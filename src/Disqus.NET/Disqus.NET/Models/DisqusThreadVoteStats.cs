@@ -2,7 +2,7 @@
 
 namespace Disqus.NET.Models
 {
-    public class DisqusVoteStats
+    public class DisqusPostVoteStats
     {
         [JsonProperty("id")]
         public string Id { get; set; }
@@ -19,7 +19,7 @@ namespace Disqus.NET.Models
         [JsonProperty("dislikesDelta")]
         public int DislikesDelta { get; set; }
 
-        [JsonProperty("thread")]
-        public DisqusThread Thread { get; set; }
+        [JsonProperty("post")]
+        public DisqusPost Post { get; set; }
     }
 }

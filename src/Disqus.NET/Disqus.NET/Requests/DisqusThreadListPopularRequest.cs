@@ -23,7 +23,7 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusThreadListPopularRequest Interval(DisqusThreadPopularInterval interval)
+        public DisqusThreadListPopularRequest Interval(DisqusPopularInterval interval)
         {
             Parameters.Add(new KeyValuePair<string, string>("interval", interval.AsParameterValue()));
 

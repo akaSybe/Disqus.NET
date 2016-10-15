@@ -260,18 +260,18 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusVoteStats>> VoteAsync(DisqusAccessToken accessToken, DisqusThreadVoteRequest request)
+        public async Task<DisqusResponse<DisqusThreadVoteStats>> VoteAsync(DisqusAccessToken accessToken, DisqusThreadVoteRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithOptionalParameter("access_token", accessToken)
                 .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
-                .ExecuteAsync<DisqusResponse<DisqusVoteStats>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Vote, parameters)
+                .ExecuteAsync<DisqusResponse<DisqusThreadVoteStats>>(DisqusRequestMethod.Post, DisqusEndpoints.Threads.Vote, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusVoteStats>> VoteAsync(DisqusThreadVoteRequest request)
+        public async Task<DisqusResponse<DisqusThreadVoteStats>> VoteAsync(DisqusThreadVoteRequest request)
         {
             return await VoteAsync(null, request).ConfigureAwait(false);
         }

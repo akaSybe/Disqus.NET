@@ -56,7 +56,9 @@
     <Compile Include="DisqusErrorResponse.cs" />
     <Compile Include="DisqusForumCategoriesApi.cs" />
     <Compile Include="DisqusForumsApi.cs" />
+    <Compile Include="DisqusPostsApi.cs" />
     <Compile Include="DisqusThreadsApi.cs" />
+    <Compile Include="IDisqusPostsApi.cs" />
     <Compile Include="IDisqusThreadsApi.cs" />
     <Compile Include="Internal\DisqusInterestingCollection.cs" />
     <Compile Include="Internal\DisqusInterestingItem.cs" />
@@ -64,8 +66,10 @@
     <Compile Include="Models\DisqusCategoryListThreadRelated.cs" />
     <Compile Include="Models\DisqusInterestingObject.cs" />
     <Compile Include="Models\DisqusPost.cs" />
+    <Compile Include="Models\DisqusPostState.cs" />
+    <Compile Include="Models\DisqusPostVoteStats.cs" />
     <Compile Include="Models\DisqusUserActivity.cs" />
-    <Compile Include="Models\DisqusVoteStats.cs" />
+    <Compile Include="Models\DisqusThreadVoteStats.cs" />
     <Compile Include="Models\DisqusThread.cs" />
     <Compile Include="DisqusAccessToken.cs" />
     <Compile Include="Models\DisqusOrder.cs" />
@@ -115,7 +119,7 @@
     <Compile Include="Models\DisqusUserListFollowingAttach.cs" />
     <Compile Include="Models\DisqusUserListFollowersAttach.cs" />
     <Compile Include="Models\DisqusUserReportReason.cs" />
-    <Compile Include="Models\DisqusThreadPopularInterval.cs" />
+    <Compile Include="Models\DisqusPopularInterval.cs" />
     <Compile Include="Models\DisqusVote.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DisqusTrustedDomainsApi.cs" />
@@ -130,6 +134,12 @@
     <Compile Include="Requests\DisqusCategoryListPostsRequest.cs" />
     <Compile Include="Requests\DisqusForumUpdateSort.cs" />
     <Compile Include="Requests\DisqusForumValidateRequest.cs" />
+    <Compile Include="Requests\DisqusPostUpdateRequest.cs" />
+    <Compile Include="Requests\DisqusPostGetContextRequest.cs" />
+    <Compile Include="Requests\DisqusPostCreateRequest.cs" />
+    <Compile Include="Requests\DisqusPostDetailsRequest.cs" />
+    <Compile Include="Requests\DisqusPostListPopularRequest.cs" />
+    <Compile Include="Requests\DisqusPostListRequest.cs" />
     <Compile Include="Requests\DisqusRequestBase.cs" />
     <Compile Include="Requests\DisqusCategoryListThreadsRequest.cs" />
     <Compile Include="Requests\DisqusThreadCreateRequest.cs" />

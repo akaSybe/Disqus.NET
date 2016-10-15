@@ -38,25 +38,25 @@ namespace Disqus.NET.Extensions
             }
         }
 
-        public static string AsParameterValue(this DisqusThreadPopularInterval interval)
+        public static string AsParameterValue(this DisqusPopularInterval interval)
         {
             switch (interval)
             {
-                case DisqusThreadPopularInterval.Interval1Hour:
+                case DisqusPopularInterval.Interval1Hour:
                     return "1h";
-                case DisqusThreadPopularInterval.Interval6Hours:
+                case DisqusPopularInterval.Interval6Hours:
                     return "6h";
-                case DisqusThreadPopularInterval.Interval12Hours:
+                case DisqusPopularInterval.Interval12Hours:
                     return "12h";
-                case DisqusThreadPopularInterval.Interval1Day:
+                case DisqusPopularInterval.Interval1Day:
                     return "1d";
-                case DisqusThreadPopularInterval.Interval3Days:
+                case DisqusPopularInterval.Interval3Days:
                     return "3d";
-                case DisqusThreadPopularInterval.Interval7Days:
+                case DisqusPopularInterval.Interval7Days:
                     return "7d";
-                case DisqusThreadPopularInterval.Interval30Days:
+                case DisqusPopularInterval.Interval30Days:
                     return "30d";
-                case DisqusThreadPopularInterval.Interval90Days:
+                case DisqusPopularInterval.Interval90Days:
                     return "90d";
                 default:
                     return "";
