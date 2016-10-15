@@ -1,8 +1,8 @@
 ﻿namespace Disqus.NET.Models
 {
-    public class DisqusInterestingForum
+    public class DisqusInterestingObject<T>
     {
-        public DisqusForum Forum { get; set; }
+        public T Object { get; set; }
 
         public string Reason { get; set; }
     }

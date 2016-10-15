@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
+using Disqus.NET.Requests;
 
 namespace Disqus.NET
 {
@@ -53,6 +54,44 @@ namespace Disqus.NET
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
         Task FollowAsync(string accessToken, string username);
+
+        /// <summary>
+        /// Returns a list of interesting users. 
+        /// This is not personalized to the user making the request. 
+        /// The selection of users is pulled randomly from a list of ~100 interesting users
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/interestingUsers/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusUser>>>> InterestingUsersAsync(DisqusAccessToken accessToken, int limit);
+
+        /// <summary>
+        /// Returns a list of interesting users. 
+        /// This is not personalized to the user making the request. 
+        /// The selection of users is pulled randomly from a list of ~100 interesting users
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/interestingUsers/</remarks>
+        /// <param name="limit"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusUser>>>> InterestingUsersAsync(int limit);
+
+        /// <summary>
+        /// Returns a list of various activity types made by the user.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/listActivity/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserActivity>>> ListActivityAsync(DisqusAccessToken accessToken, DisqusUserListActivityRequest request);
+
+        /// <summary>
+        /// Returns a list of various activity types made by the user.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/listActivity/</remarks>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserActivity>>> ListActivityAsync(DisqusUserListActivityRequest request);
 
         /// <summary>
         /// Returns a list of forums a user has been active on.
@@ -195,6 +234,23 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <returns></returns>
         Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(string userName, int limit = 25, string accessToken = null);
+
+        /// <summary>
+        /// Returns a list of posts made by the user.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/listPosts/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusUsersListPostsRequest request);
+
+        /// <summary>
+        /// Returns a list of posts made by the user.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/listPosts/</remarks>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusUsersListPostsRequest request);
 
         /// <summary>
         /// Remove a user from set of followers.

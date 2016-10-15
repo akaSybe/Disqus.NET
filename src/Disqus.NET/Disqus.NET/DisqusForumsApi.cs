@@ -60,32 +60,32 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>> InterestingForumsAsync(DisqusAccessToken accessToken, int limit)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusForum>>>> InterestingForumsAsync(DisqusAccessToken accessToken, int limit)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("limit", limit)
                 .WithOptionalParameter("access_token", accessToken);
 
             var response = await RequestProcessor
-                .ExecuteAsync<CursoredDisqusResponse<DisqusInterestingForums>>(DisqusRequestMethod.Get, DisqusEndpoints.Forums.InterestingForums, parameters)
+                .ExecuteAsync<CursoredDisqusResponse<DisqusInterestingCollection<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Forums.InterestingForums, parameters)
                 .ConfigureAwait(false);
 
-            List<DisqusInterestingForum> forums = new List<DisqusInterestingForum>();
+            List<DisqusInterestingObject<DisqusForum>> forums = new List<DisqusInterestingObject<DisqusForum>>();
 
             foreach (var interestingForumItem in response.Response.Items)
             {
                 DisqusForum forum;
                 if (response.Response.Objects.TryGetValue(interestingForumItem.Id, out forum))
                 {
-                    forums.Add(new DisqusInterestingForum
+                    forums.Add(new DisqusInterestingObject<DisqusForum>
                     {
                         Reason = interestingForumItem.Reason,
-                        Forum = forum
+                        Object = forum
                     });
                 }    
             }
 
-            return new CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>
+            return new CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusForum>>>
             {
                 Cursor = response.Cursor,
                 Code = response.Code,
@@ -93,7 +93,7 @@ namespace Disqus.NET
             };
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>> InterestingForumsAsync(int limit)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusForum>>>> InterestingForumsAsync(int limit)
         {
             return await InterestingForumsAsync(null, limit).ConfigureAwait(false);
         }

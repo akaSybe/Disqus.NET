@@ -58,7 +58,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <param name="limit"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>> InterestingForumsAsync(DisqusAccessToken accessToken, int limit);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusForum>>>> InterestingForumsAsync(DisqusAccessToken accessToken, int limit);
 
         /// <summary>
         /// 
@@ -66,7 +66,7 @@ namespace Disqus.NET
         /// <remarks>https://disqus.com/api/docs/forums/interestingForums/</remarks>
         /// <param name="limit"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingForum>>> InterestingForumsAsync(int limit);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusInterestingObject<DisqusForum>>>> InterestingForumsAsync(int limit);
 
         /// <summary>
         /// Returns a list of categories within a forum.

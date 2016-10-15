@@ -7,7 +7,7 @@ namespace Disqus.NET.Models
     public class DisqusPost
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        public long Id { get; set; }
 
         [JsonProperty("message")]
         public string Message { get; set; }
@@ -25,7 +25,7 @@ namespace Disqus.NET.Models
         public string IpAddress { get; set; }
 
         [JsonProperty("parent")]
-        public string Parent { get; set; }
+        public DisqusPost Parent { get; set; }
 
         [JsonProperty("likes")]
         public int Likes { get; set; }
@@ -81,12 +81,12 @@ namespace Disqus.NET.Models
         [JsonProperty("thread")]
         public DisqusThread Thread { get; set; }
 
-        //public DisqusPost ToDisqusPost()
-        //{
-        //    return new DisqusPost
-        //    {
-        //        Id = Id,
-        //    };
-        //}
+        public static implicit operator DisqusPost(long id)
+        {
+            return new DisqusPost
+            {
+                Id = id
+            };
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
+using Disqus.NET.Requests;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 
@@ -63,6 +64,34 @@ namespace Disqus.NET.Tests
         public async Task FollowAsync_If_UserNameIsValid_ShouldReturn_SuccessResult()
         {
             await Disqus.Users.FollowAsync(TestData.AccessToken, TestData.UserName).ConfigureAwait(false);
+        }
+
+        [Test]
+        public async Task InterestingUsersAsync_Tests()
+        {
+            var response = await Disqus.Users.InterestingUsersAsync(DisqusAccessToken.Create(TestData.AccessToken), 5).ConfigureAwait(false);
+
+            Assert.That(response, Is.Not.Null);
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListActivityAsync_Test()
+        {
+            /* arrange */
+
+            var request = DisqusUserListActivityRequest
+                .New();
+
+            /* act */
+
+            var response = await Disqus.Users.ListActivityAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]
@@ -245,6 +274,62 @@ namespace Disqus.NET.Tests
             /* act */
 
             var response = await Disqus.Users.ListMostActiveForumsAsync(TestData.ModeratorUserName).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListPostAsync_ByAccessToken_Test()
+        {
+            /* arrange */
+
+            var request = DisqusUsersListPostsRequest
+                .New();
+
+            /* act */
+
+            var response = await Disqus.Users.ListPostsAsync(DisqusAccessToken.Create(TestData.AccessToken), request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListPostAsync_ByUserName_Test()
+        {
+            /* arrange */
+
+            var request = DisqusUsersListPostsRequest
+                .New()
+                .User(TestData.UserName);
+
+            /* act */
+
+            var response = await Disqus.Users.ListPostsAsync(request).ConfigureAwait(false);
+
+            /* assert */
+
+            Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
+            Assert.That(response.Response, Is.Not.Empty);
+        }
+
+        [Test]
+        public async Task ListPostAsync_ByUserId_Test()
+        {
+            /* arrange */
+
+            var request = DisqusUsersListPostsRequest
+                .New()
+                .User(TestData.UserId);
+
+            /* act */
+
+            var response = await Disqus.Users.ListPostsAsync(request).ConfigureAwait(false);
 
             /* assert */
 

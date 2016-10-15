@@ -58,11 +58,13 @@
     <Compile Include="DisqusForumsApi.cs" />
     <Compile Include="DisqusThreadsApi.cs" />
     <Compile Include="IDisqusThreadsApi.cs" />
-    <Compile Include="Internal\DisqusInterestingForum.cs" />
+    <Compile Include="Internal\DisqusInterestingCollection.cs" />
+    <Compile Include="Internal\DisqusInterestingItem.cs" />
     <Compile Include="Models\DisqusForumListPostsRelated.cs" />
     <Compile Include="Models\DisqusCategoryListThreadRelated.cs" />
-    <Compile Include="Models\DisqusInterestingForum.cs" />
+    <Compile Include="Models\DisqusInterestingObject.cs" />
     <Compile Include="Models\DisqusPost.cs" />
+    <Compile Include="Models\DisqusUserActivity.cs" />
     <Compile Include="Models\DisqusVoteStats.cs" />
     <Compile Include="Models\DisqusThread.cs" />
     <Compile Include="DisqusAccessToken.cs" />
@@ -148,6 +150,9 @@
     <Compile Include="Requests\DisqusThreadListRequest.cs" />
     <Compile Include="Requests\DisqusAuthorLookupType.cs" />
     <Compile Include="Requests\DisqusThreadLookupType.cs" />
+    <Compile Include="Requests\DisqusUserActivityInclude.cs" />
+    <Compile Include="Requests\DisqusUserListActivityRequest.cs" />
+    <Compile Include="Requests\DisqusUsersListPostsRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
