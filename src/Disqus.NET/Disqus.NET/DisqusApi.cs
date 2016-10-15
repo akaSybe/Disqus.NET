@@ -7,6 +7,7 @@ namespace Disqus.NET
         public IDisqusApplicationsApi Applications { get; }
         public IDisqusBlacklistsApi Blacklists { get; }
         public IDisqusCategoryApi Category { get; }
+        public IDisqusExportsApi Exports { get; }
         public IDisqusForumCategoryApi ForumCategory { get; }
         public IDisqusForumsApi Forums { get; }
         public IDisqusImportsApi Imports { get; }
@@ -28,6 +29,7 @@ namespace Disqus.NET
             Applications = new DisqusApplicationsApi(requestProcessor, authMethod, key);
             Blacklists = new DisqusBlacklistsApi(requestProcessor, authMethod, key);
             Category = new DisqusCategoryApi(requestProcessor, authMethod, key);
+            Exports = new DisqusExportsApi(requestProcessor, authMethod, key);
             ForumCategory = new DisqusForumCategoriesApi(requestProcessor, authMethod, key);
             Forums = new DisqusForumsApi(requestProcessor, authMethod, key);
             Imports = new DisqusImportsApi(requestProcessor, authMethod, key);

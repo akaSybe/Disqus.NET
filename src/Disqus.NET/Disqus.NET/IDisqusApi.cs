@@ -5,6 +5,7 @@
         IDisqusApplicationsApi Applications { get; }
         IDisqusBlacklistsApi Blacklists { get; }
         IDisqusCategoryApi Category { get; }
+        IDisqusExportsApi Exports { get; }
         IDisqusForumCategoryApi ForumCategory { get; }
         IDisqusForumsApi Forums { get; }
         IDisqusImportsApi Imports { get; }

@@ -23,7 +23,7 @@ Work in progress
     - [listThreads](https://disqus.com/api/docs/categories/listThreads/) [completed]
 
 - [Exports](https://disqus.com/api/docs/exports/)
-    - [exportForum](https://disqus.com/api/docs/exports/exportForum/)
+    - [exportForum](https://disqus.com/api/docs/exports/exportForum/) [completed]
 
 - [ForumCategory](https://disqus.com/api/docs/forumCategories/)
     - [details](https://disqus.com/api/docs/forumCategories/details/) [completed]

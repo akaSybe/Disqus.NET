@@ -40,6 +40,13 @@
             public static string ListThreads = GetUrl(Category, "listThreads");
         }
 
+        public static class Exports
+        {
+            private const string Category = "exports";
+
+            public static string ExportForum = GetUrl(Category, "exportForum");
+        }
+
         public static class ForumCategories
         {
             private const string Category = "forumCategories";

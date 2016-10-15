@@ -55,6 +55,7 @@
     <Compile Include="DisqusAuth.cs" />
     <Compile Include="DisqusEndpoints.cs" />
     <Compile Include="DisqusErrorResponse.cs" />
+    <Compile Include="DisqusExportsApi.cs" />
     <Compile Include="DisqusForumCategoriesApi.cs" />
     <Compile Include="DisqusForumsApi.cs" />
     <Compile Include="DisqusImportsApi.cs" />
@@ -63,6 +64,7 @@
     <Compile Include="DisqusTrendsApi.cs" />
     <Compile Include="DisqusWhitelistsApi.cs" />
     <Compile Include="IDisqusApplicationsApi.cs" />
+    <Compile Include="IDisqusExportsApi.cs" />
     <Compile Include="IDisqusImportsApi.cs" />
     <Compile Include="IDisqusTrendsApi.cs" />
     <Compile Include="IDisqusWhitelistsApi.cs" />
@@ -140,6 +142,8 @@
     <Compile Include="Requests\DisqusApplicationListUsageRequest.cs" />
     <Compile Include="Requests\DisqusBlacklistEntryRetroactiveAction.cs" />
     <Compile Include="Requests\DisqusBlacklistAddRequest.cs" />
+    <Compile Include="Requests\DisqusExportExportForumRequest.cs" />
+    <Compile Include="Requests\DisqusExportFormat.cs" />
     <Compile Include="Requests\DisqusTrendListThreadsRequest.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryRelated.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryTypes.cs" />

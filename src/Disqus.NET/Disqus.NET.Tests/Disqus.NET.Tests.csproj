@@ -59,6 +59,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="DisqusExportsApiTests.cs" />
     <Compile Include="DisqusTrendsApiTests.cs" />
     <Compile Include="DisqusImportsApiTests.cs" />
     <Compile Include="DisqusBlacklistsApiTests.cs" />
