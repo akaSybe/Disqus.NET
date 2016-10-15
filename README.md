@@ -54,8 +54,8 @@ Work in progress
     - [validate](https://disqus.com/api/docs/forums/validate/) [completed]
 
 - [Imports](https://disqus.com/api/docs/imports/)
-    - [details](https://disqus.com/api/docs/imports/details/)
-    - [list](https://disqus.com/api/docs/imports/list/)
+    - [details](https://disqus.com/api/docs/imports/details/) [completed]
+    - [list](https://disqus.com/api/docs/imports/list/) [completed]
 
 - [Media](https://disqus.com/api/docs/media/)
 

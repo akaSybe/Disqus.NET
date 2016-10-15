@@ -76,6 +76,14 @@
             public static string Validate = GetUrl(Category, "validate");
         }
 
+        public static class Imports
+        {
+            private const string Category = "imports";
+
+            public static string Details = GetUrl(Category, "details");
+            public static string List = GetUrl(Category, "list");
+        }
+
         public static class Organizations
         {
             private const string Category = "organizations";
