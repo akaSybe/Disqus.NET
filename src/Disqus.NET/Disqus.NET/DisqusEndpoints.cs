@@ -152,5 +152,14 @@
             public static string Unfollow = GetUrl(Category, "unfollow");
             public static string UpdateProfile = GetUrl(Category, "updateProfile");
         }
+
+        public static class Whitelists
+        {
+            private const string Category = "whitelists";
+
+            public static string Add = GetUrl(Category, "add");
+            public static string List = GetUrl(Category, "list");
+            public static string Remove = GetUrl(Category, "remove");
+        }
     }
 }

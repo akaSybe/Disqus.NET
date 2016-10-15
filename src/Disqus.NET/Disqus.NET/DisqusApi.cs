@@ -13,6 +13,7 @@ namespace Disqus.NET
         public IDisqusThreadsApi Threads { get; }
         public IDisqusTrustedDomainsApi TrustedDomains { get; }
         public IDisqusUsersApi Users { get; }
+        public IDisqusWhitelistsApi Whitelists { get; set; }
 
         public DisqusApi(IDisqusRequestProcessor requestProcessor, DisqusAuthMethod authMethod, string key)
         {
@@ -30,6 +31,7 @@ namespace Disqus.NET
             Threads = new DisqusThreadsApi(requestProcessor, authMethod, key);
             TrustedDomains = new DisqusTrustedDomainsApi(requestProcessor, authMethod, key);
             Users = new DisqusUsersApi(requestProcessor, authMethod, key);
+            Whitelists = new DisqusWhitelistsApi(requestProcessor, authMethod, key);
         }
     }
 }

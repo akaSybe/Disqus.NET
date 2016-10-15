@@ -11,5 +11,6 @@
         IDisqusThreadsApi Threads { get; }
         IDisqusTrustedDomainsApi TrustedDomains { get; }
         IDisqusUsersApi Users { get; }
+        IDisqusWhitelistsApi Whitelists { get; }
     }
 }

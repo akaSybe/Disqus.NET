@@ -132,6 +132,6 @@ Work in progress
     - [updateProfile](https://disqus.com/api/docs/users/updateProfile/) [completed]
 
 - [Whitelists](https://disqus.com/api/docs/whitelists/)
-    - [add](https://disqus.com/api/docs/whitelists/add/)
-    - [list](https://disqus.com/api/docs/whitelists/list/)
-    - [remove](https://disqus.com/api/docs/whitelists/remove/)
+    - [add](https://disqus.com/api/docs/whitelists/add/) [completed]
+    - [list](https://disqus.com/api/docs/whitelists/list/) [completed]
+    - [remove](https://disqus.com/api/docs/whitelists/remove/) [completed]
