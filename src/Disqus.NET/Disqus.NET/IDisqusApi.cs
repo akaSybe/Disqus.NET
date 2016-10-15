@@ -2,6 +2,7 @@
 {
     public interface IDisqusApi
     {
+        IDisqusApplicationsApi Applications { get; }
         IDisqusCategoryApi Category { get; }
         IDisqusForumCategoryApi ForumCategory { get; }
         IDisqusForumsApi Forums { get; }

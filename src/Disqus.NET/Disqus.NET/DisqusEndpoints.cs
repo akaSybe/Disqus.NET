@@ -13,6 +13,13 @@
             return ApiUrl + category + "/" + resource + OutputType;
         }
 
+        public static class Applications
+        {
+            private const string Category = "applications";
+
+            public static string ListUsage = GetUrl(Category, "listUsage");
+        }
+
         public static class Categories
         {
             private const string Category = "categories";

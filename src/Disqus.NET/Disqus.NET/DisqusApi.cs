@@ -4,6 +4,7 @@ namespace Disqus.NET
 {
     public class DisqusApi : IDisqusApi
     {
+        public IDisqusApplicationsApi Applications { get; set; }
         public IDisqusCategoryApi Category { get; }
         public IDisqusForumCategoryApi ForumCategory { get; }
         public IDisqusForumsApi Forums { get; }
@@ -20,6 +21,7 @@ namespace Disqus.NET
                 throw new ArgumentNullException(nameof(key));
             }
 
+            Applications = new DisqusApplicationsApi(requestProcessor, authMethod, key);
             Category = new DisqusCategoryApi(requestProcessor, authMethod, key);
             ForumCategory = new DisqusForumCategoriesApi(requestProcessor, authMethod, key);
             Forums = new DisqusForumsApi(requestProcessor, authMethod, key);

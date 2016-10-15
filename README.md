@@ -7,7 +7,7 @@ Work in progress
 - [Announcements/Templates](https://disqus.com/api/docs/announcements/templates/)
 
 - [Applications](https://disqus.com/api/docs/applications/)
-    - [listUsage](https://disqus.com/api/docs/applications/listUsage/)
+    - [listUsage](https://disqus.com/api/docs/applications/listUsage/) [completed]
 
 - [Blacklists](https://disqus.com/api/docs/blacklists/)
     - [add](https://disqus.com/api/docs/blacklists/add/)
