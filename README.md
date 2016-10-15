@@ -66,18 +66,18 @@ Work in progress
     - [setRole](https://disqus.com/api/docs/organizations/setRole/) [completed]
 
 - [Posts](https://disqus.com/api/docs/posts/)
-    - [approve](https://disqus.com/api/docs/posts/approve/)
-    - [create](https://disqus.com/api/docs/posts/create/)
-    - [details](https://disqus.com/api/docs/posts/details/)
-    - [getContext](https://disqus.com/api/docs/posts/getContext/)
-    - [list](https://disqus.com/api/docs/posts/list/)
-    - [listPopular](https://disqus.com/api/docs/posts/listPopular/)
-    - [remove](https://disqus.com/api/docs/posts/remove/)
-    - [report](https://disqus.com/api/docs/posts/report/)
-    - [restore](https://disqus.com/api/docs/posts/restore/)
-    - [spam](https://disqus.com/api/docs/posts/spam/)
-    - [update](https://disqus.com/api/docs/posts/update/)
-    - [vote](https://disqus.com/api/docs/posts/vote/)
+    - [approve](https://disqus.com/api/docs/posts/approve/) [completed]
+    - [create](https://disqus.com/api/docs/posts/create/) [completed]
+    - [details](https://disqus.com/api/docs/posts/details/) [completed]
+    - [getContext](https://disqus.com/api/docs/posts/getContext/) [completed]
+    - [list](https://disqus.com/api/docs/posts/list/) [completed]
+    - [listPopular](https://disqus.com/api/docs/posts/listPopular/) [completed]
+    - [remove](https://disqus.com/api/docs/posts/remove/) [completed]
+    - [report](https://disqus.com/api/docs/posts/report/) [completed]
+    - [restore](https://disqus.com/api/docs/posts/restore/) [completed]
+    - [spam](https://disqus.com/api/docs/posts/spam/) [completed]
+    - [update](https://disqus.com/api/docs/posts/update/) [completed]
+    - [vote](https://disqus.com/api/docs/posts/vote/) [completed]
 
 - [Threads](https://disqus.com/api/docs/threads/)
     - [approve](https://disqus.com/api/docs/threads/approve/) [completed]
