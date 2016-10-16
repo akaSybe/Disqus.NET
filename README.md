@@ -1,6 +1,69 @@
 # Disqus.NET
 
-Work in progress
+## Example usage
+
+* Get forum details
+
+```C#
+
+var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, <your_application_secret_key>);
+
+var request = DisqusForumDetailsRequest
+    .New("disqus")
+    .Related(DisqusForumRelated.Author)
+    .Attach(DisqusForumAttach.ForumForumCategory | DisqusForumAttach.Counters);
+
+var response = await disqus.Forums.DetailsAsync(request).ConfigureAwait(false);
+
+```
+
+* Get forum threads page by page using cursor
+
+```C#
+
+var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, DisqusKey);
+
+List<string> threads = new List<string>();
+string cursor = null;
+
+do
+{
+    var request = DisqusForumListThreadsRequest
+        .New("disqus")
+        .Limit(100)
+        .Cursor(cursor)
+        .Include(DisqusThreadInclude.Open)
+        .Since(new DateTime(2016, 09, 01))
+        .Order(DisqusOrder.Asc);
+
+    var response = await disqus.Forums
+        .ListThreadsAsync(request)
+        .ConfigureAwait(false);
+
+    /* do something with threads */
+    foreach (var thread in response.Response)
+    {
+        threads.Add(thread.Id);
+    }
+
+    // if cursor has more then set cursor to next result
+    if (response.Cursor.More)
+    {
+        cursor = response.Cursor.Next;
+    }
+    else
+    {
+        cursor = null;
+    }
+
+} while (cursor != null);
+	    
+```
+## Installation 
+
+Nuget coming soon...
+
+## Resources
 
 - [Announcements](https://disqus.com/api/docs/announcements/)
 
