@@ -6,7 +6,7 @@
 
 ```C#
 
-var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, DisqusKey);
+var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, <your_application_secret_key>);
 
 var request = DisqusForumDetailsRequest
     .New("disqus")
