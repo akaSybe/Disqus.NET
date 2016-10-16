@@ -17,7 +17,8 @@ namespace Disqus.NET.Tests
 
             var request = DisqusApplicationListUsageRequest
                 .New()
-                .Days(days);
+                .Days(days)
+                .Application(TestData.ApplicationId);
 
             /* act */
 

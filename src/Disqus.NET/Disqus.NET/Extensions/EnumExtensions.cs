@@ -26,18 +26,6 @@ namespace Disqus.NET.Extensions
             }
         }
 
-        public static string AsParameterName(this DisqusAuthorLookupType type, string parameterName = "author")
-        {
-            switch (type)
-            {
-                case DisqusAuthorLookupType.Username:
-                    return string.Format("{0}:{1}", parameterName, "username");
-                case DisqusAuthorLookupType.Id:
-                default:
-                    return parameterName;
-            }
-        }
-
         public static string AsParameterValue(this DisqusPopularInterval interval)
         {
             switch (interval)

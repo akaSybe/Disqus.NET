@@ -10,13 +10,30 @@ namespace Disqus.NET
         /// <summary>
         /// Creates a new category.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/categories/create/</remarks>
         /// <param name="accessToken"></param>
-        /// <param name="forum"></param>
-        /// <param name="title"></param>
-        /// <param name="default"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusCategory>> CreateAsync(string accessToken, string forum, string title, bool @default = false);
+        Task<DisqusResponse<DisqusCategory>> CreateAsync(DisqusAccessToken accessToken, DisqusCategoryCreateRequest request);
 
+        /// <summary>
+        /// Creates a new category.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/docs/categories/create/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<DisqusResponse<DisqusCategory>> CreateAsync(DisqusCategoryCreateRequest request);
+
+        /// <summary>
+        /// Returns category details.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/3.0/categories/details.json</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="categoryId"></param>
+        /// <returns></returns>
+
+        Task<DisqusResponse<DisqusCategory>> DetailsAsync(DisqusAccessToken accessToken, int categoryId);
         /// <summary>
         /// Returns category details.
         /// </summary>
@@ -30,13 +47,19 @@ namespace Disqus.NET
         /// </summary>
         /// <remarks>https://disqus.com/api/3.0/categories/list.json</remarks>
         /// <returns></returns>
-        /// <param name="forum"></param>
-        /// <param name="sinceId">category id</param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<List<DisqusCategory>>> ListAsync(string forum, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc);
+        Task<CursoredDisqusResponse<List<DisqusCategory>>> ListAsync(DisqusAccessToken accessToken, DisqusCategoryListRequest request);
+
+        /// <summary>
+        /// Returns a list of categories within a forum.
+        /// </summary>
+        /// <remarks>https://disqus.com/api/3.0/categories/list.json</remarks>
+        /// <returns></returns>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        Task<CursoredDisqusResponse<List<DisqusCategory>>> ListAsync(DisqusCategoryListRequest request);
 
         /// <summary>
         /// Returns a list of posts within a category.

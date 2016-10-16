@@ -11,6 +11,8 @@ namespace Disqus.NET.Tests
         {
             public const string AccessToken = "";
 
+            public const int ApplicationId = 0;
+
             public const int CategoryId = 0;
 
             public const string Forum = "";

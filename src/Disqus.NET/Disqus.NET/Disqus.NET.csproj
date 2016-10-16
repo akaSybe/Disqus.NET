@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DisqusApiBase.cs" />
+    <Compile Include="DisqusApplicationsApi.cs" />
     <Compile Include="DisqusAuthMethod.cs" />
     <Compile Include="DisqusBlacklistsApi.cs" />
     <Compile Include="DisqusCategoryApi.cs" />
@@ -140,8 +141,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DisqusTrustedDomainsApi.cs" />
     <Compile Include="Requests\DisqusApplicationListUsageRequest.cs" />
+    <Compile Include="Requests\DisqusCategoryCreateRequest.cs" />
     <Compile Include="Requests\DisqusBlacklistEntryRetroactiveAction.cs" />
     <Compile Include="Requests\DisqusBlacklistAddRequest.cs" />
+    <Compile Include="Requests\DisqusCategoryListRequest.cs" />
     <Compile Include="Requests\DisqusExportExportForumRequest.cs" />
     <Compile Include="Requests\DisqusExportFormat.cs" />
     <Compile Include="Requests\DisqusTrendListThreadsRequest.cs" />
@@ -189,7 +192,7 @@
     <Compile Include="Requests\DisqusThreadListHotRequest.cs" />
     <Compile Include="Requests\DisqusThreadDetailsRequest.cs" />
     <Compile Include="Requests\DisqusThreadListRequest.cs" />
-    <Compile Include="Requests\DisqusAuthorLookupType.cs" />
+    <Compile Include="Requests\DisqusUserLookupType.cs" />
     <Compile Include="Requests\DisqusThreadLookupType.cs" />
     <Compile Include="Requests\DisqusUserActivityInclude.cs" />
     <Compile Include="Requests\DisqusUserListActivityRequest.cs" />

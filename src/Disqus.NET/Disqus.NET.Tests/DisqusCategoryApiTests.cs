@@ -11,9 +11,20 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task CreateAsync_Test()
         {
+            /* arrange */
+
             string title = "test";
 
-            var response = await Disqus.Category.CreateAsync(TestData.AccessToken, TestData.Forum, title).ConfigureAwait(false);
+            var request = DisqusCategoryCreateRequest
+                .New(TestData.Forum, title);
+
+            /* act */
+
+            var response = await Disqus.Category
+                .CreateAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
+                .ConfigureAwait(false);
+
+            /* assert */
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -24,7 +35,13 @@ namespace Disqus.NET.Tests
         [TestCase(1)]
         public async Task DetailsAsync_Test(int forumCategoryId)
         {
-            var response = await Disqus.Category.DetailsAsync(forumCategoryId).ConfigureAwait(false);
+            /* act */
+
+            var response = await Disqus.Category
+                .DetailsAsync(forumCategoryId)
+                .ConfigureAwait(false);
+
+            /* assert */
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -34,7 +51,18 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task ListAsync_Test()
         {
-            var response = await Disqus.Category.ListAsync(TestData.Forum).ConfigureAwait(false);
+            /* arrange */
+
+            var request = DisqusCategoryListRequest
+                .New(TestData.Forum)
+                .Limit(10)
+                .Order(DisqusOrder.Asc);
+
+            /* act */
+             
+            var response = await Disqus.Category.ListAsync(request).ConfigureAwait(false);
+
+            /* assert */
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));

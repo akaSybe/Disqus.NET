@@ -40,9 +40,17 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusThreadListRequest Author(DisqusAuthorLookupType lookupType, params string[] authors)
+        public DisqusThreadListRequest Author(params string[] authors)
         {
-            var parameters = authors.Select(author => new KeyValuePair<string, string>(lookupType.AsParameterName(), author));
+            var parameters = authors.Select(author => new KeyValuePair<string, string>("author:username", author));
+            Parameters.AddRange(parameters);
+
+            return this;
+        }
+
+        public DisqusThreadListRequest Author(params int[] authors)
+        {
+            var parameters = authors.Select(author => new KeyValuePair<string, string>("author", author.ToString()));
             Parameters.AddRange(parameters);
 
             return this;
