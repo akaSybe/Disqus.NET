@@ -241,8 +241,9 @@ namespace Disqus.NET.Tests
                 .New(TestData.Forum)
                 .Include(DisqusThreadInclude.Open)
                 .Limit(10)
-                .Order(DisqusOrder.Asc)
-                .Related(DisqusCategoryListThreadRelated.Author | DisqusCategoryListThreadRelated.Forum);
+                .Related(DisqusCategoryListThreadRelated.Author | DisqusCategoryListThreadRelated.Forum)
+                .Since(new DateTime(2016, 09, 01, 0, 0, 0))
+                .Order(DisqusOrder.Asc);
 
             /* act */
 
@@ -252,7 +253,7 @@ namespace Disqus.NET.Tests
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response, Is.Not.Null);
+            Assert.That(response.Response, Is.Not.Empty);
         }
         
         [Test]

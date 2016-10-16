@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Disqus.NET.Models;
 
 namespace Disqus.NET.Requests
@@ -57,9 +58,9 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusPostCreateRequest Date(string timestamp)
+        public DisqusPostCreateRequest Date(DateTime timestamp)
         {
-            Parameters.Add(new KeyValuePair<string, string>("date", timestamp));
+            Parameters.Add(new KeyValuePair<string, string>("date", timestamp.ToString("s")));
 
             return this;
         }

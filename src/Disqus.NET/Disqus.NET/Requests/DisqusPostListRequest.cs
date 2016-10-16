@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Disqus.NET.Extensions;
 using Disqus.NET.Models;
@@ -81,9 +82,9 @@ namespace Disqus.NET.Requests
         /// </summary>
         /// <param name="timestamp"></param>
         /// <returns></returns>
-        public DisqusPostListRequest Start(string timestamp)
+        public DisqusPostListRequest Start(DateTime timestamp)
         {
-            Parameters.Add(new KeyValuePair<string, string>("start", timestamp));
+            Parameters.Add(new KeyValuePair<string, string>("start", timestamp.ToString("s")));
 
             return this;
         }
@@ -93,16 +94,16 @@ namespace Disqus.NET.Requests
         /// </summary>
         /// <param name="timestamp"></param>
         /// <returns></returns>
-        public DisqusPostListRequest End(string timestamp)
+        public DisqusPostListRequest End(DateTime timestamp)
         {
-            Parameters.Add(new KeyValuePair<string, string>("end", timestamp));
+            Parameters.Add(new KeyValuePair<string, string>("end", timestamp.ToString("s")));
 
             return this;
         }
 
-        public DisqusPostListRequest Since(string timestamp)
+        public DisqusPostListRequest Since(DateTime timestamp)
         {
-            Parameters.Add(new KeyValuePair<string, string>("since", timestamp));
+            Parameters.Add(new KeyValuePair<string, string>("since", timestamp.ToString("s")));
 
             return this;
         }

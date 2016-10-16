@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Disqus.NET.Extensions;
 using Disqus.NET.Models;
@@ -17,9 +18,9 @@ namespace Disqus.NET.Requests
             return new DisqusBlacklistListRequest(forum);
         }
 
-        public DisqusBlacklistListRequest Since(string timestamp)
+        public DisqusBlacklistListRequest Since(DateTime timestamp)
         {
-            Parameters.Add(new KeyValuePair<string, string>("since", timestamp));
+            Parameters.Add(new KeyValuePair<string, string>("since", timestamp.ToString("s")));
 
             return this;
         }

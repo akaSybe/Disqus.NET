@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Disqus.NET.Requests
 {
@@ -29,9 +30,9 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusThreadCreateRequest Date(string timestamp)
+        public DisqusThreadCreateRequest Date(DateTime timestamp)
         {
-            Parameters.Add(new KeyValuePair<string, string>("date", timestamp));
+            Parameters.Add(new KeyValuePair<string, string>("date", timestamp.ToString("s")));
 
             return this;
         }
