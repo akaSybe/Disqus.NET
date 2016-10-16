@@ -16,6 +16,9 @@ var request = DisqusForumDetailsRequest
 var response = await disqus.Forums.DetailsAsync(request).ConfigureAwait(false);
 
 ```
+## Installation 
+
+Nuget coming soon...
 
 ## Resources
 
