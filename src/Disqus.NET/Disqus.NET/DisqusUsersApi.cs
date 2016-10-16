@@ -16,7 +16,7 @@ namespace Disqus.NET
             
         }
 
-        public async Task<DisqusResponse<string>> CheckUsernameAsync(string accessToken, string username)
+        public async Task<DisqusResponse<string>> CheckUsernameAsync(DisqusAccessToken accessToken, string username)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -49,7 +49,7 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task FollowAsync(string accessToken, int userId)
+        public async Task FollowAsync(DisqusAccessToken accessToken, int userId)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("target", userId.ToString())
@@ -60,7 +60,7 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task FollowAsync(string accessToken, string username)
+        public async Task FollowAsync(DisqusAccessToken accessToken, string username)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("target:username", username)
@@ -125,221 +125,103 @@ namespace Disqus.NET
             return await ListActivityAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(DisqusAccessToken accessToken, DisqusUserListActiveForumsRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("user", userId)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower());
+                .WithOptionalParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListActiveForums, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(DisqusUserListActiveForumsRequest request)
         {
-            Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("user:username", userName)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower());
-
-            return await RequestProcessor
-                .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListActiveForums, parameters)
-                .ConfigureAwait(false);
+            return await ListActiveForumsAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowersAttach attach = DisqusUserListFollowersAttach.None, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(DisqusAccessToken accessToken, DisqusUserListFollowersRequest request)
         {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("user", userId)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            if (attach != DisqusUserListFollowersAttach.None)
-            {
-                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithOptionalParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListFollowers, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowersAttach attach = DisqusUserListFollowersAttach.None, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(DisqusUserListFollowersRequest request)
         {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("user:username", userName)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            if (attach != DisqusUserListFollowersAttach.None)
-            {
-                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
-
-            return await RequestProcessor
-                .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListFollowers, parameters)
-                .ConfigureAwait(false);
+            return await ListFollowersAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(DisqusAccessToken accessToken, DisqusUserListFollowingRequest request)
         {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("user", userId)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            if (attach != DisqusUserListFollowingAttach.None)
-            {
-                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithOptionalParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListFollowing, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(DisqusUserListFollowingRequest request)
         {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("user:username", userName)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            if (attach != DisqusUserListFollowingAttach.None)
-            {
-                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
-
-            return await RequestProcessor
-                .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListFollowing, parameters)
-                .ConfigureAwait(false);
+            return await ListFollowingAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusForumAttach attach = DisqusForumAttach.None, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(DisqusAccessToken accessToken, DisqusUserListFollowingForumsRequest request)
         {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("user", userId)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            if (attach != DisqusForumAttach.None)
-            {
-                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
+            Collection<KeyValuePair<string, string>> parameters = Parameters
+                .WithOptionalParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListFollowingForums, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusForumAttach attach = DisqusForumAttach.None, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(DisqusUserListFollowingForumsRequest request)
         {
-            DisqusParameters parameterBuilder = Parameters
-                .WithParameter("user:username", userName)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            if (attach != DisqusForumAttach.None)
-            {
-                parameterBuilder.WithMultipleParameters("attach", attach.ToStringArray());
-            }
-
-            Collection<KeyValuePair<string, string>> parameters = parameterBuilder;
-
-            return await RequestProcessor
-                .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListFollowingForums, parameters)
-                .ConfigureAwait(false);
+            return await ListFollowingForumsAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(DisqusAccessToken accessToken, DisqusUserListForumsRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("user", userId)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
+                .WithOptionalParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListForums, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, string accessToken = null)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(DisqusUserListForumsRequest request)
         {
-            Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("user:username", userName)
-                .WithOptionalParameter("since_id", sinceId)
-                .WithOptionalParameter("cursor", cursor)
-                .WithOptionalParameter("limit", limit)
-                .WithOptionalParameter("order", order.ToString().ToLower())
-                .WithOptionalParameter("access_token", accessToken);
-
-            return await RequestProcessor
-                .ExecuteAsync<CursoredDisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListForums, parameters)
-                .ConfigureAwait(false);
+            return await ListForumsAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(int userId, int limit = 25, string accessToken = null)
+        public async Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(DisqusAccessToken accessToken, DisqusUserListMostActiveForumsRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("user", userId)
-                .WithParameter("limit", limit)
-                .WithOptionalParameter("access_token", accessToken);
+                .WithOptionalParameter("access_token", accessToken)
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<DisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListMostActiveForums, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(string userName, int limit = 25, string accessToken = null)
+        public async Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(DisqusUserListMostActiveForumsRequest request)
         {
-            Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("user:username", userName)
-                .WithParameter("limit", limit)
-                .WithOptionalParameter("access_token", accessToken);
-
-            return await RequestProcessor
-                .ExecuteAsync<DisqusResponse<IEnumerable<DisqusForum>>>(DisqusRequestMethod.Get, DisqusEndpoints.Users.ListMostActiveForums, parameters)
-                .ConfigureAwait(false);
+            return await ListMostActiveForumsAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusUsersListPostsRequest request)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusUserListPostsRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithOptionalParameter("access_token", accessToken)
@@ -350,12 +232,12 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusUsersListPostsRequest request)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusUserListPostsRequest request)
         {
             return await ListPostsAsync(null, request).ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, string userName)
+        public async Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(DisqusAccessToken accessToken, string userName)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -366,7 +248,7 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, int userId)
+        public async Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(DisqusAccessToken accessToken, int userId)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -377,7 +259,7 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<string>> ReportAsync(string accessToken, int userId, DisqusUserReportReason reason)
+        public async Task<DisqusResponse<string>> ReportAsync(DisqusAccessToken accessToken, int userId, DisqusUserReportReason reason)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -389,11 +271,11 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<string>> ReportAsync(string accessToken, string userName, DisqusUserReportReason reason)
+        public async Task<DisqusResponse<string>> ReportAsync(DisqusAccessToken accessToken, string username, DisqusUserReportReason reason)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
-                .WithParameter("user:username", userName)
+                .WithParameter("user:username", username)
                 .WithParameter("reason", (int)reason);
 
             return await RequestProcessor
@@ -401,36 +283,33 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task UnfollowAsync(string accessToken, int userId)
+        public async Task UnfollowAsync(DisqusAccessToken accessToken, int userId)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("target", userId.ToString())
-                .WithOptionalParameter("access_token", accessToken);
+                .WithParameter("access_token", accessToken);
 
             await RequestProcessor
                 .ExecuteAsync<DisqusResponse<List<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Unfollow, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task UnfollowAsync(string accessToken, string username)
+        public async Task UnfollowAsync(DisqusAccessToken accessToken, string username)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("target:username", username)
-                .WithOptionalParameter("access_token", accessToken);
+                .WithParameter("access_token", accessToken);
 
             await RequestProcessor
                 .ExecuteAsync<DisqusResponse<List<string>>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.Unfollow, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(string accessToken, string name = null, string about = null, string url = null, string location = null)
+        public async Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(DisqusAccessToken accessToken, DisqusUserUpdateProfileRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
-                .WithOptionalParameter("name", name)
-                .WithOptionalParameter("about", about)
-                .WithOptionalParameter("url", url)
-                .WithOptionalParameter("location", location);
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<DisqusResponse<DisqusUser>>(DisqusRequestMethod.Post, DisqusEndpoints.Users.UpdateProfile, parameters)

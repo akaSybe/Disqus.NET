@@ -118,7 +118,16 @@
     <Compile Include="Models\DisqusForumAttach.cs" />
     <Compile Include="Models\DisqusForumCategory.cs" />
     <Compile Include="Models\DisqusForumModerator.cs" />
-    <Compile Include="Models\DisqusForumRelated.cs" />
+    <Compile Include="Requests\DisqusOrganizationSetRoleRequest.cs" />
+    <Compile Include="Requests\DisqusOrganizationRemoveAdminRequest.cs" />
+    <Compile Include="Requests\DisqusOrganizationAddAdminRequest.cs" />
+    <Compile Include="Requests\DisqusForumRemoveModeratorRequest.cs" />
+    <Compile Include="Requests\DisqusForumListUsersRequest.cs" />
+    <Compile Include="Requests\DisqusForumListMostLikedUsersRequest.cs" />
+    <Compile Include="Requests\DisqusForumListMostActiveUsersRequest.cs" />
+    <Compile Include="Requests\DisqusForumListFollowersRequest.cs" />
+    <Compile Include="Requests\DisqusForumListCategoriesRequest.cs" />
+    <Compile Include="Requests\DisqusForumRelated.cs" />
     <Compile Include="Models\DisqusForumSettings.cs" />
     <Compile Include="Models\DisqusId.cs" />
     <Compile Include="Models\DisqusImage.cs" />
@@ -147,7 +156,16 @@
     <Compile Include="Requests\DisqusCategoryListRequest.cs" />
     <Compile Include="Requests\DisqusExportExportForumRequest.cs" />
     <Compile Include="Requests\DisqusExportFormat.cs" />
+    <Compile Include="Requests\DisqusForumAddModeratorRequest.cs" />
+    <Compile Include="Requests\DisqusForumDetailsRequest.cs" />
     <Compile Include="Requests\DisqusTrendListThreadsRequest.cs" />
+    <Compile Include="Requests\DisqusUserListFollowersRequest.cs" />
+    <Compile Include="Requests\DisqusUserListFollowingRequest.cs" />
+    <Compile Include="Requests\DisqusUserListForumsRequest.cs" />
+    <Compile Include="Requests\DisqusUserListActiveForumsRequest.cs" />
+    <Compile Include="Requests\DisqusUserListMostActiveForumsRequest.cs" />
+    <Compile Include="Requests\DisqusUserListFollowingForumsRequest.cs" />
+    <Compile Include="Requests\DisqusUserUpdateProfileRequest.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryRelated.cs" />
     <Compile Include="Requests\DisqusWhitelistEntryTypes.cs" />
     <Compile Include="Requests\DisqusWhitelistListRequest.cs" />
@@ -168,7 +186,6 @@
     <Compile Include="Requests\DisqusCategoryListPostsRequest.cs" />
     <Compile Include="Requests\DisqusForumUpdateSort.cs" />
     <Compile Include="Requests\DisqusForumValidateRequest.cs" />
-    <Compile Include="Requests\DisqusPostUpdateRequest.cs" />
     <Compile Include="Requests\DisqusPostGetContextRequest.cs" />
     <Compile Include="Requests\DisqusPostCreateRequest.cs" />
     <Compile Include="Requests\DisqusPostDetailsRequest.cs" />
@@ -196,7 +213,7 @@
     <Compile Include="Requests\DisqusThreadLookupType.cs" />
     <Compile Include="Requests\DisqusUserActivityInclude.cs" />
     <Compile Include="Requests\DisqusUserListActivityRequest.cs" />
-    <Compile Include="Requests\DisqusUsersListPostsRequest.cs" />
+    <Compile Include="Requests\DisqusUserListPostsRequest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

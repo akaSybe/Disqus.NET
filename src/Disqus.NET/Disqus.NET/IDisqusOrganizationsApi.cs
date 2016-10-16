@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
+using Disqus.NET.Requests;
 
 namespace Disqus.NET
 {
@@ -9,67 +10,37 @@ namespace Disqus.NET
         /// <summary>
         /// List all the admins in an organization.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/organizations/listAdmins/</remarks>
         /// <param name="accessToken"></param>
         /// <param name="organization"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusAdmin>>> ListAdminsAsync(string accessToken, int organization);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusAdmin>>> ListAdminsAsync(DisqusAccessToken accessToken, int organization);
 
         /// <summary>
         /// Adds an admin to an organization. Updates permissions of existing admins too.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/organizations/addAdmin/</remarks>
         /// <param name="accessToken"></param>
-        /// <param name="organization">Looks up an organization by ID</param>
-        /// <param name="userId"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusAdmin>> AddAdminAsync(string accessToken, int organization, int userId);
-
-        /// <summary>
-        /// Adds an admin to an organization. Updates permissions of existing admins too.
-        /// </summary>
-        /// <param name="accessToken"></param>
-        /// <param name="organization">Looks up an organization by ID</param>
-        /// <param name="userName"></param>
-        /// <returns></returns>
-        Task<DisqusResponse<DisqusAdmin>> AddAdminAsync(string accessToken, int organization, string userName);
+        Task<DisqusResponse<DisqusAdmin>> AddAdminAsync(DisqusAccessToken accessToken, DisqusOrganizationAddAdminRequest request);
 
         /// <summary>
         /// Removes an admin from an organization.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/organizations/removeAdmin/</remarks>
         /// <param name="accessToken"></param>
-        /// <param name="organization"></param>
-        /// <param name="userId"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusAdmin>> RemoveAdminAsync(string accessToken, int organization, int userId);
-
-        /// <summary>
-        /// Removes an admin from an organization.
-        /// </summary>
-        /// <param name="accessToken"></param>
-        /// <param name="organization"></param>
-        /// <param name="userName"></param>
-        /// <returns></returns>
-        Task<DisqusResponse<DisqusAdmin>> RemoveAdminAsync(string accessToken, int organization, string userName);
+        Task<DisqusResponse<DisqusAdmin>> RemoveAdminAsync(DisqusAccessToken accessToken, DisqusOrganizationRemoveAdminRequest request);
 
         /// <summary>
         /// Add a user with an arbitrary role to an organization.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/organizations/setRole/</remarks>
         /// <param name="accessToken"></param>
-        /// <param name="organization"></param>
-        /// <param name="userId"></param>
-        /// <param name="isModerator"></param>
-        /// <param name="isAdmin"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusAdmin>> SetRoleAsync(string accessToken, int organization, int userId, bool? isModerator = null, bool? isAdmin = null);
-
-        /// <summary>
-        /// Add a user with an arbitrary role to an organization.
-        /// </summary>
-        /// <param name="accessToken"></param>
-        /// <param name="organization"></param>
-        /// <param name="userName"></param>
-        /// <param name="isModerator"></param>
-        /// <param name="isAdmin"></param>
-        /// <returns></returns>
-        Task<DisqusResponse<DisqusAdmin>> SetRoleAsync(string accessToken, int organization, string userName, bool? isModerator = null, bool? isAdmin = null);
+        Task<DisqusResponse<DisqusAdmin>> SetRoleAsync(DisqusAccessToken accessToken, DisqusOrganizationSetRoleRequest request);
     }
 }

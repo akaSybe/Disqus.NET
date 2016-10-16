@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Disqus.NET.Requests;
 using NUnit.Framework;
 
 namespace Disqus.NET.Tests
@@ -9,10 +10,12 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task ListAsync_Test()
         {
+            /* arrange */
+
             /* act */
 
             var response = await Disqus.Organizations
-                .ListAdminsAsync(TestData.AccessToken, TestData.OrganizationId)
+                .ListAdminsAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.OrganizationId)
                 .ConfigureAwait(false);
 
             /* assert */
@@ -24,10 +27,15 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task AddAdminAsync_ByUserId_Test()
         {
+            /* arrange */
+
+            var request = DisqusOrganizationAddAdminRequest
+                .New(TestData.OrganizationId, TestData.UserId);
+
             /* act */
 
             var response = await Disqus.Organizations
-                .AddAdminAsync(TestData.AccessToken, TestData.OrganizationId, TestData.UserId)
+                .AddAdminAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
                 .ConfigureAwait(false);
 
             /* assert */
@@ -39,10 +47,15 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task AddAdminAsync_ByUserName_Test()
         {
+            /* arrange */
+
+            var request = DisqusOrganizationAddAdminRequest
+                .New(TestData.OrganizationId, TestData.UserName);
+
             /* act */
 
             var response = await Disqus.Organizations
-                .AddAdminAsync(TestData.AccessToken, TestData.OrganizationId, TestData.UserName)
+                .AddAdminAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
                 .ConfigureAwait(false);
 
             /* assert */
@@ -54,10 +67,15 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task RemoveAdminAsync_ByUserId_Test()
         {
+            /* arrange */
+
+            var request = DisqusOrganizationRemoveAdminRequest
+                .New(TestData.OrganizationId, TestData.UserId);
+
             /* act */
 
             var response = await Disqus.Organizations
-                .RemoveAdminAsync(TestData.AccessToken, TestData.OrganizationId, TestData.UserId)
+                .RemoveAdminAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
                 .ConfigureAwait(false);
 
             /* assert */
@@ -69,10 +87,15 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task RemoveAdminAsync_ByUserName_Test()
         {
+            /* arrange */
+
+            var request = DisqusOrganizationRemoveAdminRequest
+                .New(TestData.OrganizationId, TestData.UserName);
+
             /* act */
 
             var response = await Disqus.Organizations
-                .RemoveAdminAsync(TestData.AccessToken, TestData.OrganizationId, TestData.UserName)
+                .RemoveAdminAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
                 .ConfigureAwait(false);
 
             /* assert */
@@ -86,13 +109,15 @@ namespace Disqus.NET.Tests
         {
             /* arrange */
 
-            bool isModerator = true;
-            bool isAdmin = false;
+            var request = DisqusOrganizationSetRoleRequest
+                .New(TestData.OrganizationId, TestData.UserId)
+                .IsAdmin()
+                .IsModerator();
 
             /* act */
 
             var response = await Disqus.Organizations
-                .SetRoleAsync(TestData.AccessToken, TestData.OrganizationId, TestData.UserId, isModerator, isAdmin)
+                .SetRoleAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
                 .ConfigureAwait(false);
 
             /* assert */
@@ -106,13 +131,15 @@ namespace Disqus.NET.Tests
         {
             /* arrange */
 
-            bool isModerator = true;
-            bool isAdmin = false;
+            var request = DisqusOrganizationSetRoleRequest
+                .New(TestData.OrganizationId, TestData.UserName)
+                .IsAdmin()
+                .IsModerator();
 
             /* act */
 
             var response = await Disqus.Organizations
-                .SetRoleAsync(TestData.AccessToken, TestData.OrganizationId, TestData.UserName, isModerator, isAdmin)
+                .SetRoleAsync(DisqusAccessToken.Create(TestData.AccessToken), request)
                 .ConfigureAwait(false);
 
             /* assert */

@@ -9,7 +9,7 @@ namespace Disqus.NET.Tests
         [Test]
         public async Task CreateAsync_Test()
         {
-            var response = await Disqus.TrustedDomains.CreateAsync(TestData.AccessToken, TestData.Forum, TestData.TrustedDomain).ConfigureAwait(false);
+            var response = await Disqus.TrustedDomains.CreateAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.Forum, TestData.TrustedDomain).ConfigureAwait(false);
 
             Assert.That(response, Is.Not.Null);
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
@@ -21,11 +21,11 @@ namespace Disqus.NET.Tests
         {
             /* arrange */
 
-            var result = await Disqus.TrustedDomains.CreateAsync(TestData.AccessToken, TestData.Forum, TestData.TrustedDomain).ConfigureAwait(false);
+            var result = await Disqus.TrustedDomains.CreateAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.Forum, TestData.TrustedDomain).ConfigureAwait(false);
 
             /* act */
 
-            var response = await Disqus.TrustedDomains.KillAsync(TestData.AccessToken, result.Response.Id).ConfigureAwait(false);
+            var response = await Disqus.TrustedDomains.KillAsync(DisqusAccessToken.Create(TestData.AccessToken), result.Response.Id).ConfigureAwait(false);
 
             /* assert */
 
@@ -38,11 +38,11 @@ namespace Disqus.NET.Tests
         {
             /* arrange */
 
-            await Disqus.TrustedDomains.CreateAsync(TestData.AccessToken, TestData.Forum, TestData.TrustedDomain).ConfigureAwait(false);
+            await Disqus.TrustedDomains.CreateAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.Forum, TestData.TrustedDomain).ConfigureAwait(false);
 
             /* act */ 
 
-            var response = await Disqus.TrustedDomains.ListAsync(TestData.AccessToken, TestData.Forum).ConfigureAwait(false);
+            var response = await Disqus.TrustedDomains.ListAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.Forum).ConfigureAwait(false);
 
             /* assert */
             Assert.That(response, Is.Not.Null);

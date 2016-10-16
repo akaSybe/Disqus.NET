@@ -14,10 +14,11 @@ namespace Disqus.NET
         /// <summary>
         /// Updates username for the user, fails if username does not meet requirements, or is taken by another user.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/checkUsername/</remarks>
         /// <param name="accessToken"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        Task<DisqusResponse<string>> CheckUsernameAsync(string accessToken, string username);
+        Task<DisqusResponse<string>> CheckUsernameAsync(DisqusAccessToken accessToken, string username);
 
         /// <summary>
         /// Lookup user by ID
@@ -44,7 +45,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
-        Task FollowAsync(string accessToken, int userId);
+        Task FollowAsync(DisqusAccessToken accessToken, int userId);
 
         /// <summary>
         /// Follow a user by username
@@ -53,7 +54,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
-        Task FollowAsync(string accessToken, string username);
+        Task FollowAsync(DisqusAccessToken accessToken, string username);
 
         /// <summary>
         /// Returns a list of interesting users. 
@@ -96,144 +97,104 @@ namespace Disqus.NET
         /// <summary>
         /// Returns a list of forums a user has been active on.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listActiveForums/</remarks>
+        /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(DisqusAccessToken accessToken, DisqusUserListActiveForumsRequest request);
 
         /// <summary>
         /// Returns a list of forums a user has been active on.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listActiveForums/</remarks>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListActiveForumsAsync(DisqusUserListActiveForumsRequest request);
 
         /// <summary>
         /// Returns a list of users a user is being followed by.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="attach"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listFollowers/</remarks>
         /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowersAttach attach = DisqusUserListFollowersAttach.None, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(DisqusAccessToken accessToken, DisqusUserListFollowersRequest request);
 
         /// <summary>
         /// Returns a list of users a user is being followed by.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="attach"></param>
-        /// <param name="accessToken"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listFollowers/</remarks>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowersAttach attach = DisqusUserListFollowersAttach.None, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowersAsync(DisqusUserListFollowersRequest request);
 
         /// <summary>
         /// Returns a list of users a user is following.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="attach"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listFollowing/</remarks>
         /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(DisqusAccessToken accessToken, DisqusUserListFollowingRequest request);
 
         /// <summary>
         /// Returns a list of users a user is following.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="attach"></param>
-        /// <param name="accessToken"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listFollowing/</remarks>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusUserListFollowingAttach attach = DisqusUserListFollowingAttach.None, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusUserBase>>> ListFollowingAsync(DisqusUserListFollowingRequest request);
 
         /// <summary>
         /// Returns a list of forums a user is following.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="attach"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listFollowingForums/</remarks>
         /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusForumAttach attach = DisqusForumAttach.None, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(DisqusAccessToken accessToken, DisqusUserListFollowingForumsRequest request);
 
         /// <summary>
         /// Returns a list of forums a user is following.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="attach"></param>
-        /// <param name="accessToken"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listFollowingForums/</remarks>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, DisqusForumAttach attach = DisqusForumAttach.None, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListFollowingForumsAsync(DisqusUserListFollowingForumsRequest request);
 
         /// <summary>
         /// Returns a list of forums a user owns.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listForums/</remarks>
         /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(int userId, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(DisqusAccessToken accessToken, DisqusUserListForumsRequest request);
 
         /// <summary>
         /// Returns a list of forums a user owns.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="sinceId"></param>
-        /// <param name="cursor"></param>
-        /// <param name="limit"></param>
-        /// <param name="order"></param>
-        /// <param name="accessToken"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listForums/</remarks>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(string userName, string sinceId = null, string cursor = null, int limit = 25, DisqusOrder order = DisqusOrder.Asc, string accessToken = null);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusForum>>> ListForumsAsync(DisqusUserListForumsRequest request);
 
         /// <summary>
         /// Returns a list of forums a user has been active on recenty, sorted by the user's activity.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="limit"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listMostActiveForums/</remarks>
         /// <param name="accessToken"></param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(int userId, int limit = 25, string accessToken = null);
+        Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(DisqusAccessToken accessToken, DisqusUserListMostActiveForumsRequest request);
 
         /// <summary>
         /// Returns a list of forums a user has been active on recenty, sorted by the user's activity.
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="limit"></param>
-        /// <param name="accessToken"></param>
+        /// <remarks>https://disqus.com/api/docs/users/listMostActiveForums/</remarks>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(string userName, int limit = 25, string accessToken = null);
+        Task<DisqusResponse<IEnumerable<DisqusForum>>> ListMostActiveForumsAsync(DisqusUserListMostActiveForumsRequest request);
 
         /// <summary>
         /// Returns a list of posts made by the user.
@@ -242,7 +203,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusUsersListPostsRequest request);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusAccessToken accessToken, DisqusUserListPostsRequest request);
 
         /// <summary>
         /// Returns a list of posts made by the user.
@@ -250,43 +211,47 @@ namespace Disqus.NET
         /// <remarks>https://disqus.com/api/docs/users/listPosts/</remarks>
         /// <param name="request"></param>
         /// <returns></returns>
-        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusUsersListPostsRequest request);
+        Task<CursoredDisqusResponse<IEnumerable<DisqusPost>>> ListPostsAsync(DisqusUserListPostsRequest request);
 
         /// <summary>
         /// Remove a user from set of followers.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/removeFollower/</remarks>
         /// <param name="accessToken"></param>
         /// <param name="userName"></param>
         /// <returns></returns>
-        Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, string userName);
+        Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(DisqusAccessToken accessToken, string userName);
 
         /// <summary>
         /// Remove a user from set of followers.
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/removeFollower/</remarks>
         /// <param name="accessToken"></param>
         /// <param name="userId"></param>
         /// <returns></returns>
-        Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(string accessToken, int userId);
+        Task<DisqusResponse<IEnumerable<string>>> RemoveFollowerAsync(DisqusAccessToken accessToken, int userId);
 
         // TODO: required information about return type
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/report/</remarks>
         /// <param name="accessToken"></param>
         /// <param name="userId"></param>
         /// <param name="reason"></param>
         /// <returns></returns>
-        Task<DisqusResponse<string>> ReportAsync(string accessToken, int userId, DisqusUserReportReason reason);
+        Task<DisqusResponse<string>> ReportAsync(DisqusAccessToken accessToken, int userId, DisqusUserReportReason reason);
 
         // TODO: required information about return type
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/report/</remarks>
         /// <param name="accessToken"></param>
         /// <param name="userName"></param>
         /// <param name="reason"></param>
         /// <returns></returns>
-        Task<DisqusResponse<string>> ReportAsync(string accessToken, string userName, DisqusUserReportReason reason);
+        Task<DisqusResponse<string>> ReportAsync(DisqusAccessToken accessToken, string userName, DisqusUserReportReason reason);
 
         /// <summary>
         /// Unfollow a user by ID
@@ -295,7 +260,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/unfollow/</remarks>
         /// <returns></returns>
-        Task UnfollowAsync(string accessToken, int userId);
+        Task UnfollowAsync(DisqusAccessToken accessToken, int userId);
 
         /// <summary>
         /// Unfollow a user by username
@@ -304,17 +269,15 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <remarks>https://disqus.com/api/docs/users/follow/</remarks>
         /// <returns></returns>
-        Task UnfollowAsync(string accessToken, string username);
+        Task UnfollowAsync(DisqusAccessToken accessToken, string username);
 
         /// <summary>
         /// Update user profile
         /// </summary>
+        /// <remarks>https://disqus.com/api/docs/users/updateProfile/</remarks>
         /// <param name="accessToken"></param>
-        /// <param name="name">Minimum length of 2;  Maximum length of 30</param>
-        /// <param name="about"></param>
-        /// <param name="url">URL (defined by RFC 3986); Maximum length of 200</param>
-        /// <param name="location">Maximum length of 255</param>
+        /// <param name="request"></param>
         /// <returns></returns>
-        Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(string accessToken, string name = null, string about = null, string url = null, string location = null);
+        Task<DisqusResponse<DisqusUser>> UpdateProfileAsync(DisqusAccessToken accessToken, DisqusUserUpdateProfileRequest request);
     }
 }

@@ -5,39 +5,39 @@ using Disqus.NET.Models;
 
 namespace Disqus.NET.Requests
 {
-    public class DisqusUsersListPostsRequest: DisqusRequestBase
+    public class DisqusUserListPostsRequest: DisqusRequestBase
     {
-        private DisqusUsersListPostsRequest()
+        private DisqusUserListPostsRequest()
         {    
         }
 
-        public static DisqusUsersListPostsRequest New()
+        public static DisqusUserListPostsRequest New()
         {
-            return new DisqusUsersListPostsRequest();
+            return new DisqusUserListPostsRequest();
         }
 
-        public DisqusUsersListPostsRequest User(string username)
+        public DisqusUserListPostsRequest User(string username)
         {
             Parameters.Add(new KeyValuePair<string, string>("user:username", username));
 
             return this;
         }
 
-        public DisqusUsersListPostsRequest User(int userId)
+        public DisqusUserListPostsRequest User(int userId)
         {
             Parameters.Add(new KeyValuePair<string, string>("user", userId.ToString()));
 
             return this;
         }
 
-        public DisqusUsersListPostsRequest Since(string timestamp)
+        public DisqusUserListPostsRequest Since(string timestamp)
         {
             Parameters.Add(new KeyValuePair<string, string>("since", timestamp));
 
             return this;
         }
 
-        public DisqusUsersListPostsRequest Related(DisqusPostRelated related)
+        public DisqusUserListPostsRequest Related(DisqusPostRelated related)
         {
             if (related == DisqusPostRelated.None) return this;
 
@@ -47,21 +47,21 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusUsersListPostsRequest Cursor(string cursor)
+        public DisqusUserListPostsRequest Cursor(string cursor)
         {
             Parameters.Add(new KeyValuePair<string, string>("cursor", cursor));
 
             return this;
         }
 
-        public DisqusUsersListPostsRequest Limit(int limit)
+        public DisqusUserListPostsRequest Limit(int limit)
         {
-            Parameters.Add(new KeyValuePair<string, string>("cursor", limit.ToString()));
+            Parameters.Add(new KeyValuePair<string, string>("limit", limit.ToString()));
 
             return this;
         }
 
-        public DisqusUsersListPostsRequest Include(DisqusPostInclude include)
+        public DisqusUserListPostsRequest Include(DisqusPostInclude include)
         {
             if (include == DisqusPostInclude.None) return this;
 
@@ -71,7 +71,7 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusUsersListPostsRequest Order(DisqusOrder order)
+        public DisqusUserListPostsRequest Order(DisqusOrder order)
         {
             Parameters.Add(new KeyValuePair<string, string>("order", order.ToString().ToLower()));
 

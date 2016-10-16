@@ -17,7 +17,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <param name="forum"></param>
         /// <returns></returns>
-        public async Task<DisqusResponse<IEnumerable<DisqusTrustedDomain>>> ListAsync(string accessToken, string forum)
+        public async Task<DisqusResponse<IEnumerable<DisqusTrustedDomain>>> ListAsync(DisqusAccessToken accessToken, string forum)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -33,8 +33,9 @@ namespace Disqus.NET
         /// </summary>
         /// <param name="accessToken"></param>
         /// <param name="forum"></param>
+        /// <param name="domainName"></param>
         /// <returns></returns>
-        public async Task<DisqusResponse<DisqusTrustedDomain>> CreateAsync(string accessToken, string forum, string domainName)
+        public async Task<DisqusResponse<DisqusTrustedDomain>> CreateAsync(DisqusAccessToken accessToken, string forum, string domainName)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -52,7 +53,7 @@ namespace Disqus.NET
         /// <param name="accessToken"></param>
         /// <param name="domain"></param>
         /// <returns></returns>
-        public async Task<DisqusResponse<string>> KillAsync(string accessToken, int domain)
+        public async Task<DisqusResponse<string>> KillAsync(DisqusAccessToken accessToken, int domain)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)

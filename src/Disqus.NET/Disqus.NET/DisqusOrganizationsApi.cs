@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using Disqus.NET.Models;
+using Disqus.NET.Requests;
 
 namespace Disqus.NET
 {
@@ -11,7 +12,7 @@ namespace Disqus.NET
         {
         }
 
-        public async Task<CursoredDisqusResponse<IEnumerable<DisqusAdmin>>> ListAdminsAsync(string accessToken, int organization)
+        public async Task<CursoredDisqusResponse<IEnumerable<DisqusAdmin>>> ListAdminsAsync(DisqusAccessToken accessToken, int organization)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
@@ -22,76 +23,33 @@ namespace Disqus.NET
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusAdmin>> AddAdminAsync(string accessToken, int organization, int userId)
+        public async Task<DisqusResponse<DisqusAdmin>> AddAdminAsync(DisqusAccessToken accessToken, DisqusOrganizationAddAdminRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
-                .WithParameter("organization", organization)
-                .WithParameter("user", userId);
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<DisqusResponse<DisqusAdmin>>(DisqusRequestMethod.Post, DisqusEndpoints.Organizations.AddAdmin, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusAdmin>> AddAdminAsync(string accessToken, int organization, string userName)
+        public async Task<DisqusResponse<DisqusAdmin>> RemoveAdminAsync(DisqusAccessToken accessToken, DisqusOrganizationRemoveAdminRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
-                .WithParameter("organization", organization)
-                .WithParameter("user:username", userName);
-
-            return await RequestProcessor
-                .ExecuteAsync<DisqusResponse<DisqusAdmin>>(DisqusRequestMethod.Post, DisqusEndpoints.Organizations.AddAdmin, parameters)
-                .ConfigureAwait(false);
-        }
-
-        public async Task<DisqusResponse<DisqusAdmin>> RemoveAdminAsync(string accessToken, int organization, int userId)
-        {
-            Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("access_token", accessToken)
-                .WithParameter("organization", organization)
-                .WithParameter("user", userId);
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<DisqusResponse<DisqusAdmin>>(DisqusRequestMethod.Post, DisqusEndpoints.Organizations.RemoveAdmin, parameters)
                 .ConfigureAwait(false);
         }
 
-        public async Task<DisqusResponse<DisqusAdmin>> RemoveAdminAsync(string accessToken, int organization, string userName)
+        public async Task<DisqusResponse<DisqusAdmin>> SetRoleAsync(DisqusAccessToken accessToken, DisqusOrganizationSetRoleRequest request)
         {
             Collection<KeyValuePair<string, string>> parameters = Parameters
                 .WithParameter("access_token", accessToken)
-                .WithParameter("organization", organization)
-                .WithParameter("user:username", userName);
-
-            return await RequestProcessor
-                .ExecuteAsync<DisqusResponse<DisqusAdmin>>(DisqusRequestMethod.Post, DisqusEndpoints.Organizations.RemoveAdmin, parameters)
-                .ConfigureAwait(false);
-        }
-
-        public async Task<DisqusResponse<DisqusAdmin>> SetRoleAsync(string accessToken, int organization, int userId, bool? isModerator = null, bool? isAdmin = null)
-        {
-            Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("access_token", accessToken)
-                .WithParameter("organization", organization)
-                .WithParameter("user", userId)
-                .WithOptionalParameter("isModerator", isModerator.HasValue ? isModerator.Value ? 1 : 0 : (int?)null)
-                .WithOptionalParameter("isAdmin", isAdmin.HasValue ? isAdmin.Value? 1 : 0 : (int?)null);
-
-            return await RequestProcessor
-                .ExecuteAsync<DisqusResponse<DisqusAdmin>>(DisqusRequestMethod.Post, DisqusEndpoints.Organizations.SetRole, parameters)
-                .ConfigureAwait(false);
-        }
-
-        public async Task<DisqusResponse<DisqusAdmin>> SetRoleAsync(string accessToken, int organization, string userName, bool? isModerator = null, bool? isAdmin = null)
-        {
-            Collection<KeyValuePair<string, string>> parameters = Parameters
-                .WithParameter("access_token", accessToken)
-                .WithParameter("organization", organization)
-                .WithParameter("user:username", userName)
-                .WithOptionalParameter("isModerator", isModerator.HasValue ? isModerator.Value ? 1 : 0 : (int?)null)
-                .WithOptionalParameter("isAdmin", isAdmin.HasValue ? isAdmin.Value ? 1 : 0 : (int?)null);
+                .WithMultipleParameters(request.Parameters);
 
             return await RequestProcessor
                 .ExecuteAsync<DisqusResponse<DisqusAdmin>>(DisqusRequestMethod.Post, DisqusEndpoints.Organizations.SetRole, parameters)
