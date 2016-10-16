@@ -29,7 +29,7 @@ string cursor = null;
 do
 {
     var request = DisqusForumListThreadsRequest
-        .New("the-flow2014")
+        .New("disqus")
         .Limit(100)
         .Cursor(cursor)
         .Include(DisqusThreadInclude.Open)
