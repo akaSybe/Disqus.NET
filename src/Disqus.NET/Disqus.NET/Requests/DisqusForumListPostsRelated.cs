@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Disqus.NET.Models
+namespace Disqus.NET.Requests
 {
     [Flags]
     public enum DisqusForumListPostsRelated

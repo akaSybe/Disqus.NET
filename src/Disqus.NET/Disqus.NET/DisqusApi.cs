@@ -41,5 +41,9 @@ namespace Disqus.NET
             Users = new DisqusUsersApi(requestProcessor, authMethod, key);
             Whitelists = new DisqusWhitelistsApi(requestProcessor, authMethod, key);
         }
+
+        public DisqusApi(DisqusAuthMethod authMethod, string key): this(new DisqusRequestProcessor(new DisqusRestClient()), authMethod, key)
+        {
+        }
     }
 }
