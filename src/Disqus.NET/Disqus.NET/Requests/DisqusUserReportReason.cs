@@ -1,4 +1,4 @@
-﻿namespace Disqus.NET.Models
+﻿namespace Disqus.NET.Requests
 {
     public enum DisqusUserReportReason
     {
