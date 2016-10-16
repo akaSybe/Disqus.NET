@@ -1,6 +1,23 @@
 # Disqus.NET
 
-Work in progress
+## Example usage
+
+* Get forum details
+
+```C#
+
+var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, DisqusKey);
+
+var request = DisqusForumDetailsRequest
+    .New("disqus")
+    .Related(DisqusForumRelated.Author)
+    .Attach(DisqusForumAttach.ForumForumCategory | DisqusForumAttach.Counters);
+
+var response = await disqus.Forums.DetailsAsync(request).ConfigureAwait(false);
+
+```
+
+## Resources
 
 - [Announcements](https://disqus.com/api/docs/announcements/)
 
