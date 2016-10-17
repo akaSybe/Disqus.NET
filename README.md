@@ -61,7 +61,7 @@ do
 ```
 ## Installation 
 
-Nuget coming soon...
+[Disqus.NET](https://www.nuget.org/packages/Disqus.NET/1.0.0) is available as Nuget-package
 
 ## Resources
 
