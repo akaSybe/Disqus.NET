@@ -59,6 +59,11 @@ do
 } while (cursor != null);
 	    
 ```
+
+* More examples 
+
+See [integration tests](https://github.com/akaSybe/Disqus.NET/tree/master/src/Disqus.NET.Tests) for examples of usage
+
 ## Installation 
 
 [Disqus.NET](https://www.nuget.org/packages/Disqus.NET/1.0.0) is available as Nuget-package
