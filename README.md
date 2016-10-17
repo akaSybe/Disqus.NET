@@ -21,7 +21,7 @@ var response = await disqus.Forums.DetailsAsync(request).ConfigureAwait(false);
 
 ```C#
 
-var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, DisqusKey);
+var disqus = new DisqusApi(DisqusAuthMethod.SecretKey, <your_application_secret_key>);
 
 List<string> threads = new List<string>();
 string cursor = null;
