@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.Serialization;
 
 namespace Disqus.NET
 {
@@ -7,7 +6,9 @@ namespace Disqus.NET
     /// 
     /// </summary>
     /// <remarks>https://msdn.microsoft.com/en-us/library/ms229064(v=vs.100).aspx</remarks>
+#if NET45
     [Serializable]
+#endif
     public class DisqusApiException: Exception
     {
         public DisqusApiResponseCode Code { get; private set; }
@@ -18,10 +19,6 @@ namespace Disqus.NET
         {
             Code = code;
             Error = error;
-        }
-
-        protected DisqusApiException(SerializationInfo info, StreamingContext context): base(info, context)
-        {
         }
     }
 }
