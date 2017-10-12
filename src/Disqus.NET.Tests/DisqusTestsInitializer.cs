@@ -117,15 +117,13 @@ namespace Disqus.NET.Tests
             }
         }
 
-        protected static DisqusTestVariables TestData { get; private set; }
+        protected static DisqusTestVariables TestData => new DisqusTestVariables();
 
         protected IDisqusApi Disqus;
 
         [OneTimeSetUp]
         public void OneTimeSetUp()
         {
-            TestData = new DisqusTestVariables();;
-
             if (string.IsNullOrWhiteSpace(TestData.SecretKey))
             {
                 throw new ArgumentNullException(TestData.SecretKey, "You should explicit specify Disqus Secret Key!");
