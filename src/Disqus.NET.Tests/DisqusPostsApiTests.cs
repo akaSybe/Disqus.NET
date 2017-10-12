@@ -50,7 +50,7 @@ namespace Disqus.NET.Tests
             Assert.That(response.Response.Thread, Is.Not.Null);
         }
 
-        [Ignore("Need to investigation")]
+        [Ignore("Need to investigate")]
         [Test]
         public async Task GetContextAsync_Test()
         {
@@ -135,7 +135,7 @@ namespace Disqus.NET.Tests
             Assert.That(response.Response, Is.Not.Empty);
         }
 
-        [Ignore("Need to investigate why test fails")]
+        [Ignore("Need to investigate")]
         [Test]
         public async Task RestoreAsync_Test()
         {

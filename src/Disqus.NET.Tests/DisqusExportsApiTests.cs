@@ -8,6 +8,7 @@ namespace Disqus.NET.Tests
     [TestFixture]
     public class DisqusExportsApiTests : DisqusTestsInitializer
     {
+        [Ignore("Run explicit if required")]
         [Test]
         public async Task ExportForumAsync_Test()
         {

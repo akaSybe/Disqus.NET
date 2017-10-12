@@ -371,7 +371,7 @@ namespace Disqus.NET.Tests
             Assert.That(response.Response.Id, Is.Null);
         }
 
-        [Ignore("Need to investigate why test fails")]
+        [Ignore("Need to investigate")]
         [Test]
         public async Task RemoveModeratorAsync_ByUserId_Test()
         {
@@ -401,7 +401,7 @@ namespace Disqus.NET.Tests
             Assert.That(response.Response.Id, Is.Null);
         }
 
-        [Ignore("Need to investigate why test fails")]
+        [Ignore("Need to investigate")]
         [Test]
         public async Task RemoveModeratorAsync_ByUserName_Test()
         {

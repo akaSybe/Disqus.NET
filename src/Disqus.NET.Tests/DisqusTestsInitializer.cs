@@ -21,84 +21,98 @@ namespace Disqus.NET.Tests
             public string ThreadId { get; }
             public string TrustedDomain { get; }
 
+            private const string DisqusNetSecretKeyVariable = "disqus.net:secret-key";
+            private const string DisqusNetAccessTokenVariable = "disqus.net:access-token";
+            private const string DisqusNetForumNameVariable = "disqus.net:forum";
+            private const string DisqusNetUserIdVariable = "disqus.net:user-id";
+            private const string DisqusNetUserNameVariable = "disqus.net:user-name";
+            private const string DisqusNetModeratorUserIdVariable = "disqus.net:moderator-id";
+            private const string DisqusNetModeratorUserNameVariable = "disqus.net:moderator-name";
+            private const string DisqusNetThreadIdVariable = "disqus.net:thread-id";
+            private const string DisqusNetPostIdVariable = "disqus.net:post-id";
+            private const string DisqusNetCategoryIdVariable = "disqus.net:category-id";
+            private const string DisqusNetApplicationIdVariable = "disqus.net:application-id";
+            private const string DisqusNetTrustedDomainVariable = "disqus.net:trusted-domain";
+            private const string DisqusNetOrganizationIdVariable = "disqus.net:organization-id";
+
             public DisqusTestVariables()
             {
-                string secretKey = Environment.GetEnvironmentVariable("disqus.net:secret-key");
+                string secretKey = Environment.GetEnvironmentVariable(DisqusNetSecretKeyVariable);
                 if (string.IsNullOrEmpty(secretKey))
                 {
-                    throw new Exception("Environment variable \"disqus.net:secret-key\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetSecretKeyVariable}\" not found");
                 }
 
-                string accessToken = Environment.GetEnvironmentVariable("disqus.net:access-token");
+                string accessToken = Environment.GetEnvironmentVariable(DisqusNetAccessTokenVariable);
                 if (string.IsNullOrEmpty(accessToken))
                 {
-                    throw new Exception("Environment variable \"disqus.net:access-token\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetAccessTokenVariable}\" not found");
                 }
 
                 int applicationId;
-                if (!int.TryParse(Environment.GetEnvironmentVariable("disqus.net:application-id"), out applicationId))
+                if (!int.TryParse(Environment.GetEnvironmentVariable(DisqusNetApplicationIdVariable), out applicationId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:application-id\" not found or not number");
+                    throw new Exception($"Environment variable \"{DisqusNetApplicationIdVariable}\" not found or not number");
                 }
 
                 int categoryId;
-                if (!int.TryParse(Environment.GetEnvironmentVariable("disqus.net:category-id"), out categoryId))
+                if (!int.TryParse(Environment.GetEnvironmentVariable(DisqusNetCategoryIdVariable), out categoryId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:category-id\" not found or not number");
+                    throw new Exception($"Environment variable \"{DisqusNetCategoryIdVariable}\" not found or not number");
                 }
 
-                string forumName = Environment.GetEnvironmentVariable("disqus.net:forum");
+                string forumName = Environment.GetEnvironmentVariable(DisqusNetForumNameVariable);
                 if (string.IsNullOrEmpty(forumName))
                 {
-                    throw new Exception("Environment variable \"disqus.net:forum\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetForumNameVariable}\" not found");
                 }
 
                 int userId;
-                if (!int.TryParse(Environment.GetEnvironmentVariable("disqus.net:user-id"), out userId))
+                if (!int.TryParse(Environment.GetEnvironmentVariable(DisqusNetUserIdVariable), out userId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:user-id\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetUserIdVariable}\" not found");
                 }
 
-                string userName = Environment.GetEnvironmentVariable("disqus.net:user-name");
+                string userName = Environment.GetEnvironmentVariable(DisqusNetUserNameVariable);
                 if (string.IsNullOrEmpty(userName))
                 {
-                    throw new Exception("Environment variable \"disqus.net:user-name\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetUserNameVariable}\" not found");
                 }
 
                 int moderatorUserId;
-                if (!int.TryParse(Environment.GetEnvironmentVariable("disqus.net:moderator-id"), out moderatorUserId))
+                if (!int.TryParse(Environment.GetEnvironmentVariable(DisqusNetModeratorUserIdVariable), out moderatorUserId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:moderator-id\" not found or not number");
+                    throw new Exception($"Environment variable \"{DisqusNetModeratorUserIdVariable}\" not found or not number");
                 }
 
-                string moderatorUserName = Environment.GetEnvironmentVariable("disqus.net:moderator-name");
+                string moderatorUserName = Environment.GetEnvironmentVariable(DisqusNetModeratorUserNameVariable);
                 if (string.IsNullOrEmpty(secretKey))
                 {
-                    throw new Exception("Environment variable \"disqus.net:moderator-name\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetModeratorUserNameVariable}\" not found");
                 }
 
                 int organizationId;
-                if (!int.TryParse(Environment.GetEnvironmentVariable("disqus.net:organization-id"), out organizationId))
+                if (!int.TryParse(Environment.GetEnvironmentVariable(DisqusNetOrganizationIdVariable), out organizationId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:organization-id\" not found or not number");
+                    throw new Exception($"Environment variable \"{DisqusNetOrganizationIdVariable}\" not found or not number");
                 }
 
                 long postId;
-                if (!long.TryParse(Environment.GetEnvironmentVariable("disqus.net:post-id"), out postId))
+                if (!long.TryParse(Environment.GetEnvironmentVariable(DisqusNetPostIdVariable), out postId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:post-id\" not found or not number");
+                    throw new Exception($"Environment variable \"{DisqusNetPostIdVariable}\" not found or not number");
                 }
 
-                string threadId = Environment.GetEnvironmentVariable("disqus.net:thread-id");
+                string threadId = Environment.GetEnvironmentVariable(DisqusNetThreadIdVariable);
                 if (string.IsNullOrEmpty(threadId))
                 {
-                    throw new Exception("Environment variable \"disqus.net:thread-id\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetThreadIdVariable}\" not found");
                 }
 
-                string trustedDomain = Environment.GetEnvironmentVariable("disqus.net:trusted-domain");
+                string trustedDomain = Environment.GetEnvironmentVariable(DisqusNetTrustedDomainVariable);
                 if (string.IsNullOrEmpty(trustedDomain))
                 {
-                    throw new Exception("Environment variable \"disqus.net:trusted-domain\" not found");
+                    throw new Exception($"Environment variable \"{DisqusNetTrustedDomainVariable}\" not found");
                 }
 
                 SecretKey = secretKey;
