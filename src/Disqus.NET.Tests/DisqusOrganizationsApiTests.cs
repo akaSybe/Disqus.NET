@@ -70,7 +70,7 @@ namespace Disqus.NET.Tests
             /* arrange */
 
             var request = DisqusOrganizationRemoveAdminRequest
-                .New(TestData.OrganizationId, TestData.UserId);
+                .New(TestData.OrganizationId, TestData.ModeratorUserId);
 
             /* act */
 
@@ -81,7 +81,7 @@ namespace Disqus.NET.Tests
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response.Id, Is.EqualTo(TestData.UserId));
+            Assert.That(response.Response.Id, Is.EqualTo(TestData.ModeratorUserId));
         }
 
         [Test]
@@ -90,7 +90,7 @@ namespace Disqus.NET.Tests
             /* arrange */
 
             var request = DisqusOrganizationRemoveAdminRequest
-                .New(TestData.OrganizationId, TestData.UserName);
+                .New(TestData.OrganizationId, TestData.ModeratorUserName);
 
             /* act */
 
@@ -101,7 +101,7 @@ namespace Disqus.NET.Tests
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response.Username, Is.EqualTo(TestData.UserName));
+            Assert.That(response.Response.Username, Is.EqualTo(TestData.ModeratorUserName));
         }
 
         [Test]

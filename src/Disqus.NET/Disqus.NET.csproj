@@ -75,6 +75,8 @@
     <Compile Include="Internal\DisqusInterestingCollection.cs" />
     <Compile Include="Internal\DisqusInterestingItem.cs" />
     <Compile Include="Models\DisqusApplicationUsage.cs" />
+    <Compile Include="Models\DisqusChannel.cs" />
+    <Compile Include="Models\DisqusChannelOptions.cs" />
     <Compile Include="Models\DisqusImport.cs" />
     <Compile Include="Models\DisqusTrend.cs" />
     <Compile Include="Models\DisqusWhitelistEntry.cs" />
