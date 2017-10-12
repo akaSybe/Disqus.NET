@@ -1,5 +1,7 @@
 # Disqus.NET
 
+[![Build status](https://ci.appveyor.com/api/projects/status/p3s5gwieesjlwmhx/branch/dev?svg=true)](https://ci.appveyor.com/project/akaSybe/disqus-net/branch/dev)
+
 ## Example usage
 
 * Get forum details
