@@ -19,6 +19,7 @@ namespace Disqus.NET.Tests
             public int OrganizationId { get; }
             public long PostId { get; }
             public string ThreadId { get; }
+            public string NotClosedThreadId { get; set; }
             public string TrustedDomain { get; }
 
             private const string DisqusNetSecretKeyVariable = "disqus.net:secret-key";
@@ -29,6 +30,7 @@ namespace Disqus.NET.Tests
             private const string DisqusNetModeratorUserIdVariable = "disqus.net:moderator-id";
             private const string DisqusNetModeratorUserNameVariable = "disqus.net:moderator-name";
             private const string DisqusNetThreadIdVariable = "disqus.net:thread-id";
+            private const string DisqusNetNotClosedThreadIdVariable = "disqus.net:not-closed-thread-id";
             private const string DisqusNetPostIdVariable = "disqus.net:post-id";
             private const string DisqusNetCategoryIdVariable = "disqus.net:category-id";
             private const string DisqusNetApplicationIdVariable = "disqus.net:application-id";
@@ -109,6 +111,12 @@ namespace Disqus.NET.Tests
                     throw new Exception($"Environment variable \"{DisqusNetThreadIdVariable}\" not found");
                 }
 
+                string notClosedThreadId = Environment.GetEnvironmentVariable(DisqusNetNotClosedThreadIdVariable);
+                if (string.IsNullOrEmpty(notClosedThreadId))
+                {
+                    throw new Exception($"Environment variable \"{DisqusNetNotClosedThreadIdVariable}\" not found");
+                }
+
                 string trustedDomain = Environment.GetEnvironmentVariable(DisqusNetTrustedDomainVariable);
                 if (string.IsNullOrEmpty(trustedDomain))
                 {
@@ -127,6 +135,7 @@ namespace Disqus.NET.Tests
                 OrganizationId = organizationId;
                 PostId = postId;
                 ThreadId = threadId;
+                NotClosedThreadId = notClosedThreadId;
                 TrustedDomain = trustedDomain;
             }
         }
