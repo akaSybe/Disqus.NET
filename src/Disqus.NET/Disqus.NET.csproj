@@ -8,8 +8,8 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Disqus.Net</AssemblyName>
 
-    <PackageId>Todoist.Net</PackageId>
-    <PackageTags>todoist</PackageTags>
+    <PackageId>Disqus.Net</PackageId>
+    <PackageTags>disqus,sdk,api,async</PackageTags>
     <PackageReleaseNotes>https://github.com/akaSybe/Disqus.NET/releases</PackageReleaseNotes>
     <PackageProjectUrl>https://github.com/akaSybe/Disqus.NET</PackageProjectUrl>
     <PackageLicenseUrl>https://raw.githubusercontent.com/akaSybe/Disqus.NET/dev/LICENSE.md</PackageLicenseUrl>
