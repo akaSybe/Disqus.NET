@@ -16,6 +16,8 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/akaSybe/Disqus.NET</RepositoryUrl>
 
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
     
   </PropertyGroup>

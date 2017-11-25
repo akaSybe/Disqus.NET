@@ -248,3 +248,7 @@ ModelManifest.xml
 
 *.ncrunchproject
 *.ncrunchsolution
+
+# Cake
+tools/*
+!tools/packages.config
