@@ -36,15 +36,15 @@ namespace Disqus.NET.Requests
             return this;
         }
 
-        public DisqusUserListFollowingForumsRequest Attach(DisqusPostInclude include)
-        {
-            if (include == DisqusPostInclude.None) return this;
+        //public DisqusUserListFollowingForumsRequest Attach(DisqusPostInclude include)
+        //{
+        //    if (include == DisqusPostInclude.None) return this;
 
-            var parameters = include.ToStringArray().Select(i => new KeyValuePair<string, string>("include", i));
-            Parameters.AddRange(parameters);
+        //    var parameters = include.ToStringArray().Select(i => new KeyValuePair<string, string>("include", i));
+        //    Parameters.AddRange(parameters);
 
-            return this;
-        }
+        //    return this;
+        //}
 
         public DisqusUserListFollowingForumsRequest Cursor(string cursor)
         {

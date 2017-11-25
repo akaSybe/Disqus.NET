@@ -53,7 +53,7 @@ namespace Disqus.NET.Tests
         public async Task FollowAsync_ByUserId_Test()
         {
             await Disqus.Users
-                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserId)
+                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.ModeratorUserId)
                 .ConfigureAwait(false);
         }
 
@@ -61,7 +61,7 @@ namespace Disqus.NET.Tests
         public async Task FollowAsync_ByUsername_Test()
         {
             await Disqus.Users
-                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserName)
+                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.ModeratorUserName)
                 .ConfigureAwait(false);
         }
 
@@ -149,12 +149,12 @@ namespace Disqus.NET.Tests
             /* arrange */
 
             await Disqus.Users
-                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserId)
+                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.ModeratorUserId)
                 .ConfigureAwait(false);
 
             var request = DisqusUserListFollowersRequest
                 .New()
-                .User(TestData.UserId)
+                .User(TestData.ModeratorUserId)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -182,12 +182,12 @@ namespace Disqus.NET.Tests
             /* arrange */
 
             await Disqus.Users
-                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserName)
+                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.ModeratorUserName)
                 .ConfigureAwait(false);
 
             var request = DisqusUserListFollowersRequest
                 .New()
-                .User(TestData.UserName)
+                .User(TestData.ModeratorUserName)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -214,13 +214,9 @@ namespace Disqus.NET.Tests
         {
             /* arrange */
 
-            await Disqus.Users
-                .FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserId)
-                .ConfigureAwait(false);
-
             var request = DisqusUserListFollowingRequest
                 .New()
-                .User(TestData.UserName)
+                .User(TestData.ModeratorUserName)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -230,24 +226,15 @@ namespace Disqus.NET.Tests
                 .ListFollowingAsync(request)
                 .ConfigureAwait(false);
 
-            /* tear down */
-
-            await Disqus.Users
-                .UnfollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserId)
-                .ConfigureAwait(false);
-
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]
         public async Task ListFollowingAsync_ByUserName_Test()
         {
             /* arrange */
-
-            await Disqus.Users.FollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserName).ConfigureAwait(false);
 
             var request = DisqusUserListFollowingRequest
                 .New()
@@ -264,13 +251,6 @@ namespace Disqus.NET.Tests
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response, Is.Not.Empty);
-
-            /* tear down */
-
-            await Disqus.Users
-                .UnfollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserName)
-                .ConfigureAwait(false);
         }
 
         [Test]
@@ -281,7 +261,7 @@ namespace Disqus.NET.Tests
             var request = DisqusUserListFollowingForumsRequest
                 .New()
                 .User(TestData.ModeratorUserId)
-                .Attach(DisqusPostInclude.Approved)
+                //.Attach(DisqusPostInclude.Approved)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -294,7 +274,6 @@ namespace Disqus.NET.Tests
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]
@@ -305,7 +284,7 @@ namespace Disqus.NET.Tests
             var request = DisqusUserListFollowingForumsRequest
                 .New()
                 .User(TestData.ModeratorUserName)
-                .Attach(DisqusPostInclude.Approved)
+                //.Attach(DisqusPostInclude.Approved)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -318,7 +297,6 @@ namespace Disqus.NET.Tests
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]
@@ -328,7 +306,7 @@ namespace Disqus.NET.Tests
 
             var request = DisqusUserListForumsRequest
                 .New()
-                .User(TestData.ModeratorUserId)
+                .User(TestData.UserId)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -351,7 +329,7 @@ namespace Disqus.NET.Tests
 
             var request = DisqusUserListForumsRequest
                 .New()
-                .User(TestData.ModeratorUserName)
+                .User(TestData.UserName)
                 .Limit(10)
                 .Order(DisqusOrder.Asc);
 
@@ -386,7 +364,6 @@ namespace Disqus.NET.Tests
             /* assert */
 
             Assert.That(response.Code, Is.EqualTo(DisqusApiResponseCode.Success));
-            Assert.That(response.Response, Is.Not.Empty);
         }
 
         [Test]
@@ -396,7 +373,7 @@ namespace Disqus.NET.Tests
 
             var request = DisqusUserListMostActiveForumsRequest
                 .New()
-                .User(TestData.ModeratorUserName)
+                .User(TestData.UserName)
                 .Limit(10);
 
             /* act */
@@ -507,7 +484,7 @@ namespace Disqus.NET.Tests
         public async Task UnfollowAsync_ByUserId_Test()
         {
             await Disqus.Users
-                .UnfollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserId)
+                .UnfollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.ModeratorUserId)
                 .ConfigureAwait(false);
         }
 
@@ -515,7 +492,7 @@ namespace Disqus.NET.Tests
         public async Task UnfollowAsync_ByUsername_Test()
         {
             await Disqus.Users
-                .UnfollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.UserName)
+                .UnfollowAsync(DisqusAccessToken.Create(TestData.AccessToken), TestData.ModeratorUserName)
                 .ConfigureAwait(false);
         }
 

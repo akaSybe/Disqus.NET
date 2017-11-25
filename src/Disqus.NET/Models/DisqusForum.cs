@@ -57,7 +57,7 @@ namespace Disqus.NET.Models
         public int? DaysThreadAlive { get; set; }
 
         [JsonProperty("channel")]
-        public string Channel { get; set; }
+        public DisqusChannel Channel { get; set; }
 
         [JsonProperty("installCompleted")]
         public bool? InstallCompleted { get; set; }
