@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Linq;
-using Disqus.NET.Models;
+
 using Disqus.NET.Requests;
 
 namespace Disqus.NET.Extensions

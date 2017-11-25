@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Disqus.NET.Extensions;
+
 using Disqus.NET.Internal;
 using Disqus.NET.Models;
 using Disqus.NET.Requests;

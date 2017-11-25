@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using Disqus.NET.Extensions;
-using Disqus.NET.Models;
 
 namespace Disqus.NET.Requests
 {
