@@ -5,8 +5,16 @@
     /// </summary>
     public class DisqusEndpoints
     {
-        private const string ApiUrl = "https://disqus.com/api/3.0/";
+       
+        private static string ApiUrl = "https://disqus.com/api/3.0/";
+
         private const string OutputType = ".json";
+
+
+        public static void SetProxy(string proxyDomain)
+        {
+            ApiUrl = proxyDomain;
+        }
 
         private static string GetUrl(string category, string resource)
         {
