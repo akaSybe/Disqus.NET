@@ -3,14 +3,16 @@
     /// <summary>
     /// Endpoints for Disqus API 3.0
     /// </summary>
-    public class DisqusEndpoints
+    public static class DisqusEndpoints
     {
-       
         private static string ApiUrl = "https://disqus.com/api/3.0/";
 
         private const string OutputType = ".json";
 
-
+        /// <summary>
+        /// Allow replace Disqus API url with custom proxy url
+        /// </summary>
+        /// <param name="proxyDomain"></param>
         public static void SetProxy(string proxyDomain)
         {
             ApiUrl = proxyDomain;
