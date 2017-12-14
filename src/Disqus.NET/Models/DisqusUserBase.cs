@@ -24,6 +24,12 @@ namespace Disqus.NET.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// The display avatar of the user
+        /// </summary>
+        [JsonProperty("avatar")]
+        public DisqusAvatar Avatar { get; set; }
+
+        /// <summary>
         /// Email address of the user
         /// <remarks>Will only return email if request is authenticated and authenticated user has 'email' permission</remarks>
         /// </summary>
